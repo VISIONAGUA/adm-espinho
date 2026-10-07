@@ -52,6 +52,7 @@ svg{display:block}
 .sb-item.active::before{content:'';position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:3px;height:20px;background:var(--cyan);border-radius:2px;box-shadow:0 0 12px var(--cyan)}
 .sb-item .badge{margin-left:auto;background:#ff4d6d25;color:var(--red);font-size:10px;font-weight:800;padding:3px 8px;border-radius:8px}
 .sb-item .badge.new{background:#00e67625;color:var(--green)}
+.sb-item .badge.warn{background:#ffc85725;color:var(--yellow)}
 .sb-user{background:#ffffff06;border:1px solid var(--border-0);border-radius:12px;padding:11px;margin-top:12px;display:flex;align-items:center;gap:10px}
 .sb-user-av{width:34px;height:34px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#00DDFF,#00E676);display:flex;align-items:center;justify-content:center;font-weight:800;color:#02080f;font-size:13px}
 .sb-user-info{flex:1;min-width:0}
@@ -76,6 +77,7 @@ svg{display:block}
 .btn-g{background:#00e67618;color:var(--green);border-color:#00e67630}
 .btn-y{background:#ffc85718;color:var(--yellow);border-color:#ffc85730}
 .btn-pink{background:linear-gradient(135deg,#FF6B9D,#FFC857);color:#02080f;box-shadow:0 6px 20px #ff6b9d40}
+.btn-sm{padding:7px 12px;font-size:12px}
 
 .grid-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:28px}
 .stat{background:linear-gradient(160deg,#0a2035,#061828);border:1px solid var(--border-0);border-radius:16px;padding:22px;position:relative;overflow:hidden;transition:.2s}
@@ -95,6 +97,7 @@ svg{display:block}
 .stat .val.red{color:var(--red)}
 .stat .val.yellow{color:var(--yellow)}
 .stat .val.purple{color:var(--purple)}
+.stat .val.pink{color:var(--pink)}
 .stat .sub{font-size:12px;color:var(--txt-3);margin-top:6px}
 
 .card{background:linear-gradient(160deg,#08203a,#051428);border:1px solid var(--border-0);border-radius:16px;padding:22px;margin-bottom:20px;position:relative;overflow:hidden}
@@ -136,6 +139,14 @@ tbody tr:last-child td{border-bottom:none}
 .search input:focus{border-color:var(--cyan);background:#00ddff08}
 .select-mini{padding:11px 14px;border-radius:10px;font-size:13px;background:#ffffff06;border:1.5px solid var(--border-0);color:var(--txt-1);cursor:pointer}
 .select-mini option{background:#04101c;color:#fff}
+
+/* FILTROS RÁPIDOS */
+.filtros-rapidos{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{padding:8px 14px;border-radius:20px;background:#ffffff06;border:1px solid var(--border-0);color:var(--txt-2);font-size:12px;font-weight:700;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:6px}
+.chip:hover{background:#ffffff0c}
+.chip.active{background:var(--cyan);color:#02080f;border-color:var(--cyan)}
+.chip .cnt{background:#00000030;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:800}
+.chip.active .cnt{background:#00000040}
 
 .promo-card{border-radius:16px;padding:20px;margin-bottom:12px;border:1px solid var(--border-0);background:linear-gradient(160deg,#08203a,#061828);transition:.2s;position:relative;overflow:hidden}
 .promo-card.ativa{border-color:#00e67640;background:linear-gradient(160deg,#0a2f2a,#061828)}
@@ -185,7 +196,7 @@ tbody tr:last-child td{border-bottom:none}
 
 .drawer-bg{position:fixed;inset:0;background:#02080fcc;backdrop-filter:blur(6px);z-index:800;opacity:0;visibility:hidden;transition:.3s}
 .drawer-bg.active{opacity:1;visibility:visible}
-.drawer{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:480px;background:linear-gradient(180deg,#0a2035,#04101c);border-left:1px solid var(--border-1);z-index:801;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.9,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px #00000080}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:520px;background:linear-gradient(180deg,#0a2035,#04101c);border-left:1px solid var(--border-1);z-index:801;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.9,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px #00000080}
 .drawer.active{transform:none}
 .drawer-head{padding:22px 24px;border-bottom:1px solid var(--border-0);display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#0d2941,#0a2035)}
 .drawer-head h3{font-size:16px;font-weight:800}
@@ -256,6 +267,7 @@ tbody tr:last-child td{border-bottom:none}
 .tx-ico{width:38px;height:38px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .tx-ico.in{background:#00e67615;color:var(--green)}
 .tx-ico.out{background:#ff4d6d15;color:var(--red)}
+.tx-ico.warn{background:#ffc85715;color:var(--yellow)}
 .tx-ico svg{width:17px;height:17px}
 .tx-body{flex:1;min-width:0}
 .tx-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -289,6 +301,19 @@ tbody tr:last-child td{border-bottom:none}
 .sb-overlay{position:fixed;inset:0;background:#02080f99;z-index:190;display:none}
 .sb-overlay.active{display:block}
 
+/* GRÁFICO */
+.chart-wrap{position:relative;height:220px;margin-top:10px}
+.chart-bar{position:absolute;bottom:0;width:calc(100% / var(--n) - 8px);background:linear-gradient(180deg,#00DDFF,#00a8c4);border-radius:6px 6px 0 0;transition:.4s;min-height:4px;display:flex;align-items:flex-end;justify-content:center;font-size:10px;font-weight:800;color:#02080f;padding-bottom:4px}
+.chart-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--txt-3);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+/* ALERTA INLINE */
+.alert{border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.5;display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.alert svg{width:18px;height:18px;flex-shrink:0;margin-top:1px}
+.alert.warn{background:#ffc85712;border:1px solid #ffc85740;color:var(--yellow)}
+.alert.error{background:#ff4d6d12;border:1px solid #ff4d6d40;color:var(--red)}
+.alert.info{background:#00ddff12;border:1px solid #00ddff40;color:var(--cyan)}
+.alert.success{background:#00e67612;border:1px solid #00e67640;color:var(--green)}
+
 @media(max-width:900px){
   #app.active{grid-template-columns:1fr}
   .sidebar{position:fixed;left:0;top:0;bottom:0;width:260px;transform:translateX(-100%);transition:transform .3s}
@@ -301,6 +326,7 @@ tbody tr:last-child td{border-bottom:none}
 </head>
 <body>
 
+<!-- ================= LOGIN ================= -->
 <div id="login">
   <div class="login-card">
     <div class="login-inner">
@@ -324,8 +350,10 @@ tbody tr:last-child td{border-bottom:none}
     <nav class="sb-nav">
       <div class="sb-sec">Principal</div>
       <div class="sb-item active" data-page="dashboard" onclick="nav('dashboard')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Visão geral</div>
+      <div class="sb-item" data-page="analytics" onclick="nav('analytics')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>Análise de vendas</div>
       <div class="sb-item" data-page="clientes" onclick="nav('clientes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.8 3.1-6.5 7-6.5s7 2.7 7 6.5"/></svg>Clientes</div>
       <div class="sb-item" data-page="transacoes" onclick="nav('transacoes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12H3M16 7l5 5-5 5M8 17l-5-5 5-5"/></svg>Transações</div>
+      <div class="sb-item" data-page="recargas_ext" onclick="nav('recargas_ext')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Recargas externas<span class="badge warn" id="badge-recext" style="display:none">0</span></div>
 
       <div class="sb-sec">Marketing</div>
       <div class="sb-item" data-page="banners" onclick="nav('banners')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg>Banners</div>
@@ -337,6 +365,7 @@ tbody tr:last-child td{border-bottom:none}
       <div class="sb-item" data-page="ciclos" onclick="nav('ciclos')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg>Garrafões</div>
       <div class="sb-item" data-page="status" onclick="nav('status')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 20h.01"/></svg>Máquina</div>
       <div class="sb-item" data-page="logs" onclick="nav('logs')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Logs</div>
+      <div class="sb-item" data-page="config" onclick="nav('config')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Config. sistema</div>
     </nav>
     <div class="sb-user">
       <div class="sb-user-av" id="sb-av">A</div>
@@ -357,8 +386,14 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
+    <!-- ================= DASHBOARD ================= -->
     <div class="page" id="page-dashboard">
+      <div id="alerta-sistema"></div>
       <div class="grid-stats" id="stats-grid"></div>
+      <div class="card fade-in">
+        <div class="card-head"><div><h2>Vendas nos últimos 7 dias</h2><div class="sub">Garrafões liberados por dia</div></div></div>
+        <div id="dash-chart"></div>
+      </div>
       <div class="card fade-in">
         <div class="card-head"><div><h2>Últimas transações</h2><div class="sub">Movimentações mais recentes</div></div><button class="btn btn-s" onclick="nav('transacoes')">Ver todas</button></div>
         <div id="dash-transacoes"></div>
@@ -369,34 +404,105 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
+    <!-- ================= ANALYTICS ================= -->
+    <div class="page" id="page-analytics" style="display:none">
+      <div class="grid-stats" id="stats-analytics"></div>
+      <div class="card">
+        <div class="card-head">
+          <div><h2>Vendas por dia</h2><div class="sub" id="an-sub-periodo">Últimos 30 dias</div></div>
+          <select class="select-mini" id="an-periodo" onchange="renderAnalytics()">
+            <option value="7">7 dias</option>
+            <option value="15">15 dias</option>
+            <option value="30" selected>30 dias</option>
+          </select>
+        </div>
+        <div id="an-chart"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>Ranking de clientes</h2><div class="sub">Quem mais consome</div></div></div>
+        <div id="an-ranking"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>Ranking de horários</h2><div class="sub">Horários de pico</div></div></div>
+        <div id="an-horarios"></div>
+      </div>
+    </div>
+
+    <!-- ================= CLIENTES ================= -->
     <div class="page" id="page-clientes" style="display:none">
+      <div class="filtros-rapidos">
+        <button class="chip active" data-cfil="" onclick="filtrarClientes('', this)">Todos</button>
+        <button class="chip" data-cfil="vip" onclick="filtrarClientes('vip', this)">⭐ VIP</button>
+        <button class="chip" data-cfil="ativos" onclick="filtrarClientes('ativos', this)">Ativos</button>
+        <button class="chip" data-cfil="bloqueados" onclick="filtrarClientes('bloqueados', this)">Bloqueados</button>
+        <button class="chip" data-cfil="inativos" onclick="filtrarClientes('inativos', this)">Inativos 30d</button>
+        <button class="chip" data-cfil="sem_recarga" onclick="filtrarClientes('sem_recarga', this)">Sem recarga</button>
+      </div>
       <div class="card">
         <div class="card-head">
           <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="busca-clientes" placeholder="Buscar por nome, CPF, código..." oninput="renderClientes()"></div>
-          <div style="font-size:12px;color:var(--txt-3);font-weight:600" id="contagem-clientes"></div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <div style="font-size:12px;color:var(--txt-3);font-weight:600" id="contagem-clientes"></div>
+            <button class="btn btn-s btn-sm" onclick="exportarClientes()">📥 Exportar CSV</button>
+          </div>
         </div>
         <div class="table-wrap"><table>
-          <thead><tr><th>Cliente</th><th>Código</th><th>WhatsApp</th><th>Saldo</th><th>Cashback</th><th>Status</th><th></th></tr></thead>
+          <thead><tr><th>Cliente</th><th>Código</th><th>WhatsApp</th><th>Saldo</th><th>Cashback</th><th>Últ. recarga</th><th>Status</th><th></th></tr></thead>
           <tbody id="tabela-clientes"></tbody>
         </table></div>
       </div>
     </div>
 
+    <!-- ================= TRANSAÇÕES ================= -->
     <div class="page" id="page-transacoes" style="display:none">
+      <div class="filtros-rapidos" id="filtros-tx">
+        <button class="chip active" data-txfil="" onclick="filtrarTx('', this)">Todas <span class="cnt" id="tx-cnt-todas">0</span></button>
+        <button class="chip" data-txfil="pix_avulso" onclick="filtrarTx('pix_avulso', this)">💧 PIX Avulso <span class="cnt" id="tx-cnt-pix">0</span></button>
+        <button class="chip" data-txfil="app" onclick="filtrarTx('app', this)">📱 App <span class="cnt" id="tx-cnt-app">0</span></button>
+        <button class="chip" data-txfil="admin" onclick="filtrarTx('admin', this)">👤 Admin <span class="cnt" id="tx-cnt-admin">0</span></button>
+        <button class="chip" data-txfil="estorno" onclick="filtrarTx('estorno', this)">↩️ Estornos <span class="cnt" id="tx-cnt-estorno">0</span></button>
+        <button class="chip" data-txfil="falhas" onclick="filtrarTx('falhas', this)">❌ Falhas <span class="cnt" id="tx-cnt-falhas">0</span></button>
+      </div>
       <div class="card">
         <div class="card-head">
-          <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="busca-tx" placeholder="Buscar..." oninput="renderTransacoes()"></div>
-          <select class="select-mini" id="filtro-tx-status" onchange="renderTransacoes()">
-            <option value="">Todos</option><option value="liberado">Liberado</option><option value="ignorado_app">App (ignorado)</option><option value="estorno_pendente">Estorno pendente</option><option value="estornado">Estornado</option>
-          </select>
+          <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="busca-tx" placeholder="Buscar por ID, motivo, origem..." oninput="renderTransacoes()"></div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <select class="select-mini" id="filtro-tx-status" onchange="renderTransacoes()">
+              <option value="">Todos os status</option>
+              <option value="liberado">✅ Liberado</option>
+              <option value="ignorado_app">📱 Ignorado (app)</option>
+              <option value="ignorado_data_invalida">⚠️ Data inválida</option>
+              <option value="estorno_pendente">⏳ Estorno pendente</option>
+              <option value="estornado">↩️ Estornado</option>
+              <option value="estorno_falhou">❌ Estorno falhou</option>
+              <option value="estorno_simulado">🧪 Estorno simulado</option>
+            </select>
+            <button class="btn btn-s btn-sm" onclick="exportarTransacoes()">📥 CSV</button>
+          </div>
         </div>
         <div class="table-wrap"><table>
-          <thead><tr><th>ID</th><th>Pago</th><th>Bônus</th><th>Total</th><th>Status</th><th>Data</th></tr></thead>
+          <thead><tr><th>ID</th><th>Valor</th><th>Créditos</th><th>Origem</th><th>Status</th><th>Data</th><th></th></tr></thead>
           <tbody id="tabela-tx"></tbody>
         </table></div>
       </div>
     </div>
 
+    <!-- ================= RECARGAS EXTERNAS ================= -->
+    <div class="page" id="page-recargas_ext" style="display:none">
+      <div class="alert info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg>
+        <div>Estas são as recargas que os clientes fizeram <strong>direto no banco</strong> (sem app). O ESP ignora e o backend credita o saldo. Útil pra conferência.</div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>PIX do app (ignorados pelo ESP)</h2><div class="sub">Recargas externas confirmadas</div></div></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Valor</th><th>Cliente</th><th>Data</th></tr></thead>
+          <tbody id="tabela-recext"></tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- ================= BANNERS ================= -->
     <div class="page" id="page-banners" style="display:none">
       <div class="card">
         <div class="card-head"><div><h2>Upload de banner</h2><div class="sub">Imagem 800x400 (proporção 2:1). Comprimida automaticamente.</div></div></div>
@@ -425,6 +531,7 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
+    <!-- ================= PROMOÇÕES ================= -->
     <div class="page" id="page-promocoes" style="display:none">
       <div class="card">
         <div class="card-head"><div><h2>Promoções</h2><div class="sub">Crie bônus temporários</div></div><button class="btn btn-pink" onclick="abrirNovaPromo()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Nova promoção</button></div>
@@ -432,6 +539,7 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
+    <!-- ================= CASHBACK & NÍVEIS ================= -->
     <div class="page" id="page-cashback" style="display:none">
       <div class="card">
         <div class="card-head"><div><h2>Cashback padrão</h2><div class="sub">Aplicado a todos os clientes</div></div></div>
@@ -464,20 +572,96 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
+    <!-- ================= ESTORNOS (melhorado) ================= -->
     <div class="page" id="page-estornos" style="display:none">
-      <div class="card"><div class="card-head"><div><h2>Fila de estornos</h2></div></div><div id="lista-estornos"></div></div>
+      <div class="grid-stats" id="stats-estornos"></div>
+      <div class="card">
+        <div class="card-head"><div><h2>Fila de estornos</h2><div class="sub">Aguardando o ESP processar</div></div><button class="btn btn-s btn-sm" onclick="renderEstornos()">🔄 Atualizar</button></div>
+        <div id="lista-estornos"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>Histórico de estornos</h2><div class="sub">Concluídos ou que falharam</div></div></div>
+        <div id="lista-estornos-hist"></div>
+      </div>
     </div>
+
+    <!-- ================= GARRAFÕES ================= -->
     <div class="page" id="page-ciclos" style="display:none">
-      <div class="card"><div class="card-head"><div><h2>Histórico</h2></div></div><div id="lista-ciclos"></div></div>
+      <div class="card"><div class="card-head"><div><h2>Histórico de ciclos</h2><div class="sub">Cada pedido de enchimento</div></div></div><div id="lista-ciclos"></div></div>
     </div>
+
+    <!-- ================= MÁQUINA ================= -->
     <div class="page" id="page-status" style="display:none">
       <div class="grid-stats" id="stats-maquina"></div>
-      <div class="card"><div class="card-head"><div><h2>Máquina</h2></div></div><div id="status-esp"></div></div>
-    </div>
-    <div class="page" id="page-logs" style="display:none">
       <div class="card">
-        <div class="card-head"><div><h2>Logs</h2></div><select class="select-mini" id="filtro-logs-tipo" onchange="renderLogs()"><option value="esp">ESP</option><option value="api">API</option><option value="conexao">Conexão</option></select></div>
+        <div class="card-head"><div><h2>Status do ESP32</h2><div class="sub">Informações em tempo real</div></div></div>
+        <div id="status-esp"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>Comandos remotos</h2><div class="sub">Controle manual</div></div></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-g" onclick="comandoESP('ligar_bomba',true)">💧 Ligar bomba</button>
+          <button class="btn btn-y" onclick="comandoESP('desligar_bomba',true)">⏹️ Desligar bomba</button>
+          <button class="btn btn-d" onclick="comandoESP('cancelar_fila',true)">❌ Cancelar fila</button>
+          <button class="btn btn-s" onclick="sincronizarMP()">🔄 Forçar varredura MP</button>
+        </div>
+        <div style="margin-top:18px;padding:14px;background:#ffffff04;border-radius:12px;border:1px solid var(--border-0);font-size:12px;color:var(--txt-3);line-height:1.6">
+          <strong style="color:var(--txt-2)">💡 Dica:</strong> "Forçar varredura MP" faz o ESP checar últimos 30 PIX no Mercado Pago imediatamente.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>⚙️ Configuração remota</h2><div class="sub">Aplicado em até 5s no ESP</div></div></div>
+        <div class="cb-config">
+          <div class="cb-field"><label>Sistema ligado</label><label class="toggle"><input type="checkbox" id="cfg-ligado"><span class="toggle-slider"></span><span style="font-size:13px;font-weight:600">On/Off</span></label></div>
+          <div class="cb-field"><label>Valor (R$)</label><input type="number" id="cfg-valor" step="0.50" min="0.5"></div>
+          <div class="cb-field"><label>Tempo bomba (s)</label><input type="number" id="cfg-tempo" min="5" max="300"></div>
+          <div class="cb-field"><label>Multi garrafão</label><label class="toggle"><input type="checkbox" id="cfg-multi"><span class="toggle-slider"></span><span style="font-size:13px;font-weight:600">Ativo</span></label></div>
+          <div class="cb-field"><label>Máx. garrafões</label><input type="number" id="cfg-max" min="1" max="50"></div>
+          <div class="cb-field"><label>Intervalo doses (s)</label><input type="number" id="cfg-intervalo" min="5" max="300"></div>
+          <div class="cb-field"><label>Modo simulação</label><label class="toggle"><input type="checkbox" id="cfg-simulacao"><span class="toggle-slider"></span><span style="font-size:13px;font-weight:600">Sim</span></label></div>
+        </div>
+        <button class="btn btn-p" onclick="salvarConfigSistema()">Salvar e aplicar</button>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>🛠️ Atualização OTA</h2><div class="sub">Envie um firmware .bin novo</div></div></div>
+        <div class="field"><label>URL do firmware</label><input id="ota-url" placeholder="https://.../firmware.bin"></div>
+        <button class="btn btn-pink" onclick="enviarOTA()">🚀 Enviar atualização</button>
+        <div id="ota-status" style="margin-top:14px"></div>
+      </div>
+    </div>
+
+    <!-- ================= LOGS ================= -->
+    <div class="page" id="page-logs" style="display:none">
+      <div class="filtros-rapidos">
+        <button class="chip active" data-logfil="esp" onclick="filtrarLogs('esp', this)">📝 ESP</button>
+        <button class="chip" data-logfil="api" onclick="filtrarLogs('api', this)">🌐 API</button>
+        <button class="chip" data-logfil="conexao" onclick="filtrarLogs('conexao', this)">🔌 Conexão</button>
+        <button class="chip" data-logfil="comandos" onclick="filtrarLogs('comandos', this)">⚡ Comandos</button>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2 id="log-titulo">Logs</h2><div class="sub">Últimos 100 eventos</div></div><button class="btn btn-d btn-sm" onclick="limparLogs()">🗑️ Limpar</button></div>
         <div id="lista-logs"></div>
+      </div>
+    </div>
+
+    <!-- ================= CONFIG SISTEMA ================= -->
+    <div class="page" id="page-config" style="display:none">
+      <div class="card">
+        <div class="card-head"><div><h2>Informações</h2></div></div>
+        <div class="detail-rows">
+          <div class="detail-row"><span class="k">Versão do firmware</span><span class="v" id="cfg-versao-fw">—</span></div>
+          <div class="detail-row"><span class="k">Versão do painel</span><span class="v">3.0.2</span></div>
+          <div class="detail-row"><span class="k">Firebase project</span><span class="v mono">visionespinho</span></div>
+          <div class="detail-row"><span class="k">Mercado Pago</span><span class="v"><span class="pill green">Conectado</span></span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>Manutenção</h2><div class="sub">Cuidado: afeta todos os clientes</div></div></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-d" onclick="zerarSaldoTodos()">💰 Zerar todos os saldos</button>
+          <button class="btn btn-d" onclick="limparTodosLogs()">🗑️ Limpar todos os logs</button>
+          <button class="btn btn-d" onclick="limparTodosEstornos()">❌ Limpar fila de estornos</button>
+        </div>
       </div>
     </div>
   </main>
@@ -488,6 +672,14 @@ tbody tr:last-child td{border-bottom:none}
 <div class="drawer" id="drawer">
   <div class="drawer-head"><h3 id="drawer-title">Cliente</h3><button class="drawer-close" onclick="fecharDrawer()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
   <div class="drawer-body" id="drawer-body"></div>
+</div>
+
+<!-- MODAL DETALHE TX -->
+<div class="modal-bg" id="modal-txdet">
+  <div class="modal">
+    <div class="modal-head"><h3>Detalhes da transação</h3><button class="modal-close" onclick="fecharModal('modal-txdet')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
+    <div class="modal-body" id="txdet-body"></div>
+  </div>
 </div>
 
 <!-- MODAL EDITAR CLIENTE -->
@@ -502,24 +694,10 @@ tbody tr:last-child td{border-bottom:none}
         <div class="field"><label>WhatsApp</label><input id="ed-whats" placeholder="(11) 99999-9999" inputmode="numeric" maxlength="16"></div>
       </div>
       <div class="field"><label>Endereço</label><input id="ed-endereco" placeholder="Rua, número, bairro"></div>
-      <div class="field">
-        <label>🔢 Código na máquina</label>
-        <input id="ed-codigo" placeholder="0000" inputmode="numeric" maxlength="6">
-        <div class="hint">4 a 6 dígitos. Deve ser único entre os clientes.</div>
-      </div>
-      <div class="field">
-        <label>Senha</label>
-        <input id="ed-senha" placeholder="Senha do cliente">
-        <div class="hint">⚠️ Alterar aqui <b>não muda</b> a senha de login (Firebase). Serve só como referência pra você conferir com o cliente.</div>
-      </div>
-      <div class="field">
-        <label>Saldo atual (R$)</label>
-        <input id="ed-saldo" placeholder="0.00" inputmode="decimal">
-      </div>
-      <div class="modal-actions">
-        <button class="btn btn-s" onclick="fecharModal('modal-editar')">Cancelar</button>
-        <button class="btn btn-p" onclick="salvarEdicao()">Salvar alterações</button>
-      </div>
+      <div class="field"><label>🔢 Código na máquina</label><input id="ed-codigo" placeholder="0000" inputmode="numeric" maxlength="6"><div class="hint">4 a 6 dígitos. Deve ser único.</div></div>
+      <div class="field"><label>Senha</label><input id="ed-senha" placeholder="Senha do cliente"><div class="hint">⚠️ Alterar aqui não muda a senha de login (Firebase).</div></div>
+      <div class="field"><label>Saldo atual (R$)</label><input id="ed-saldo" placeholder="0.00" inputmode="decimal"></div>
+      <div class="modal-actions"><button class="btn btn-s" onclick="fecharModal('modal-editar')">Cancelar</button><button class="btn btn-p" onclick="salvarEdicao()">Salvar</button></div>
     </div>
   </div>
 </div>
@@ -582,7 +760,6 @@ tbody tr:last-child td{border-bottom:none}
 
 <div class="toast" id="toast"></div>
 <div class="loading" id="loading"><div class="spinner"></div></div>
-
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import { getDatabase, ref, set, get, update, remove, onValue, push } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
@@ -604,15 +781,19 @@ const auth = getAuth(app);
 
 const ADMIN_EMAIL = 'esp@vision.com.br';
 let clientes = {}, transacoes = {}, estornos = {}, ciclos = {}, promocoes = {}, banners = {};
-let logs_esp = [], logs_api = [], logs_conn = [];
+let logs_esp = [], logs_api = [], logs_conn = [], logs_cmd = [];
 let statusESP = {}, configSistema = {}, configCashback = {}, configNiveis = {};
 let clienteSelecionado = null, promoEditando = null, tipoPromoSel = 'bonus_fixo';
 let bannerTemp = null;
+let cFilAtual = '', txFilAtual = '', logFilAtual = 'esp';
 let unsubscribers = [];
 
 const fmtBRL = v => 'R$ ' + Number(v||0).toFixed(2).replace('.',',');
 const fmtData = ts => ts ? new Date(ts*1000).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '—';
+const fmtDataCurta = ts => ts ? new Date(ts*1000).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}) : '—';
+const normalizar = s => String(s||'').replace(/\D/g,'');
 
+// ==================== UI HELPERS ====================
 window.toast = function(msg, tipo){
   const t = document.getElementById('toast');
   const icons = {success:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>', error:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>'};
@@ -625,7 +806,12 @@ window.showLoading = ()=> document.getElementById('loading').classList.add('acti
 window.hideLoading = ()=> document.getElementById('loading').classList.remove('active');
 window.fecharModal = (id)=> document.getElementById(id).classList.remove('active');
 window.fecharDrawer = ()=>{ document.getElementById('drawer').classList.remove('active'); document.getElementById('drawer-bg').classList.remove('active'); };
+window.copiar = function(texto){
+  if(!texto) return toast('Nada para copiar','error');
+  navigator.clipboard.writeText(texto).then(()=> toast('Copiado!','success')).catch(()=> toast('Erro ao copiar','error'));
+};
 
+// ==================== LOGIN ====================
 window.fazerLogin = async function(){
   const email = document.getElementById('login-email').value.trim();
   const senha = document.getElementById('login-senha').value;
@@ -635,7 +821,6 @@ window.fazerLogin = async function(){
   catch(e){ let msg = 'Erro'; if(e.code === 'auth/user-not-found') msg = 'E-mail não cadastrado'; else if(e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') msg = 'Senha incorreta'; toast(msg,'error'); }
   finally { hideLoading(); }
 };
-
 window.sair = async function(){ if(!confirm('Sair do painel?')) return; await signOut(auth); };
 
 onAuthStateChanged(auth, (user)=>{
@@ -654,6 +839,7 @@ onAuthStateChanged(auth, (user)=>{
   }
 });
 
+// ==================== LISTENERS ====================
 function iniciarListeners(){
   pararListeners();
   unsubscribers.push(onValue(ref(db,'clientes'), s=>{ clientes = s.val()||{}; renderAll(); }));
@@ -663,14 +849,23 @@ function iniciarListeners(){
   unsubscribers.push(onValue(ref(db,'promocoes'), s=>{ promocoes = s.val()||{}; renderAll(); }));
   unsubscribers.push(onValue(ref(db,'banners'), s=>{ banners = s.val()||{}; renderBanners(); }));
   unsubscribers.push(onValue(ref(db,'status'), s=>{ statusESP = s.val()||{}; renderAll(); }));
-  unsubscribers.push(onValue(ref(db,'config/cashback_padrao'), s=>{ configCashback = s.val()||{}; renderCashbackConfig(); }));
-  unsubscribers.push(onValue(ref(db,'config/niveis'), s=>{ configNiveis = s.val()||{}; renderNiveis(); }));
-  unsubscribers.push(onValue(ref(db,'logs/esp'), s=>{ const v = s.val()||{}; logs_esp = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,50); renderLogs(); }));
-  unsubscribers.push(onValue(ref(db,'logs/api'), s=>{ const v = s.val()||{}; logs_api = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,50); renderLogs(); }));
-  unsubscribers.push(onValue(ref(db,'logs/conexao'), s=>{ const v = s.val()||{}; logs_conn = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,50); renderLogs(); }));
+  unsubscribers.push(onValue(ref(db,'config'), s=>{
+    const v = s.val() || {};
+    configSistema = v;
+    configCashback = v.cashback_padrao || {};
+    configNiveis = v.niveis || {};
+    renderCashbackConfig();
+    renderNiveis();
+    renderConfigSistema();
+  }));
+  unsubscribers.push(onValue(ref(db,'logs/esp'), s=>{ const v = s.val()||{}; logs_esp = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,100); renderLogs(); }));
+  unsubscribers.push(onValue(ref(db,'logs/api'), s=>{ const v = s.val()||{}; logs_api = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,100); renderLogs(); }));
+  unsubscribers.push(onValue(ref(db,'logs/conexao'), s=>{ const v = s.val()||{}; logs_conn = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,100); renderLogs(); }));
+  unsubscribers.push(onValue(ref(db,'logs/comandos'), s=>{ const v = s.val()||{}; logs_cmd = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,100); renderLogs(); }));
 }
 function pararListeners(){ unsubscribers.forEach(u=>u&&u()); unsubscribers = []; }
 
+// ==================== NAV ====================
 window.nav = function(page){
   document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
   const el = document.querySelector(`.sb-item[data-page="${page}"]`);
@@ -680,15 +875,18 @@ window.nav = function(page){
   if(pg) pg.style.display='block';
   const titles = {
     dashboard:['Visão geral','Resumo em tempo real'],
+    analytics:['Análise de vendas','Gráficos e rankings'],
     clientes:['Clientes','Gerencie usuários do app'],
     transacoes:['Transações','Movimentações do sistema'],
-    banners:['Banners do app','Carrossel que aparece no app do cliente'],
+    recargas_ext:['Recargas externas','PIX do app (ignorados pelo ESP)'],
+    banners:['Banners do app','Carrossel do app do cliente'],
     promocoes:['Promoções','Crie bônus temporários'],
     cashback:['Cashback & Níveis','Configuração de fidelidade'],
-    estornos:['Estornos','Aguardando decisão'],
+    estornos:['Estornos','Fila e histórico'],
     ciclos:['Garrafões','Histórico de recargas'],
-    status:['Máquina','Status do ESP'],
-    logs:['Logs','Eventos do sistema']
+    status:['Máquina','Status e comandos do ESP'],
+    logs:['Logs','Eventos do sistema'],
+    config:['Configuração','Sistema e manutenção']
   };
   const [t,s] = titles[page] || ['',''];
   document.getElementById('page-title').innerText = t;
@@ -698,43 +896,92 @@ window.nav = function(page){
 window.toggleSidebar = function(open){ document.getElementById('sidebar').classList.toggle('open', open); document.getElementById('sb-overlay').classList.toggle('active', open); };
 window.recarregarTudo = ()=> { renderAll(); toast('Dados atualizados','success'); };
 
+// ==================== RENDER ALL ====================
 function renderAll(){
-  renderDashboard(); renderClientes(); renderTransacoes(); renderPromocoes();
-  renderEstornos(); renderCiclos(); renderStatus(); renderLogs();
+  renderAlertas(); renderDashboard(); renderAnalytics();
+  renderClientes(); renderTransacoes(); renderRecargasExt();
+  renderPromocoes(); renderEstornos(); renderCiclos();
+  renderStatus(); renderLogs(); renderConfigSistema();
+
   const nE = Object.keys(estornos).length;
   const bE = document.getElementById('badge-estornos');
-  if(nE > 0){ bE.style.display='inline-block'; bE.innerText = nE; } else bE.style.display = 'none';
+  if(bE){ if(nE > 0){ bE.style.display='inline-block'; bE.innerText = nE; } else bE.style.display = 'none'; }
+
   const agora = Math.floor(Date.now()/1000);
   const nP = Object.values(promocoes).filter(p => p.ativo && agora >= (p.data_inicio||0) && agora <= (p.data_fim||Infinity)).length;
   const bP = document.getElementById('badge-promos');
-  if(nP > 0){ bP.style.display='inline-block'; bP.innerText = nP; } else bP.style.display = 'none';
+  if(bP){ if(nP > 0){ bP.style.display='inline-block'; bP.innerText = nP; } else bP.style.display = 'none'; }
+
+  const nRe = Object.values(transacoes).filter(t => t.status === 'ignorado_app').length;
+  const bRe = document.getElementById('badge-recext');
+  if(bRe){ if(nRe > 0){ bRe.style.display='inline-block'; bRe.innerText = nRe; } else bRe.style.display = 'none'; }
 }
 
+// ==================== ALERTAS ====================
+function renderAlertas(){
+  const el = document.getElementById('alerta-sistema');
+  if(!el) return;
+  const alertas = [];
+
+  // ESP offline?
+  const online = statusESP.online && statusESP.ultimo_heartbeat && (Date.now()/1000 - statusESP.ultimo_heartbeat) < 60;
+  if(!online && statusESP.versao) alertas.push({tipo:'error', txt:'⚠️ ESP32 está OFFLINE há mais de 1 minuto.'});
+
+  // Estornos falhados?
+  const falhas = Object.values(transacoes).filter(t => t.status === 'estorno_falhou').length;
+  if(falhas > 0) alertas.push({tipo:'error', txt:`❌ ${falhas} estorno(s) falharam e precisam de atenção manual.`});
+
+  // Estornos pendentes?
+  const pend = Object.keys(estornos).length;
+  if(pend > 0) alertas.push({tipo:'warn', txt:`⏳ ${pend} estorno(s) aguardando processamento.`});
+
+  // Estoque baixo de espaço NVS?
+  // (não temos essa info ainda, mas se tiver...)
+
+  if(alertas.length === 0){
+    el.innerHTML = '';
+    return;
+  }
+  el.innerHTML = alertas.map(a =>
+    `<div class="alert ${a.tipo}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg><div>${a.txt}</div></div>`
+  ).join('');
+}
+
+// ==================== DASHBOARD ====================
 function renderDashboard(){
   const arr = Object.entries(clientes).map(([id,c])=>({id,...c}));
   const saldoTotal = arr.reduce((s,c)=>s+Number(c.saldo||0),0);
   const txArr = Object.entries(transacoes).map(([id,t])=>({id,...t}));
   const cashbackTotal = txArr.reduce((s,t)=>s+Number(t.bonus_total||0),0);
   const vipCount = arr.filter(c=>c.cashback_especial?.ativo).length;
+  const entregasTotal = txArr.filter(t=>t.status==='liberado').length;
 
-  document.getElementById('stats-grid').innerHTML = `
+  const sgrid = document.getElementById('stats-grid');
+  if(sgrid) sgrid.innerHTML = `
     <div class="stat fade-in" style="--accent:#00DDFF"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.8 3.1-6.5 7-6.5s7 2.7 7 6.5"/></svg></div><div class="lbl">Clientes</div><div class="val">${arr.length}</div><div class="sub">${vipCount} VIP</div></div>
     <div class="stat fade-in" style="--accent:#00E676"><div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h9a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg></div><div class="lbl">Saldo em circulação</div><div class="val green">${fmtBRL(saldoTotal)}</div><div class="sub">Total nas contas</div></div>
     <div class="stat fade-in" style="--accent:#A78BFA"><div class="ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="lbl">Cashback dado</div><div class="val purple">${fmtBRL(cashbackTotal)}</div><div class="sub">Histórico total</div></div>
+    <div class="stat fade-in" style="--accent:#00DDFF"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="lbl">Liberações</div><div class="val">${entregasTotal}</div><div class="sub">Total histórico</div></div>
     <div class="stat fade-in" style="--accent:#FF4D6D"><div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="lbl">Estornos</div><div class="val ${Object.keys(estornos).length?'red':''}">${Object.keys(estornos).length}</div><div class="sub">Aguardando</div></div>
   `;
 
+  // Chart últimos 7 dias
+  const chartEl = document.getElementById('dash-chart');
+  if(chartEl) chartEl.innerHTML = renderBarChart(agruparPorDia(7), 7);
+
   const ultimas = txArr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0)).slice(0,8);
-  document.getElementById('dash-transacoes').innerHTML = ultimas.length
+  const dtEl = document.getElementById('dash-transacoes');
+  if(dtEl) dtEl.innerHTML = ultimas.length
     ? ultimas.map(t=>{
-      const isIn = t.origem==='app_cliente' || t.status==='liberado';
+      const isIn = t.status === 'liberado';
       const bonus = Number(t.bonus_total||0);
-      return `<div class="tx-row"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${t.id||'-'}</div><div class="tx-date">${fmtData(t.processado_em||t.data_pagamento_utc)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div><div class="tx-amount ${isIn?'in':''}">${fmtBRL(t.total_creditado||t.valor)}</div></div>`;
+      return `<div class="tx-row" onclick="verDetalheTx('${t.id}')" style="cursor:pointer"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${t.id||'-'}</div><div class="tx-date">${fmtData(t.processado_em||t.data_pagamento_utc)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div><div class="tx-amount ${isIn?'in':''}">${fmtBRL(t.total_creditado||t.valor)}</div></div>`;
     }).join('')
     : `<div class="empty"><h4>Sem transações</h4></div>`;
 
   const top = arr.sort((a,b)=>Number(b.saldo||0)-Number(a.saldo||0)).slice(0,5);
-  document.getElementById('dash-top-clientes').innerHTML = top.length
+  const tcEl = document.getElementById('dash-top-clientes');
+  if(tcEl) tcEl.innerHTML = top.length
     ? top.map(c=>{
       const isVip = c.cashback_especial?.ativo;
       return `<div class="tx-row" style="cursor:pointer" onclick="abrirDrawer('${c.id}')"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div class="tx-body"><div class="tx-title">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="tx-date">${c.cpf||'-'}</div></div><div class="tx-amount in">${fmtBRL(c.saldo)}</div></div>`;
@@ -742,26 +989,143 @@ function renderDashboard(){
     : `<div class="empty"><h4>Sem clientes</h4></div>`;
 }
 
+// Agrupa transações por dia (últimos N dias)
+function agruparPorDia(dias){
+  const hoje = new Date(); hoje.setHours(0,0,0,0);
+  const mapa = {};
+  for(let i = dias-1; i >= 0; i--){
+    const d = new Date(hoje); d.setDate(d.getDate() - i);
+    const key = d.toISOString().split('T')[0];
+    mapa[key] = 0;
+  }
+  Object.values(transacoes).forEach(t => {
+    if(t.status !== 'liberado' && t.status !== 'estornado') return;
+    const ts = t.processado_em || t.data_pagamento_utc;
+    if(!ts) return;
+    const d = new Date(ts*1000); d.setHours(0,0,0,0);
+    const key = d.toISOString().split('T')[0];
+    if(key in mapa) mapa[key]++;
+  });
+  return mapa;
+}
+
+function renderBarChart(mapa, dias){
+  const chaves = Object.keys(mapa);
+  const max = Math.max(1, ...Object.values(mapa));
+  return `<div class="chart-wrap" style="--n:${dias}">` +
+    chaves.map((k,i)=>{
+      const v = mapa[k];
+      const h = (v/max) * 100;
+      const lbl = k.split('-').slice(1).reverse().join('/');
+      return `<div class="chart-bar" style="left:calc(${i} * (100% / ${dias}));height:${Math.max(h,3)}%">${v > 0 ? v : ''}</div>`;
+    }).join('') +
+    `</div><div class="chart-labels">` +
+    chaves.map((k)=>{ const l = k.split('-').slice(1).reverse().join('/'); return `<span>${l}</span>`; }).join('') +
+    `</div>`;
+}
+
+// ==================== ANALYTICS ====================
+window.renderAnalytics = function(){
+  const dias = Number(document.getElementById('an-periodo')?.value || 30);
+  const sub = document.getElementById('an-sub-periodo');
+  if(sub) sub.innerText = `Últimos ${dias} dias`;
+
+  const stats = document.getElementById('stats-analytics');
+  const limite = Date.now()/1000 - dias*86400;
+  const txPeriodo = Object.values(transacoes).filter(t => {
+    const ts = t.processado_em || t.data_pagamento_utc || 0;
+    return ts >= limite && t.status === 'liberado';
+  });
+  const totalGarrafoes = txPeriodo.reduce((s,t)=>s+Number(t.garrafoes||t.qtdPedido||1),0);
+  const totalReais = txPeriodo.reduce((s,t)=>s+Number(t.valor||0),0);
+  const ticketMedio = txPeriodo.length ? totalReais / txPeriodo.length : 0;
+
+  if(stats) stats.innerHTML = `
+    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="lbl">Garrafões (${dias}d)</div><div class="val">${totalGarrafoes}</div></div>
+    <div class="stat"><div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h9a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg></div><div class="lbl">Faturamento (${dias}d)</div><div class="val green">${fmtBRL(totalReais)}</div></div>
+    <div class="stat"><div class="ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg></div><div class="lbl">Transações</div><div class="val">${txPeriodo.length}</div></div>
+    <div class="stat"><div class="ico yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="lbl">Ticket médio</div><div class="val yellow">${fmtBRL(ticketMedio)}</div></div>
+  `;
+
+  // Chart
+  const chartEl = document.getElementById('an-chart');
+  if(chartEl) chartEl.innerHTML = renderBarChart(agruparPorDia(dias), dias);
+
+  // Ranking clientes
+  const ranking = {};
+  txPeriodo.forEach(t => {
+    const uid = t.uid || t.autorizado_por || t.id;
+    if(!ranking[uid]) ranking[uid] = {nome: 'Cliente', qtd: 0, total: 0};
+    ranking[uid].qtd += Number(t.garrafoes || 1);
+    ranking[uid].total += Number(t.valor || 0);
+  });
+  const arr = Object.values(ranking).sort((a,b)=>b.qtd - a.qtd).slice(0,10);
+  const rankEl = document.getElementById('an-ranking');
+  if(rankEl) rankEl.innerHTML = arr.length ? arr.map((r,i)=>{
+    const pos = ['🥇','🥈','🥉'][i] || `${i+1}º`;
+    return `<div class="tx-row"><div style="font-size:20px;width:32px;text-align:center">${pos}</div><div class="tx-body"><div class="tx-title">${r.nome}</div><div class="tx-date">${r.qtd} garrafões</div></div><div class="tx-amount in">${fmtBRL(r.total)}</div></div>`;
+  }).join('') : '<div class="empty"><h4>Sem dados no período</h4></div>';
+
+  // Ranking horários
+  const horas = Array(24).fill(0);
+  txPeriodo.forEach(t => {
+    const ts = t.processado_em || t.data_pagamento_utc;
+    if(ts){
+      const h = new Date(ts*1000).getHours();
+      horas[h]++;
+    }
+  });
+  const horasEl = document.getElementById('an-horarios');
+  if(horasEl){
+    const maxH = Math.max(1, ...horas);
+    horasEl.innerHTML = horas.map((v,i) => {
+      if(v === 0) return '';
+      const pct = (v/maxH) * 100;
+      return `<div style="margin-bottom:6px;display:flex;align-items:center;gap:10px;font-size:12px"><span style="width:40px;font-weight:700;color:var(--txt-3)">${String(i).padStart(2,'0')}h</span><div style="flex:1;height:20px;background:#ffffff06;border-radius:5px;overflow:hidden"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#00DDFF,#00E676);border-radius:5px;transition:.4s"></div></div><span style="width:40px;text-align:right;font-weight:800;color:var(--cyan)">${v}</span></div>`;
+    }).join('') || '<div class="empty"><h4>Sem dados</h4></div>';
+  }
+};
+
+// ==================== FILTROS CLIENTES ====================
+window.filtrarClientes = function(fil, el){
+  cFilAtual = fil;
+  document.querySelectorAll('[data-cfil]').forEach(c=>c.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderClientes();
+};
+
 function renderClientes(){
   const busca = (document.getElementById('busca-clientes')?.value||'').toLowerCase();
-  const arr = Object.entries(clientes).map(([id,c])=>({id,...c}))
-    .filter(c=> !busca || (c.nome||'').toLowerCase().includes(busca) || (c.cpf||'').includes(busca) || (c.whatsapp||'').includes(busca) || (c.codigo_maquina||'').includes(busca))
+  const limite30d = Math.floor(Date.now()/1000) - 30*86400;
+  let arr = Object.entries(clientes).map(([id,c])=>({id,...c}));
+
+  if(cFilAtual === 'vip') arr = arr.filter(c => c.cashback_especial?.ativo);
+  else if(cFilAtual === 'ativos') arr = arr.filter(c => c.ativo !== false);
+  else if(cFilAtual === 'bloqueados') arr = arr.filter(c => c.ativo === false);
+  else if(cFilAtual === 'inativos') arr = arr.filter(c => (c.ultima_atividade || c.criado_em || 0) < limite30d);
+  else if(cFilAtual === 'sem_recarga') arr = arr.filter(c => !(c.stats?.total_recargas));
+
+  arr = arr.filter(c => !busca || (c.nome||'').toLowerCase().includes(busca) || (c.cpf||'').includes(busca) || (c.whatsapp||'').includes(busca) || (c.codigo_maquina||'').includes(busca))
     .sort((a,b)=>Number(b.saldo||0)-Number(a.saldo||0));
 
   const el = document.getElementById('contagem-clientes');
   if(el) el.innerText = `${arr.length} cliente${arr.length===1?'':'s'}`;
 
-  document.getElementById('tabela-clientes').innerHTML = arr.length
+  const tbody = document.getElementById('tabela-clientes');
+  if(!tbody) return;
+  tbody.innerHTML = arr.length
     ? arr.map(c=>{
       const ativo = c.ativo !== false;
       const isVip = c.cashback_especial?.ativo;
       const cbTotal = Number(c.stats?.total_cashback_recebido || 0);
+      const ultRec = c.stats?.ultima_recarga ? fmtDataCurta(c.stats.ultima_recarga) : '—';
       return `<tr>
         <td><div class="cell-user"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div><div class="n">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="s">${c.cpf||'-'}</div></div></div></td>
         <td><span class="pill cyan" style="font-family:var(--mono);font-size:12px;letter-spacing:1px">${c.codigo_maquina||'—'}</span></td>
         <td>${c.whatsapp||'-'}</td>
         <td><strong style="color:var(--cyan)">${fmtBRL(c.saldo)}</strong></td>
         <td><span style="color:var(--purple)">${fmtBRL(cbTotal)}</span></td>
+        <td style="font-size:12px;color:var(--txt-3)">${ultRec}</td>
         <td><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></td>
         <td><div class="actions-cell">
           <button class="mini" onclick="abrirDrawer('${c.id}')" title="Detalhes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
@@ -770,208 +1134,381 @@ function renderClientes(){
         </div></td>
       </tr>`;
     }).join('')
-    : `<tr><td colspan="7"><div class="empty"><h4>Nenhum cliente</h4></div></td></tr>`;
+    : `<tr><td colspan="8"><div class="empty"><h4>Nenhum cliente</h4></div></td></tr>`;
 }
 
-// ==================== DRAWER ====================
-window.abrirDrawer = function(uid){
-  const c = clientes[uid];
-  if(!c) return;
-  clienteSelecionado = uid;
-  const ativo = c.ativo !== false;
-  const isVip = c.cashback_especial?.ativo;
-  const desde = c.criado_em ? new Date(c.criado_em*1000).toLocaleDateString('pt-BR') : '—';
-  const stats = c.stats || {};
-  const nRec = Number(stats.total_recargas || 0);
-  const txArr = c.transacoes ? Object.entries(c.transacoes).map(([id,t])=>({id,...t})).sort((a,b)=>(b.data||0)-(a.data||0)) : [];
+// ==================== EXPORTAR CSV ====================
+window.exportarClientes = function(){
+  const arr = Object.entries(clientes).map(([id,c])=>({id,...c}));
+  const header = 'ID,Nome,CPF,WhatsApp,Endereco,Codigo,Saldo,Recargas,Cashback,Ativo,Criado\n';
+  const rows = arr.map(c => {
+    const esc = s => `"${String(s||'').replace(/"/g,'""')}"`;
+    return [c.id, esc(c.nome), esc(c.cpf), esc(c.whatsapp), esc(c.endereco), esc(c.codigo_maquina), Number(c.saldo||0).toFixed(2), Number(c.stats?.total_recargas||0), Number(c.stats?.total_cashback_recebido||0).toFixed(2), c.ativo!==false?'Sim':'Não', c.criado_em?new Date(c.criado_em*1000).toISOString():''].join(',');
+  }).join('\n');
+  baixarCSV('clientes_vision.csv', header + rows);
+};
 
-  let nivelAtual = 'Bronze';
-  const niveis = configNiveis || {};
-  if(niveis.ouro && nRec >= (niveis.ouro.min || 50)) nivelAtual = 'Ouro';
-  else if(niveis.prata && nRec >= (niveis.prata.min || 10)) nivelAtual = 'Prata';
+window.exportarTransacoes = function(){
+  const arr = Object.entries(transacoes).map(([id,t])=>({id,...t}));
+  const header = 'ID,Valor,Creditos,Origem,Status,Data_pagamento,Processado_em\n';
+  const rows = arr.map(t => {
+    const esc = s => `"${String(s||'').replace(/"/g,'""')}"`;
+    return [t.id, Number(t.valor||0).toFixed(2), Number(t.garrafoes||1), esc(t.origem||''), esc(t.status||''), t.data_pagamento_utc||'', t.processado_em||''].join(',');
+  }).join('\n');
+  baixarCSV('transacoes_vision.csv', header + rows);
+};
 
-  document.getElementById('drawer-title').innerText = c.nome || 'Cliente';
-  document.getElementById('drawer-body').innerHTML = `
-    <div class="client-hero">
-      <div class="av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div>
-      <h2>${c.nome||'-'} ${isVip?'⭐':''}</h2>
-      <p>${c.cpf||'-'}</p>
-      <div class="codigo-hero">
-        <div class="lbl">🔢 Código na máquina</div>
-        <div class="cod">${c.codigo_maquina || '----'}</div>
-      </div>
-      <div class="stats">
-        <div><div class="v">${fmtBRL(c.saldo)}</div><div class="k">Saldo</div></div>
-        <div><div class="v">${nRec}</div><div class="k">Recargas</div></div>
-        <div><div class="v">${fmtBRL(stats.total_cashback_recebido||0)}</div><div class="k">Cashback</div></div>
-      </div>
+function baixarCSV(nome, conteudo){
+  const blob = new Blob([conteudo], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = nome;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  toast('CSV exportado!','success');
+}
+
+// ==================== FILTROS TRANSAÇÕES ====================
+window.filtrarTx = function(fil, el){
+  txFilAtual = fil;
+  document.querySelectorAll('[data-txfil]').forEach(c=>c.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderTransacoes();
+};
+
+function renderTransacoes(){
+  const busca = (document.getElementById('busca-tx')?.value||'').toLowerCase();
+  const filtro = document.getElementById('filtro-tx-status')?.value || '';
+  let arr = Object.entries(transacoes).map(([id,t])=>({id,...t}));
+
+  // Counts pros filtros rápidos
+  const cntTodas = arr.length;
+  const cntPix = arr.filter(t => t.origem === 'pix_direto').length;
+  const cntApp = arr.filter(t => t.origem === 'app_cliente' || t.origem === 'app').length;
+  const cntAdmin = arr.filter(t => t.origem === 'admin').length;
+  const cntEstorno = arr.filter(t => (t.status||'').startsWith('estorno')).length;
+  const cntFalhas = arr.filter(t => t.status === 'estorno_falhou' || t.status === 'ignorado_data_invalida').length;
+  const setCnt = (id, v) => { const el = document.getElementById(id); if(el) el.innerText = v; };
+  setCnt('tx-cnt-todas', cntTodas); setCnt('tx-cnt-pix', cntPix); setCnt('tx-cnt-app', cntApp);
+  setCnt('tx-cnt-admin', cntAdmin); setCnt('tx-cnt-estorno', cntEstorno); setCnt('tx-cnt-falhas', cntFalhas);
+
+  // Filtro rápido
+  if(txFilAtual === 'pix_avulso') arr = arr.filter(t => t.origem === 'pix_direto');
+  else if(txFilAtual === 'app') arr = arr.filter(t => t.origem === 'app_cliente' || t.origem === 'app');
+  else if(txFilAtual === 'admin') arr = arr.filter(t => t.origem === 'admin');
+  else if(txFilAtual === 'estorno') arr = arr.filter(t => (t.status||'').startsWith('estorno'));
+  else if(txFilAtual === 'falhas') arr = arr.filter(t => t.status === 'estorno_falhou' || t.status === 'ignorado_data_invalida');
+
+  if(filtro) arr = arr.filter(t => t.status === filtro);
+  if(busca) arr = arr.filter(t => (t.id||'').toLowerCase().includes(busca) || (t.motivo||'').toLowerCase().includes(busca) || (t.origem||'').toLowerCase().includes(busca));
+
+  arr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0));
+  arr = arr.slice(0,200);
+
+  const cores = {liberado: 'green', ignorado_app: 'cyan', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red', estorno_simulado: 'purple', ignorado_data_invalida: 'yellow'};
+  const tbody = document.getElementById('tabela-tx');
+  if(!tbody) return;
+  tbody.innerHTML = arr.length
+    ? arr.map(t=>{
+      const bonus = Number(t.bonus_total||0);
+      const creditos = Number(t.garrafoes || t.qtdPedido || 1);
+      return `<tr style="cursor:pointer" onclick="verDetalheTx('${t.id}')">
+        <td><code style="font-size:11px;color:var(--txt-2);font-family:var(--mono)">${(t.id||'-').substring(0,20)}</code></td>
+        <td>${fmtBRL(t.valor||t.valor_pago)}</td>
+        <td><strong>${creditos}</strong></td>
+        <td><span class="pill ${t.origem==='pix_direto'?'cyan':t.origem==='admin'?'purple':t.origem==='app'||t.origem==='app_cliente'?'pink':'gray'}">${t.origem||'-'}</span></td>
+        <td><span class="pill ${cores[t.status]||'gray'}">${t.status||'-'}</span></td>
+        <td style="color:var(--txt-3);font-size:12px;font-family:var(--mono)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td>
+        <td><div class="actions-cell"><button class="mini" onclick="event.stopPropagation();verDetalheTx('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div></td>
+      </tr>`;
+    }).join('')
+    : `<tr><td colspan="7"><div class="empty"><h4>Sem transações</h4></div></td></tr>`;
+}
+
+// ==================== DETALHE TX ====================
+window.verDetalheTx = function(id){
+  const t = transacoes[id];
+  if(!t) return;
+  const rows = [
+    ['ID', t.id, true],
+    ['Status', t.status],
+    ['Origem', t.origem],
+    ['Valor', fmtBRL(t.valor || t.valor_pago)],
+    ['Valor esperado', fmtBRL(t.valor_esperado)],
+    ['Créditos', t.garrafoes || t.qtdPedido || 1],
+    ['Motivo', t.motivo],
+    ['Data pagamento', fmtData(t.data_pagamento_utc)],
+    ['Processado em', fmtData(t.processado_em)],
+    ['Minutos atraso', t.minutos_atraso],
+    ['Autorizado por', t.autorizado_por],
+    ['Motivo estorno', t.motivo_estorno],
+    ['Estornado em', t.estornado_em ? fmtData(t.estornado_em) : null],
+    ['Valor estornado', t.valor_estornado ? fmtBRL(t.valor_estornado) : null],
+    ['Refund ID', t.refund_id],
+    ['Tentativas', t.tentativas],
+    ['Último erro', t.ultimo_erro]
+  ].filter(r => r[1] != null && r[1] !== '' && r[1] !== 'null');
+
+  const body = document.getElementById('txdet-body');
+  body.innerHTML = `
+    <div class="detail-rows">
+      ${rows.map(([k,v,mono]) => `<div class="detail-row"><span class="k">${k}</span><span class="v ${mono?'mono highlight':''}">${v}</span></div>`).join('')}
     </div>
+    ${t.status === 'estorno_falhou' ? `<button class="btn btn-y" style="width:100%" onclick="reenfileirar('${t.id}')">🔁 Reenfileirar estorno</button>` : ''}
+  `;
+  document.getElementById('modal-txdet').classList.add('active');
+};
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
-      <button class="btn btn-p" onclick="abrirEditar('${uid}')" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Editar dados</button>
-      <button class="btn btn-s" onclick="abrirModalSaldo('${uid}')" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Add saldo</button>
-    </div>
+window.reenfileirar = async function(id){
+  if(!confirm('Reenfileirar este estorno?')) return;
+  try {
+    await set(ref(db, 'fila_estornos/'+id), {
+      motivo: 'reenfileirado_admin',
+      tentativas: 0,
+      proxima_tentativa: 0,
+      criado_em: Math.floor(Date.now()/1000)
+    });
+    await update(ref(db, 'transacoes/'+id), { status: 'estorno_pendente', tentativas: 0 });
+    toast('Reenfileirado!','success');
+    fecharModal('modal-txdet');
+  } catch(e){ toast('Erro: '+e.message,'error'); }
+};
 
-    <div class="tabs">
-      <button class="tab active" onclick="abaCliente('info',this)">Info</button>
-      <button class="tab" onclick="abaCliente('vip',this)">VIP</button>
-      <button class="tab" onclick="abaCliente('hist',this)">Histórico</button>
-    </div>
+// ==================== RECARGAS EXTERNAS ====================
+function renderRecargasExt(){
+  const arr = Object.entries(transacoes).map(([id,t])=>({id,...t}))
+    .filter(t => t.status === 'ignorado_app')
+    .sort((a,b)=>(b.processado_em||0)-(a.processado_em||0))
+    .slice(0,100);
+  const tbody = document.getElementById('tabela-recext');
+  if(!tbody) return;
+  tbody.innerHTML = arr.length
+    ? arr.map(t=>`<tr><td><code style="font-size:11px;font-family:var(--mono)">${t.id}</code></td><td><strong>${fmtBRL(t.valor)}</strong></td><td>${t.motivo||'PIX do app'}</td><td style="font-family:var(--mono);font-size:12px;color:var(--txt-3)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td></tr>`).join('')
+    : `<tr><td colspan="4"><div class="empty"><h4>Nenhuma recarga externa</h4></div></td></tr>`;
+}
 
-    <div id="aba-info" class="detalhe-aba">
-      <div class="detail-rows">
-        <div class="detail-row">
-          <span class="k">📧 E-mail (login)</span>
-          <span class="v mono">${c.email || '—'}</span>
-          <button class="copy-btn" onclick="copiar('${(c.email||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-        </div>
-        <div class="detail-row">
-          <span class="k">🔑 Senha</span>
-          <span class="v mono">${c.senha_info || '—'}</span>
-          <button class="copy-btn" onclick="copiar('${(c.senha_info||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-        </div>
-        <div class="detail-row">
-          <span class="k">🔢 Código máquina</span>
-          <span class="v highlight mono" style="font-size:15px;letter-spacing:2px">${c.codigo_maquina || '—'}</span>
-          <button class="copy-btn" onclick="copiar('${(c.codigo_maquina||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-        </div>
-        <div class="detail-row"><span class="k">📱 WhatsApp</span><span class="v">${c.whatsapp||'-'}</span></div>
-        <div class="detail-row"><span class="k">📍 Endereço</span><span class="v">${c.endereco||'-'}</span></div>
-        <div class="detail-row"><span class="k">📅 Cliente desde</span><span class="v">${desde}</span></div>
-        <div class="detail-row"><span class="k">🏆 Nível</span><span class="v"><span class="pill purple">${nivelAtual}</span></span></div>
-        <div class="detail-row"><span class="k">Status</span><span class="v"><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></span></div>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-s" onclick="toggleBloqueio('${uid}')">${ativo?'Bloquear':'Desbloquear'}</button>
-        <button class="btn btn-d" onclick="excluirCliente('${uid}')">Excluir cliente</button>
-      </div>
-    </div>
+// ==================== ESTORNOS ====================
+function renderEstornos(){
+  const arr = Object.entries(estornos).map(([id,e])=>({id,...e}));
+  const pend = arr.filter(e => (e.tentativas||0) < 6).length;
+  const tentando = arr.filter(e => (e.tentativas||0) > 0).length;
+  const agora = Math.floor(Date.now()/1000);
+  const aguardando = arr.filter(e => (e.proxima_tentativa||0) > agora).length;
 
-    <div id="aba-vip" class="detalhe-aba" style="display:none">
-      <div class="vip-box">
-        <div class="vip-head">
-          <div class="vip-title">⭐ Cliente VIP</div>
-          <label class="toggle"><input type="checkbox" id="vip-toggle" ${isVip?'checked':''}><span class="toggle-slider"></span></label>
-        </div>
-        <div class="vip-fields">
-          <div class="campo"><label>Tipo</label><select id="vip-tipo"><option value="percentual" ${(c.cashback_especial?.tipo||'percentual')==='percentual'?'selected':''}>Percentual (%)</option><option value="fixo" ${c.cashback_especial?.tipo==='fixo'?'selected':''}>Fixo (R$)</option></select></div>
-          <div class="campo"><label>Valor</label><input type="number" id="vip-valor" step="0.5" min="0" value="${c.cashback_especial?.valor||10}"></div>
-        </div>
-        <div style="margin-top:12px;padding:10px;background:#00000020;border-radius:10px;font-size:11px;color:var(--txt-3);line-height:1.5">💡 VIP ignora o nível automático. Aplica o valor acima em toda recarga.</div>
-        <button class="btn btn-pink" style="margin-top:14px" onclick="salvarVip('${uid}')">Salvar VIP</button>
-      </div>
-    </div>
+  const statsEl = document.getElementById('stats-estornos');
+  if(statsEl) statsEl.innerHTML = `
+    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="lbl">Na fila</div><div class="val">${arr.length}</div></div>
+    <div class="stat"><div class="ico yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="lbl">Aguardando retry</div><div class="val yellow">${aguardando}</div></div>
+    <div class="stat"><div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg></div><div class="lbl">Já tentaram</div><div class="val green">${tentando}</div></div>
+    <div class="stat"><div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div><div class="lbl">Falhas</div><div class="val red">${Object.values(transacoes).filter(t=>t.status==='estorno_falhou').length}</div></div>
+  `;
 
-    <div id="aba-hist" class="detalhe-aba" style="display:none">
-      ${txArr.length ? txArr.map(t=>{
-        const isIn = t.tipo==='recarga';
-        const bonus = Number(t.bonus_total || 0);
-        return `<div class="tx-row"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${isIn?'Recarga':'Consumo'} — ${t.garrafoes||1} crédito${(t.garrafoes||1)>1?'s':''}</div><div class="tx-date">${fmtData(t.data)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div><div class="tx-amount ${isIn?'in':'out'}">${isIn?'+':'−'} ${fmtBRL(Math.abs(t.total||t.valor||0))}</div></div>`;
-      }).join('') : '<div class="empty"><h4>Sem histórico</h4></div>'}
+  const listaEl = document.getElementById('lista-estornos');
+  if(listaEl) listaEl.innerHTML = arr.length
+    ? arr.map(e=>{
+      const tent = Number(e.tentativas||0);
+      const proxima = e.proxima_tentativa ? fmtData(e.proxima_tentativa) : 'Imediato';
+      return `<div class="tx-row" style="align-items:flex-start;flex-wrap:wrap">
+        <div class="tx-ico out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
+        <div class="tx-body" style="flex:1">
+          <div class="tx-title" style="font-family:var(--mono);font-size:12px">${e.id}</div>
+          <div class="tx-date">Motivo: <b>${e.motivo||'-'}</b> · Tentativas: <b>${tent}/6</b> · Próxima: <b>${proxima}</b></div>
+          ${e.ultimo_erro ? `<div class="tx-date" style="color:var(--red)">⚠️ ${e.ultimo_erro}</div>` : ''}
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="mini" onclick="forcarEstorno('${e.id}')" title="Forçar agora"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <button class="mini danger" onclick="cancelarEstorno('${e.id}')" title="Cancelar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+        </div>
+      </div>`;
+    }).join('')
+    : `<div class="empty"><h4>Fila vazia</h4></div>`;
+
+  // Histórico
+  const histArr = Object.values(transacoes).filter(t => t.status === 'estornado' || t.status === 'estorno_falhou').sort((a,b)=>(b.estornado_em||b.processado_em||0)-(a.estornado_em||a.processado_em||0)).slice(0,30);
+  const histEl = document.getElementById('lista-estornos-hist');
+  if(histEl) histEl.innerHTML = histArr.length
+    ? histArr.map(t=>{
+      const ok = t.status === 'estornado';
+      return `<div class="tx-row">
+        <div class="tx-ico ${ok?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">${ok?'<path d="M5 12l5 5L20 7"/>':'<circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/>'}</svg></div>
+        <div class="tx-body"><div class="tx-title" style="font-family:var(--mono);font-size:12px">${t.id}</div><div class="tx-date">${ok ? '✅ Estornado em ' + fmtData(t.estornado_em) + ' · R$ ' + Number(t.valor_estornado||0).toFixed(2) : '❌ Falhou — ' + (t.ultimo_erro||'erro desconhecido')}</div></div>
+      </div>`;
+    }).join('')
+    : '<div class="empty"><h4>Sem histórico</h4></div>';
+}
+
+window.forcarEstorno = async function(id){
+  if(!confirm('Forçar este estorno agora?')) return;
+  try {
+    await update(ref(db, 'fila_estornos/'+id), { proxima_tentativa: 0 });
+    toast('Forçado! O ESP vai tentar no próximo ciclo.','success');
+  } catch(e){ toast('Erro: '+e.message,'error'); }
+};
+
+window.cancelarEstorno = async function(id){
+  if(!confirm('Remover da fila de estornos?')) return;
+  try { await remove(ref(db, 'fila_estornos/'+id)); toast('Removido','success'); }
+  catch(e){ toast('Erro','error'); }
+};
+
+// ==================== CICLOS ====================
+function renderCiclos(){
+  const arr = Object.entries(ciclos).map(([id,c])=>({id,...c}));
+  arr.sort((a,b)=>(b.iniciado_em||0)-(a.iniciado_em||0));
+  arr.splice(50);
+  const el = document.getElementById('lista-ciclos');
+  if(!el) return;
+  el.innerHTML = arr.length
+    ? arr.map(c=>{
+      const total = c.garrafoes_previstos||0;
+      const comp = c.garrafoes_completos||0;
+      const classe = c.status === 'concluido' ? 'green' : c.status === 'incompleto' ? 'yellow' : c.status === 'interrompido' ? 'red' : 'gray';
+      return `<div class="tx-row"><div class="tx-ico ${c.status==='concluido'?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="tx-body"><div class="tx-title">${comp}/${total} créditos</div><div class="tx-date">${fmtData(c.iniciado_em)} · ${c.id}</div></div><span class="pill ${classe}">${c.status||'-'}</span></div>`;
+    }).join('')
+    : `<div class="empty"><h4>Sem ciclos</h4></div>`;
+}
+
+// ==================== STATUS ESP ====================
+function renderStatus(){
+  const s = statusESP;
+  const online = s.online && s.ultimo_heartbeat && (Date.now()/1000 - s.ultimo_heartbeat) < 60;
+  const el = document.getElementById('stats-maquina');
+  if(el) el.innerHTML = `
+    <div class="stat"><div class="ico ${online?'green':'red'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0"/></svg></div><div class="lbl">Conexão</div><div class="val ${online?'green':'red'}">${online?'Online':'Offline'}</div><div class="sub">${s.ultimo_heartbeat ? 'Visto ' + fmtData(s.ultimo_heartbeat) : 'Nunca visto'}</div></div>
+    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></div><div class="lbl">Versão</div><div class="val" style="font-size:22px">${s.versao||'—'}</div></div>
+    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0"/></svg></div><div class="lbl">Wi-Fi</div><div class="val">${s.rssi||0} dBm</div><div class="sub">${s.ip || '—'}</div></div>
+    <div class="stat"><div class="ico ${s.bomba_ativa?'yellow':'green'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="lbl">Bomba</div><div class="val ${s.bomba_ativa?'yellow':''}">${s.bomba_ativa?'Ligada':'Parada'}</div></div>
+    <div class="stat"><div class="ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/></svg></div><div class="lbl">Heap livre</div><div class="val" style="font-size:20px">${s.heap_livre ? Math.round(s.heap_livre/1024) + ' KB' : '—'}</div></div>
+  `;
+  const espEl = document.getElementById('status-esp');
+  if(espEl) espEl.innerHTML = `
+    <div class="detail-rows">
+      <div class="detail-row"><span class="k">Pedido atual</span><span class="v">${s.pedido_atual || '—'}</span></div>
+      <div class="detail-row"><span class="k">Origem do pedido</span><span class="v">${s.origem_pedido || '—'}</span></div>
+      <div class="detail-row"><span class="k">Créditos (atual/total)</span><span class="v">${s.dose_atual||0} de ${s.doses_total||0} (${s.doses_completas||0} completos)</span></div>
+      <div class="detail-row"><span class="k">Próxima dose</span><span class="v">${s.proxima_dose_em ? fmtData(s.proxima_dose_em) : '—'}</span></div>
+      <div class="detail-row"><span class="k">Tempo bomba aplicado</span><span class="v">${s.tempo_bomba_aplicado || '—'} s</span></div>
+      <div class="detail-row"><span class="k">Multi garrafão</span><span class="v"><span class="pill ${s.multi_ativo_aplicado?'green':'gray'}">${s.multi_ativo_aplicado?'Ativo':'Inativo'}</span></span></div>
+      <div class="detail-row"><span class="k">Modo simulação</span><span class="v"><span class="pill ${s.modo_simulacao_aplicado?'yellow':'gray'}">${s.modo_simulacao_aplicado?'Sim':'Não'}</span></span></div>
+      <div class="detail-row"><span class="k">Solicitação UID</span><span class="v mono">${s.solicitacao_uid || '—'}</span></div>
+      <div class="detail-row"><span class="k">Fidelidade</span><span class="v">${s.fidelidade_ativa ? 'Ativa ('+s.fidelidade_meta+'/R$'+s.fidelidade_valor+')' : 'Inativa'}</span></div>
+      <div class="detail-row"><span class="k">Último heartbeat</span><span class="v">${s.ultimo_heartbeat ? fmtData(s.ultimo_heartbeat) : '—'}</span></div>
     </div>
   `;
-  document.getElementById('drawer').classList.add('active');
-  document.getElementById('drawer-bg').classList.add('active');
-};
+}
 
-window.copiar = function(texto){
-  if(!texto) return toast('Nada para copiar','error');
-  navigator.clipboard.writeText(texto).then(()=> toast('Copiado!','success')).catch(()=> toast('Erro ao copiar','error'));
-};
-
-window.abaCliente = function(aba, el){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  document.querySelectorAll('.detalhe-aba').forEach(a=>a.style.display='none');
-  document.getElementById('aba-'+aba).style.display = 'block';
-};
-
-window.salvarVip = async function(uid){
-  const ativo = document.getElementById('vip-toggle').checked;
-  const tipo = document.getElementById('vip-tipo').value;
-  const valor = Number(document.getElementById('vip-valor').value) || 0;
-  try { await update(ref(db, `clientes/${uid}/cashback_especial`), { ativo, tipo, valor }); toast(ativo ? 'VIP ativado' : 'VIP removido', 'success'); }
-  catch(e){ toast('Erro: '+e.message, 'error'); }
-};
-
-window.toggleBloqueio = async function(uid){
-  const c = clientes[uid]; if(!c) return;
-  const ativo = c.ativo !== false;
-  try { await update(ref(db, 'clientes/'+uid), { ativo: !ativo }); toast(ativo?'Bloqueado':'Desbloqueado','success'); fecharDrawer(); }
-  catch(e){ toast('Erro','error'); }
-};
-
-window.excluirCliente = async function(uid){
-  const c = clientes[uid]; if(!c) return;
-  if(!confirm(`Excluir "${c.nome}"?`)) return;
-  try { await remove(ref(db, 'clientes/'+uid)); toast('Removido','success'); fecharDrawer(); }
-  catch(e){ toast('Erro','error'); }
-};
-
-// ==================== EDITAR CLIENTE ====================
-window.abrirEditar = function(uid){
-  const c = clientes[uid];
-  if(!c) return;
-  document.getElementById('ed-uid').value = uid;
-  document.getElementById('ed-nome').value = c.nome || '';
-  document.getElementById('ed-cpf').value = c.cpf || '';
-  document.getElementById('ed-whats').value = c.whatsapp || '';
-  document.getElementById('ed-endereco').value = c.endereco || '';
-  document.getElementById('ed-codigo').value = c.codigo_maquina || '';
-  document.getElementById('ed-senha').value = c.senha_info || '';
-  document.getElementById('ed-saldo').value = (Number(c.saldo||0)).toFixed(2);
-  document.getElementById('modal-editar').classList.add('active');
-};
-
-document.getElementById('ed-cpf')?.addEventListener('input', e=>{
-  e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
-});
-document.getElementById('ed-whats')?.addEventListener('input', e=>{
-  e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2');
-});
-document.getElementById('ed-codigo')?.addEventListener('input', e=>{
-  e.target.value = e.target.value.replace(/\D/g,'').slice(0,6);
-});
-
-window.salvarEdicao = async function(){
-  const uid = document.getElementById('ed-uid').value;
-  if(!uid) return;
-  const c = clientes[uid];
-  if(!c) return;
-
-  const nome = document.getElementById('ed-nome').value.trim();
-  const cpf = document.getElementById('ed-cpf').value.trim();
-  const whats = document.getElementById('ed-whats').value.trim();
-  const endereco = document.getElementById('ed-endereco').value.trim();
-  const codigo = document.getElementById('ed-codigo').value.trim();
-  const senhaInfo = document.getElementById('ed-senha').value.trim();
-  const saldo = parseFloat(document.getElementById('ed-saldo').value) || 0;
-
-  if(!nome || nome.length < 3) return toast('Nome inválido','error');
-  if(cpf.replace(/\D/g,'').length !== 11) return toast('CPF inválido','error');
-  if(whats.replace(/\D/g,'').length < 10) return toast('WhatsApp inválido','error');
-  if(!codigo || codigo.length < 4 || codigo.length > 6) return toast('Código deve ter 4 a 6 dígitos','error');
-
-  // Verifica se o código está em uso por outro cliente
-  const emUso = Object.entries(clientes).some(([id, cli]) => id !== uid && cli.codigo_maquina === codigo);
-  if(emUso){
-    return toast('Este código já está em uso por outro cliente', 'error');
-  }
-
-  showLoading();
+window.comandoESP = async function(cmd, v){
   try {
-    await update(ref(db, 'clientes/' + uid), {
-      nome, cpf, whatsapp: whats, endereco,
-      codigo_maquina: codigo,
-      senha_info: senhaInfo,
-      saldo: Number(saldo.toFixed(2))
+    await update(ref(db, 'comandos'), { [cmd]: v });
+    await push(ref(db, 'logs/comandos'), {
+      timestamp: Math.floor(Date.now()/1000),
+      comando: cmd,
+      valor: v,
+      por: auth.currentUser?.email || 'admin'
     });
-    toast('Dados atualizados!','success');
-    fecharModal('modal-editar');
-    fecharDrawer();
-  } catch(e){
-    toast('Erro: ' + e.message, 'error');
-  } finally { hideLoading(); }
+    toast('Comando enviado!','success');
+  } catch(e){ toast('Erro','error'); }
+};
+
+window.sincronizarMP = async function(){
+  try {
+    await update(ref(db, 'comandos'), { forcar_varredura: true });
+    await push(ref(db, 'logs/comandos'), {
+      timestamp: Math.floor(Date.now()/1000),
+      comando: 'forcar_varredura',
+      valor: true,
+      por: auth.currentUser?.email || 'admin'
+    });
+    toast('Varredura solicitada!','success');
+  } catch(e){ toast('Erro','error'); }
+};
+
+window.salvarConfigSistema = async function(){
+  const cfg = {
+    ligado: document.getElementById('cfg-ligado').checked,
+    valor: Number(document.getElementById('cfg-valor').value) || 2.5,
+    tempo_bomba_seg: Number(document.getElementById('cfg-tempo').value) || 30,
+    multi_garrafao: document.getElementById('cfg-multi').checked,
+    max_garrafoes: Number(document.getElementById('cfg-max').value) || 10,
+    intervalo_doses_seg: Number(document.getElementById('cfg-intervalo').value) || 25,
+    modo_simulacao: document.getElementById('cfg-simulacao').checked
+  };
+  try {
+    await update(ref(db, 'config'), cfg);
+    toast('Configuração salva!','success');
+  } catch(e){ toast('Erro: '+e.message,'error'); }
+};
+
+function renderConfigSistema(){
+  const c = configSistema;
+  const el = (id) => document.getElementById(id);
+  if(!el('cfg-ligado')) return;
+  el('cfg-ligado').checked = c.ligado !== false;
+  el('cfg-valor').value = c.valor || 2.5;
+  el('cfg-tempo').value = c.tempo_bomba_seg || 30;
+  el('cfg-multi').checked = c.multi_garrafao !== false;
+  el('cfg-max').value = c.max_garrafoes || 10;
+  el('cfg-intervalo').value = c.intervalo_doses_seg || 25;
+  el('cfg-simulacao').checked = c.modo_simulacao === true;
+
+  const ver = document.getElementById('cfg-versao-fw');
+  if(ver) ver.innerText = statusESP.versao || '—';
+}
+
+window.enviarOTA = async function(){
+  const url = document.getElementById('ota-url').value.trim();
+  if(!url || url.length < 8) return toast('URL inválida','error');
+  if(!confirm('Enviar atualização OTA? O ESP vai reiniciar.')) return;
+  try {
+    await update(ref(db, 'developer'), { atualizar: true, firmware_url: url, status: 'solicitado' });
+    document.getElementById('ota-status').innerHTML = '<div class="alert info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><div>Aguardando ESP baixar...</div></div>';
+    toast('OTA enviado!','success');
+  } catch(e){ toast('Erro: '+e.message,'error'); }
+};
+
+// ==================== LOGS ====================
+window.filtrarLogs = function(fil, el){
+  logFilAtual = fil;
+  document.querySelectorAll('[data-logfil]').forEach(c=>c.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderLogs();
+};
+
+function renderLogs(){
+  let arr;
+  if(logFilAtual === 'esp') arr = logs_esp;
+  else if(logFilAtual === 'api') arr = logs_api;
+  else if(logFilAtual === 'conexao') arr = logs_conn;
+  else if(logFilAtual === 'comandos') arr = logs_cmd;
+
+  const titulo = document.getElementById('log-titulo');
+  const nomes = {esp:'📝 Logs do ESP', api:'🌐 Logs da API', conexao:'🔌 Logs de conexão', comandos:'⚡ Histórico de comandos'};
+  if(titulo) titulo.innerText = nomes[logFilAtual] || 'Logs';
+
+  const el = document.getElementById('lista-logs');
+  if(!el) return;
+  el.innerHTML = arr.length
+    ? arr.map(l=>{
+      let nivel = l.nivel || l.tipo || 'info';
+      let msg = l.mensagem || l.detalhe || l.motivo || '';
+      let extra = '';
+      if(l.endpoint) extra = ` [${l.endpoint}]`;
+      if(l.comando) { msg = `Comando: ${l.comando} = ${l.valor}`; extra = ` por ${l.por||'?'}`; }
+      if(l.ip) extra += ` IP: ${l.ip}`;
+      const isErr = nivel === 'error';
+      const isWarn = nivel === 'warn' || nivel === 'warning';
+      const cls = isErr ? 'out' : isWarn ? 'warn' : 'in';
+      return `<div class="tx-row"><div class="tx-ico ${cls}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div><div class="tx-body"><div class="tx-title" style="font-size:12px;white-space:normal">${String(msg).substring(0,200)}${extra}</div><div class="tx-date">${fmtData(l.timestamp)} · <span style="color:var(--cyan)">${nivel}</span>${l.http_code ? ' · HTTP '+l.http_code : ''}</div></div></div>`;
+    }).join('')
+    : `<div class="empty"><h4>Sem logs</h4></div>`;
+}
+
+window.limparLogs = async function(){
+  if(!confirm('Limpar estes logs?')) return;
+  try {
+    await remove(ref(db, 'logs/' + logFilAtual));
+    toast('Logs limpos','success');
+  } catch(e){ toast('Erro','error'); }
 };
 
 // ==================== BANNERS ====================
@@ -1082,8 +1619,7 @@ function renderPromocoes(){
     const encerrada = agora > (p.data_fim||Infinity);
     const pausada = !p.ativo;
     const cls = encerrada ? 'encerrada' : (pausada ? 'pausada' : (ativa ? 'ativa' : 'encerrada'));
-    let tipoDesc = '';
-    let statusBadge = '';
+    let tipoDesc = '', statusBadge = '';
     if(ativa) statusBadge = '<span class="pill green">● ATIVA</span>';
     else if(encerrada) statusBadge = '<span class="pill gray">ENCERRADA</span>';
     else statusBadge = '<span class="pill yellow">PAUSADA</span>';
@@ -1169,7 +1705,7 @@ window.excluirPromo = async function(id){ const p = promocoes[id]; if(!p) return
 
 // ==================== CASHBACK ====================
 function renderCashbackConfig(){
-  const c = configCashback;
+  const c = configCashback || {};
   const ativoEl = document.getElementById('cb-ativo');
   if(!ativoEl) return;
   ativoEl.checked = c.ativo !== false;
@@ -1186,7 +1722,7 @@ window.salvarCashback = async function(){
 };
 
 function renderNiveis(){
-  const n = configNiveis;
+  const n = configNiveis || {};
   if(!document.getElementById('nivel-bronze-min')) return;
   document.getElementById('nivel-bronze-min').value = n.bronze?.min ?? 0;
   document.getElementById('nivel-bronze-pct').value = n.bronze?.percentual ?? 5;
@@ -1200,6 +1736,198 @@ window.salvarNiveis = async function(){
   const dados = { bronze: { min: Number(document.getElementById('nivel-bronze-min').value) || 0, percentual: Number(document.getElementById('nivel-bronze-pct').value) || 5 }, prata: { min: Number(document.getElementById('nivel-prata-min').value) || 10, percentual: Number(document.getElementById('nivel-prata-pct').value) || 8 }, ouro: { min: Number(document.getElementById('nivel-ouro-min').value) || 50, percentual: Number(document.getElementById('nivel-ouro-pct').value) || 12 } };
   try { await set(ref(db, 'config/niveis'), dados); toast('Níveis salvos!', 'success'); }
   catch(e){ toast('Erro: '+e.message, 'error'); }
+};
+
+// ==================== DRAWER CLIENTE ====================
+window.abrirDrawer = function(uid){
+  const c = clientes[uid];
+  if(!c) return;
+  clienteSelecionado = uid;
+  const ativo = c.ativo !== false;
+  const isVip = c.cashback_especial?.ativo;
+  const desde = c.criado_em ? new Date(c.criado_em*1000).toLocaleDateString('pt-BR') : '—';
+  const stats = c.stats || {};
+  const nRec = Number(stats.total_recargas || 0);
+  const txArr = c.transacoes ? Object.entries(c.transacoes).map(([id,t])=>({id,...t})).sort((a,b)=>(b.data||0)-(a.data||0)) : [];
+
+  let nivelAtual = 'Bronze';
+  const niveis = configNiveis || {};
+  if(niveis.ouro && nRec >= (niveis.ouro.min || 50)) nivelAtual = 'Ouro';
+  else if(niveis.prata && nRec >= (niveis.prata.min || 10)) nivelAtual = 'Prata';
+
+  document.getElementById('drawer-title').innerText = c.nome || 'Cliente';
+  document.getElementById('drawer-body').innerHTML = `
+    <div class="client-hero">
+      <div class="av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div>
+      <h2>${c.nome||'-'} ${isVip?'⭐':''}</h2>
+      <p>${c.cpf||'-'}</p>
+      <div class="codigo-hero">
+        <div class="lbl">🔢 Código na máquina</div>
+        <div class="cod">${c.codigo_maquina || '----'}</div>
+      </div>
+      <div class="stats">
+        <div><div class="v">${fmtBRL(c.saldo)}</div><div class="k">Saldo</div></div>
+        <div><div class="v">${nRec}</div><div class="k">Recargas</div></div>
+        <div><div class="v">${fmtBRL(stats.total_cashback_recebido||0)}</div><div class="k">Cashback</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+      <button class="btn btn-p" onclick="abrirEditar('${uid}')" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Editar</button>
+      <button class="btn btn-s" onclick="abrirModalSaldo('${uid}')" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Add saldo</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="abaCliente('info',this)">Info</button>
+      <button class="tab" onclick="abaCliente('vip',this)">VIP</button>
+      <button class="tab" onclick="abaCliente('hist',this)">Histórico</button>
+    </div>
+
+    <div id="aba-info" class="detalhe-aba">
+      <div class="detail-rows">
+        <div class="detail-row">
+          <span class="k">📧 E-mail (login)</span>
+          <span class="v mono">${c.email || '—'}</span>
+          <button class="copy-btn" onclick="copiar('${(c.email||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+        <div class="detail-row">
+          <span class="k">🔑 Senha</span>
+          <span class="v mono">${c.senha_info || '—'}</span>
+          <button class="copy-btn" onclick="copiar('${(c.senha_info||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+        <div class="detail-row">
+          <span class="k">🔢 Código máquina</span>
+          <span class="v highlight mono" style="font-size:15px;letter-spacing:2px">${c.codigo_maquina || '—'}</span>
+          <button class="copy-btn" onclick="copiar('${(c.codigo_maquina||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+        <div class="detail-row"><span class="k">📱 WhatsApp</span><span class="v">${c.whatsapp||'-'}</span></div>
+        <div class="detail-row"><span class="k">📍 Endereço</span><span class="v">${c.endereco||'-'}</span></div>
+        <div class="detail-row"><span class="k">📅 Cliente desde</span><span class="v">${desde}</span></div>
+        <div class="detail-row"><span class="k">🏆 Nível</span><span class="v"><span class="pill purple">${nivelAtual}</span></span></div>
+        <div class="detail-row"><span class="k">Status</span><span class="v"><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></span></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-s" onclick="toggleBloqueio('${uid}')">${ativo?'Bloquear':'Desbloquear'}</button>
+        <button class="btn btn-d" onclick="excluirCliente('${uid}')">Excluir cliente</button>
+      </div>
+    </div>
+
+    <div id="aba-vip" class="detalhe-aba" style="display:none">
+      <div class="vip-box">
+        <div class="vip-head">
+          <div class="vip-title">⭐ Cliente VIP</div>
+          <label class="toggle"><input type="checkbox" id="vip-toggle" ${isVip?'checked':''}><span class="toggle-slider"></span></label>
+        </div>
+        <div class="vip-fields">
+          <div class="campo"><label>Tipo</label><select id="vip-tipo"><option value="percentual" ${(c.cashback_especial?.tipo||'percentual')==='percentual'?'selected':''}>Percentual (%)</option><option value="fixo" ${c.cashback_especial?.tipo==='fixo'?'selected':''}>Fixo (R$)</option></select></div>
+          <div class="campo"><label>Valor</label><input type="number" id="vip-valor" step="0.5" min="0" value="${c.cashback_especial?.valor||10}"></div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:#00000020;border-radius:10px;font-size:11px;color:var(--txt-3);line-height:1.5">💡 VIP ignora o nível automático. Aplica o valor acima em toda recarga.</div>
+        <button class="btn btn-pink" style="margin-top:14px" onclick="salvarVip('${uid}')">Salvar VIP</button>
+      </div>
+    </div>
+
+    <div id="aba-hist" class="detalhe-aba" style="display:none">
+      ${txArr.length ? txArr.map(t=>{
+        const isIn = t.tipo==='recarga';
+        const bonus = Number(t.bonus_total || 0);
+        return `<div class="tx-row"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${isIn?'Recarga':'Consumo'} — ${t.garrafoes||1} crédito${(t.garrafoes||1)>1?'s':''}</div><div class="tx-date">${fmtData(t.data)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div><div class="tx-amount ${isIn?'in':'out'}">${isIn?'+':'−'} ${fmtBRL(Math.abs(t.total||t.valor||0))}</div></div>`;
+      }).join('') : '<div class="empty"><h4>Sem histórico</h4></div>'}
+    </div>
+  `;
+  document.getElementById('drawer').classList.add('active');
+  document.getElementById('drawer-bg').classList.add('active');
+};
+
+window.abaCliente = function(aba, el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.detalhe-aba').forEach(a=>a.style.display='none');
+  document.getElementById('aba-'+aba).style.display = 'block';
+};
+
+window.salvarVip = async function(uid){
+  const ativo = document.getElementById('vip-toggle').checked;
+  const tipo = document.getElementById('vip-tipo').value;
+  const valor = Number(document.getElementById('vip-valor').value) || 0;
+  try { await update(ref(db, `clientes/${uid}/cashback_especial`), { ativo, tipo, valor }); toast(ativo ? 'VIP ativado' : 'VIP removido', 'success'); }
+  catch(e){ toast('Erro: '+e.message, 'error'); }
+};
+
+window.toggleBloqueio = async function(uid){
+  const c = clientes[uid]; if(!c) return;
+  const ativo = c.ativo !== false;
+  try { await update(ref(db, 'clientes/'+uid), { ativo: !ativo }); toast(ativo?'Bloqueado':'Desbloqueado','success'); fecharDrawer(); }
+  catch(e){ toast('Erro','error'); }
+};
+
+window.excluirCliente = async function(uid){
+  const c = clientes[uid]; if(!c) return;
+  if(!confirm(`Excluir "${c.nome}"? Esta ação não pode ser desfeita.`)) return;
+  try { await remove(ref(db, 'clientes/'+uid)); toast('Removido','success'); fecharDrawer(); }
+  catch(e){ toast('Erro','error'); }
+};
+
+// ==================== EDITAR CLIENTE ====================
+window.abrirEditar = function(uid){
+  const c = clientes[uid];
+  if(!c) return;
+  document.getElementById('ed-uid').value = uid;
+  document.getElementById('ed-nome').value = c.nome || '';
+  document.getElementById('ed-cpf').value = c.cpf || '';
+  document.getElementById('ed-whats').value = c.whatsapp || '';
+  document.getElementById('ed-endereco').value = c.endereco || '';
+  document.getElementById('ed-codigo').value = c.codigo_maquina || '';
+  document.getElementById('ed-senha').value = c.senha_info || '';
+  document.getElementById('ed-saldo').value = (Number(c.saldo||0)).toFixed(2);
+  document.getElementById('modal-editar').classList.add('active');
+};
+
+document.getElementById('ed-cpf')?.addEventListener('input', e=>{
+  e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+});
+document.getElementById('ed-whats')?.addEventListener('input', e=>{
+  e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2');
+});
+document.getElementById('ed-codigo')?.addEventListener('input', e=>{
+  e.target.value = e.target.value.replace(/\D/g,'').slice(0,6);
+});
+
+window.salvarEdicao = async function(){
+  const uid = document.getElementById('ed-uid').value;
+  if(!uid) return;
+  const c = clientes[uid];
+  if(!c) return;
+
+  const nome = document.getElementById('ed-nome').value.trim();
+  const cpf = document.getElementById('ed-cpf').value.trim();
+  const whats = document.getElementById('ed-whats').value.trim();
+  const endereco = document.getElementById('ed-endereco').value.trim();
+  const codigo = document.getElementById('ed-codigo').value.trim();
+  const senhaInfo = document.getElementById('ed-senha').value.trim();
+  const saldo = parseFloat(document.getElementById('ed-saldo').value) || 0;
+
+  if(!nome || nome.length < 3) return toast('Nome inválido','error');
+  if(cpf.replace(/\D/g,'').length !== 11) return toast('CPF inválido','error');
+  if(whats.replace(/\D/g,'').length < 10) return toast('WhatsApp inválido','error');
+  if(!codigo || codigo.length < 4 || codigo.length > 6) return toast('Código deve ter 4 a 6 dígitos','error');
+
+  const emUso = Object.entries(clientes).some(([id, cli]) => id !== uid && cli.codigo_maquina === codigo);
+  if(emUso){ return toast('Este código já está em uso por outro cliente', 'error'); }
+
+  showLoading();
+  try {
+    await update(ref(db, 'clientes/' + uid), {
+      nome, cpf, whatsapp: whats, endereco,
+      codigo_maquina: codigo,
+      senha_info: senhaInfo,
+      saldo: Number(saldo.toFixed(2))
+    });
+    toast('Dados atualizados!','success');
+    fecharModal('modal-editar');
+    fecharDrawer();
+  } catch(e){ toast('Erro: ' + e.message, 'error'); }
+  finally { hideLoading(); }
 };
 
 // ==================== SALDO ====================
@@ -1257,7 +1985,6 @@ window.criarCliente = async function(){
   if(!codigo || codigo.length < 4 || codigo.length > 6) return toast('Código deve ter 4 a 6 dígitos','error');
   if(senha.length < 6) return toast('Senha curta','error');
 
-  // Verifica código único
   const emUso = Object.values(clientes).some(c => c.codigo_maquina === codigo);
   if(emUso) return toast('Este código já está em uso','error');
 
@@ -1284,71 +2011,33 @@ window.criarCliente = async function(){
   } finally { hideLoading(); }
 };
 
-// ==================== OUTROS ====================
-function renderTransacoes(){
-  const busca = (document.getElementById('busca-tx')?.value||'').toLowerCase();
-  const filtro = document.getElementById('filtro-tx-status')?.value || '';
-  let arr = Object.entries(transacoes).map(([id,t])=>({id,...t}));
-  if(filtro) arr = arr.filter(t=>t.status===filtro);
-  if(busca) arr = arr.filter(t=> (t.id||'').toLowerCase().includes(busca) || (t.motivo||'').toLowerCase().includes(busca) || (t.origem||'').toLowerCase().includes(busca));
-  arr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0));
-  arr = arr.slice(0,100);
-  const cores = {liberado: 'green', ignorado_app: 'cyan', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red'};
-  document.getElementById('tabela-tx').innerHTML = arr.length
-    ? arr.map(t=>{ const bonus = Number(t.bonus_total||0); return `<tr><td><code style="font-size:11px;color:var(--txt-2);font-family:var(--mono)">${(t.id||'-').substring(0,20)}</code></td><td>${fmtBRL(t.valor||t.valor_pago)}</td><td style="color:var(--purple)">${bonus>0?fmtBRL(bonus):'—'}</td><td><strong>${fmtBRL(t.total_creditado||t.total||t.valor)}</strong></td><td><span class="pill ${cores[t.status]||'gray'}">${t.status||'-'}</span></td><td style="color:var(--txt-3);font-size:12px;font-family:var(--mono)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td></tr>`; }).join('')
-    : `<tr><td colspan="6"><div class="empty"><h4>Sem transações</h4></div></td></tr>`;
-}
+// ==================== MANUTENÇÃO ====================
+window.zerarSaldoTodos = async function(){
+  if(!confirm('⚠️ ZERAR saldo de TODOS os clientes?')) return;
+  if(!confirm('Tem CERTEZA? Isso não pode ser desfeito!')) return;
+  showLoading();
+  try {
+    const updates = {};
+    Object.keys(clientes).forEach(uid => { updates[`clientes/${uid}/saldo`] = 0; });
+    await update(ref(db), updates);
+    toast('Saldos zerados','success');
+  } catch(e){ toast('Erro: '+e.message,'error'); }
+  finally { hideLoading(); }
+};
 
-function renderEstornos(){
-  const arr = Object.entries(estornos).map(([id,e])=>({id,...e}));
-  document.getElementById('lista-estornos').innerHTML = arr.length
-    ? arr.map(e=>`<div class="tx-row"><div class="tx-ico out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="tx-body"><div class="tx-title">${e.id||'-'}</div><div class="tx-date">${e.motivo||'-'}</div></div><button class="mini danger" onclick="cancelarEstorno('${e.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>`).join('')
-    : `<div class="empty"><h4>Fila vazia</h4></div>`;
-}
-window.cancelarEstorno = async function(id){ if(!confirm('Remover?')) return; try { await remove(ref(db, 'fila_estornos/'+id)); toast('Removido','success'); } catch(e){ toast('Erro','error'); } };
+window.limparTodosLogs = async function(){
+  if(!confirm('Limpar TODOS os logs?')) return;
+  try { await remove(ref(db, 'logs')); toast('Logs limpos','success'); }
+  catch(e){ toast('Erro','error'); }
+};
 
-function renderCiclos(){
-  const arr = Object.entries(ciclos).map(([id,c])=>({id,...c}));
-  arr.sort((a,b)=>(b.iniciado_em||0)-(a.iniciado_em||0));
-  arr.splice(50);
-  document.getElementById('lista-ciclos').innerHTML = arr.length
-    ? arr.map(c=>{ const total = c.garrafoes_previstos||0; const comp = c.garrafoes_completos||0; return `<div class="tx-row"><div class="tx-ico ${c.status==='concluido'?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="tx-body"><div class="tx-title">${comp}/${total} créditos</div><div class="tx-date">${fmtData(c.iniciado_em)}</div></div><span class="pill ${c.status==='concluido'?'green':'yellow'}">${c.status||'-'}</span></div>`; }).join('')
-    : `<div class="empty"><h4>Sem ciclos</h4></div>`;
-}
+window.limparTodosEstornos = async function(){
+  if(!confirm('Limpar TODA a fila de estornos? PIX não serão devolvidos.')) return;
+  try { await remove(ref(db, 'fila_estornos')); toast('Fila limpa','success'); }
+  catch(e){ toast('Erro','error'); }
+};
 
-function renderStatus(){
-  const s = statusESP;
-  const online = s.online && s.ultimo_heartbeat && (Date.now()/1000 - s.ultimo_heartbeat) < 60;
-  document.getElementById('stats-maquina').innerHTML = `
-    <div class="stat"><div class="ico ${online?'green':'red'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0"/></svg></div><div class="lbl">Conexão</div><div class="val ${online?'green':'red'}">${online?'Online':'Offline'}</div></div>
-    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></div><div class="lbl">Versão</div><div class="val" style="font-size:22px">${s.versao||'—'}</div></div>
-    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0"/></svg></div><div class="lbl">Wi-Fi</div><div class="val">${s.rssi||0} dBm</div></div>
-    <div class="stat"><div class="ico ${s.bomba_ativa?'yellow':'green'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="lbl">Bomba</div><div class="val ${s.bomba_ativa?'yellow':''}">${s.bomba_ativa?'Ligada':'Parada'}</div></div>
-  `;
-  document.getElementById('status-esp').innerHTML = `
-    <div class="detail-rows">
-      <div class="detail-row"><span class="k">Pedido</span><span class="v">${s.pedido_atual||'—'}</span></div>
-      <div class="detail-row"><span class="k">Créditos</span><span class="v">${s.doses_completas||0} / ${s.doses_total||0}</span></div>
-      <div class="detail-row"><span class="k">Freio</span><span class="v"><span class="pill ${s.freio_ativo?'red':'green'}">${s.freio_ativo?'Ativo':'Inativo'}</span></span></div>
-    </div>
-    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn btn-p" onclick="comandoESP('ligar_bomba',true)">Ligar</button>
-      <button class="btn btn-s" onclick="comandoESP('desligar_bomba',true)">Desligar</button>
-      <button class="btn btn-d" onclick="comandoESP('cancelar_fila',true)">Cancelar</button>
-    </div>`;
-}
-window.comandoESP = async function(cmd, v){ try { await update(ref(db, 'comandos'), { [cmd]: v }); toast('Enviado','success'); } catch(e){ toast('Erro','error'); } };
-
-function renderLogs(){
-  const tipo = document.getElementById('filtro-logs-tipo')?.value || 'esp';
-  let arr = tipo === 'esp' ? logs_esp : (tipo === 'api' ? logs_api : logs_conn);
-  document.getElementById('lista-logs').innerHTML = arr.length
-    ? arr.map(l=>{ const nivel = l.nivel || l.tipo || 'info'; const msg = l.mensagem || l.detalhe || l.motivo || JSON.stringify(l); const isErr = nivel === 'error'; return `<div class="tx-row"><div class="tx-ico ${isErr?'out':'in'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div><div class="tx-body"><div class="tx-title" style="font-size:12px">${msg.substring(0,140)}</div><div class="tx-date">${fmtData(l.timestamp)} · <span style="color:var(--cyan)">${nivel}</span></div></div></div>`; }).join('')
-    : `<div class="empty"><h4>Sem logs</h4></div>`;
-}
-
+// ==================== MODAIS ESC ====================
 document.addEventListener('keydown', e=>{ if(e.key === 'Escape'){ document.querySelectorAll('.modal-bg.active').forEach(m=>m.classList.remove('active')); fecharDrawer(); } });
 document.querySelectorAll('.modal-bg').forEach(m=>{ m.addEventListener('click', e=>{ if(e.target === m) m.classList.remove('active'); }); });
 </script>
-</body>
-</html>
