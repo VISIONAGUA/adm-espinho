@@ -3,45 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vision Água · Painel Administrativo</title>
+<title>Vision Água · Painel Admin</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg-0:#02080f;--bg-1:#04101c;--surface-0:#0a2035;--surface-1:#0d2941;--border-0:#ffffff08;--border-1:#ffffff12;--border-2:#ffffff1c;--cyan:#00DDFF;--cyan-2:#00b8d4;--green:#00E676;--red:#FF4D6D;--yellow:#FFC857;--purple:#A78BFA;--txt-1:#FFFFFF;--txt-2:#94A9BE;--txt-3:#5A7089;--txt-4:#3A4A5C;--font:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Roboto,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace}
+:root{--bg-0:#02080f;--bg-1:#04101c;--surface-0:#0a2035;--surface-1:#0d2941;--border-0:#ffffff08;--border-1:#ffffff12;--border-2:#ffffff1c;--cyan:#00DDFF;--cyan-2:#00b8d4;--green:#00E676;--red:#FF4D6D;--yellow:#FFC857;--purple:#A78BFA;--pink:#FF6B9D;--txt-1:#FFFFFF;--txt-2:#94A9BE;--txt-3:#5A7089;--txt-4:#3A4A5C;--font:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Roboto,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace}
 html,body{height:100%}
 body{font-family:var(--font);background:var(--bg-0);color:var(--txt-1);font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
 button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
 button{cursor:pointer;background:none;border:none;outline:none}
-input,select{outline:none}
+input,select,textarea{outline:none}
 svg{display:block}
 ::selection{background:var(--cyan);color:var(--bg-0)}
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#ffffff15;border-radius:4px}
 
-/* LOGIN */
 #login{position:fixed;inset:0;z-index:9000;background:radial-gradient(ellipse 800px 600px at 50% 0%,#0a2a4a80,transparent),radial-gradient(ellipse 600px 400px at 80% 100%,#00ddff10,transparent),var(--bg-0);display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .4s,visibility .4s}
 #login.hide{opacity:0;visibility:hidden;pointer-events:none}
-.login-card{width:100%;max-width:400px;position:relative}
+.login-card{width:100%;max-width:400px}
 .login-inner{background:linear-gradient(180deg,#0a2035,#061828);border:1px solid var(--border-2);border-radius:20px;padding:36px 32px;box-shadow:0 20px 60px #00000060}
 .login-logo{width:60px;height:60px;border-radius:16px;margin:0 auto 20px;background:linear-gradient(135deg,#00DDFF,#00E676);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px #00ddff40}
 .login-logo svg{width:30px;height:30px}
-.login-inner h1{text-align:center;font-size:22px;font-weight:800;letter-spacing:-.4px}
+.login-inner h1{text-align:center;font-size:22px;font-weight:800}
 .login-inner .sub{text-align:center;color:var(--txt-3);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:6px 0 30px;font-weight:600}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:11px;color:var(--txt-2);margin-bottom:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.field input,.field select{width:100%;padding:14px 16px;border-radius:12px;font-size:14px;background:#ffffff06;border:1.5px solid var(--border-1);color:var(--txt-1);transition:.2s}
-.field input:focus,.field select:focus{border-color:var(--cyan);background:#00ddff08;box-shadow:0 0 0 4px #00ddff10}
-.field input::placeholder{color:var(--txt-4)}
+.field input,.field select,.field textarea{width:100%;padding:14px 16px;border-radius:12px;font-size:14px;background:#ffffff06;border:1.5px solid var(--border-1);color:var(--txt-1);transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);background:#00ddff08;box-shadow:0 0 0 4px #00ddff10}
+.field input::placeholder,.field textarea::placeholder{color:var(--txt-4)}
+.field textarea{resize:vertical;min-height:60px;font-family:inherit}
 .btn-login{width:100%;padding:15px;border-radius:12px;font-weight:700;font-size:14px;background:linear-gradient(135deg,#00DDFF,#00a8c4);color:#02080f;margin-top:10px;box-shadow:0 8px 24px #00ddff30}
 
-/* LAYOUT */
 #app{display:none}
 #app.active{display:grid;grid-template-columns:252px 1fr;min-height:100vh}
 .sidebar{background:linear-gradient(180deg,#04101c,#02080f);border-right:1px solid var(--border-0);padding:24px 14px;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;z-index:200}
 .sb-brand{display:flex;align-items:center;gap:12px;padding:0 10px 24px;margin-bottom:8px;border-bottom:1px solid var(--border-0)}
 .sb-brand-icon{width:40px;height:40px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,#00DDFF,#00E676);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px #00ddff30}
 .sb-brand-icon svg{width:20px;height:20px}
-.sb-brand-txt .t{font-weight:800;font-size:14px;letter-spacing:-.2px}
+.sb-brand-txt .t{font-weight:800;font-size:14px}
 .sb-brand-txt .s{font-size:10px;color:var(--txt-3);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;font-weight:700}
 .sb-nav{flex:1;overflow-y:auto;margin:0 -6px;padding:0 6px}
 .sb-sec{font-size:10px;color:var(--txt-4);letter-spacing:2px;text-transform:uppercase;padding:18px 12px 8px;font-weight:800}
@@ -51,6 +50,7 @@ svg{display:block}
 .sb-item.active{background:#00ddff12;color:var(--cyan)}
 .sb-item.active::before{content:'';position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:3px;height:20px;background:var(--cyan);border-radius:2px;box-shadow:0 0 12px var(--cyan)}
 .sb-item .badge{margin-left:auto;background:#ff4d6d25;color:var(--red);font-size:10px;font-weight:800;padding:3px 8px;border-radius:8px}
+.sb-item .badge.new{background:#00e67625;color:var(--green)}
 .sb-user{background:#ffffff06;border:1px solid var(--border-0);border-radius:12px;padding:11px;margin-top:12px;display:flex;align-items:center;gap:10px}
 .sb-user-av{width:34px;height:34px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#00DDFF,#00E676);display:flex;align-items:center;justify-content:center;font-weight:800;color:#02080f;font-size:13px}
 .sb-user-info{flex:1;min-width:0}
@@ -59,7 +59,6 @@ svg{display:block}
 .sb-user-out{padding:6px;color:var(--txt-3);border-radius:6px;display:flex;transition:.15s}
 .sb-user-out:hover{color:var(--red);background:#ff4d6d20}
 
-/* MAIN */
 .main{padding:28px 36px 80px;overflow-x:hidden;min-width:0;background:radial-gradient(ellipse 1000px 600px at 100% 0%,#00ddff06,transparent),radial-gradient(ellipse 800px 400px at 0% 100%,#00e67606,transparent),var(--bg-0);min-height:100vh}
 .topbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:20px;flex-wrap:wrap}
 .topbar-l h1{font-size:26px;font-weight:800;letter-spacing:-.6px;background:linear-gradient(90deg,#fff,#00DDFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -74,38 +73,36 @@ svg{display:block}
 .btn-s:hover{background:#ffffff12}
 .btn-d{background:#ff4d6d18;color:var(--red);border-color:#ff4d6d30}
 .btn-g{background:#00e67618;color:var(--green);border-color:#00e67630}
+.btn-y{background:#ffc85718;color:var(--yellow);border-color:#ffc85730}
+.btn-pink{background:linear-gradient(135deg,#FF6B9D,#FFC857);color:#02080f;box-shadow:0 6px 20px #ff6b9d40}
 
-/* STATS */
 .grid-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:28px}
 .stat{background:linear-gradient(160deg,#0a2035,#061828);border:1px solid var(--border-0);border-radius:16px;padding:22px;position:relative;overflow:hidden;transition:.2s}
 .stat:hover{border-color:var(--border-1);transform:translateY(-2px)}
 .stat::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent,#00DDFF),transparent);opacity:.4}
-.stat .ico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;position:relative}
-.stat .ico svg{width:18px;height:18px;position:relative;z-index:1}
+.stat .ico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.stat .ico svg{width:18px;height:18px}
 .stat .ico.cyan{background:#00ddff15;color:var(--cyan)}
 .stat .ico.green{background:#00e67615;color:var(--green)}
 .stat .ico.red{background:#ff4d6d15;color:var(--red)}
 .stat .ico.yellow{background:#ffc85715;color:var(--yellow)}
+.stat .ico.purple{background:#a78bfa15;color:var(--purple)}
+.stat .ico.pink{background:#ff6b9d15;color:var(--pink)}
 .stat .lbl{font-size:11px;color:var(--txt-3);letter-spacing:1.2px;text-transform:uppercase;font-weight:700;margin-bottom:8px}
 .stat .val{font-size:28px;font-weight:800;letter-spacing:-.8px;line-height:1;font-variant-numeric:tabular-nums}
 .stat .val.green{color:var(--green)}
 .stat .val.red{color:var(--red)}
 .stat .val.yellow{color:var(--yellow)}
-.stat .sub{font-size:12px;color:var(--txt-3);margin-top:6px;display:flex;align-items:center;gap:6px}
-.stat .sub .trend{display:inline-flex;align-items:center;gap:3px;font-weight:700;font-size:11px}
-.stat .sub .trend.up{color:var(--green)}
-.stat .sub .trend.dn{color:var(--red)}
+.stat .val.purple{color:var(--purple)}
+.stat .val.pink{color:var(--pink)}
+.stat .sub{font-size:12px;color:var(--txt-3);margin-top:6px}
 
-/* CARDS */
 .card{background:linear-gradient(160deg,#08203a,#051428);border:1px solid var(--border-0);border-radius:16px;padding:22px;margin-bottom:20px;position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff20,transparent)}
 .card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:14px;flex-wrap:wrap}
 .card-head h2{font-size:15px;font-weight:800;letter-spacing:-.2px}
 .card-head .sub{font-size:12px;color:var(--txt-3);margin-top:3px;font-weight:500}
-.grid-2{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-bottom:20px}
-@media(max-width:1100px){.grid-2{grid-template-columns:1fr}}
 
-/* TABELA */
 .table-wrap{overflow-x:auto;margin:0 -22px;padding:0 22px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{text-align:left;padding:12px 14px;font-size:10.5px;color:var(--txt-3);letter-spacing:1.5px;text-transform:uppercase;font-weight:800;background:transparent;border-bottom:1px solid var(--border-0);white-space:nowrap}
@@ -115,6 +112,7 @@ tbody tr:hover{background:#ffffff04}
 tbody tr:last-child td{border-bottom:none}
 .cell-user{display:flex;align-items:center;gap:12px}
 .cell-av{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;color:#02080f;font-size:13px;background:linear-gradient(135deg,#00DDFF,#00E676)}
+.cell-av.vip{background:linear-gradient(135deg,#FF6B9D,#FFC857)}
 .cell-user .n{font-weight:700;font-size:13px}
 .cell-user .s{font-size:11px;color:var(--txt-3);margin-top:2px;font-family:var(--mono)}
 .pill{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
@@ -125,13 +123,13 @@ tbody tr:last-child td{border-bottom:none}
 .pill.cyan{background:#00ddff15;color:var(--cyan)}
 .pill.gray{background:#ffffff10;color:var(--txt-2)}
 .pill.purple{background:#a78bfa15;color:var(--purple)}
+.pill.pink{background:#ff6b9d15;color:var(--pink)}
 .actions-cell{display:flex;gap:6px;justify-content:flex-end}
 .mini{width:32px;height:32px;border-radius:9px;background:#ffffff06;border:1px solid var(--border-0);display:flex;align-items:center;justify-content:center;color:var(--txt-2);transition:.15s}
 .mini:hover{background:#ffffff12;color:var(--cyan)}
 .mini.danger:hover{color:var(--red);background:#ff4d6d15}
 .mini svg{width:14px;height:14px}
 
-/* SEARCH */
 .search{position:relative;flex:1;min-width:200px;max-width:340px}
 .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--txt-3);pointer-events:none}
 .search input{width:100%;padding:11px 14px 11px 38px;border-radius:10px;background:#ffffff06;border:1.5px solid var(--border-0);color:var(--txt-1);font-size:13px}
@@ -139,7 +137,58 @@ tbody tr:last-child td{border-bottom:none}
 .select-mini{padding:11px 14px;border-radius:10px;font-size:13px;background:#ffffff06;border:1.5px solid var(--border-0);color:var(--txt-1);cursor:pointer}
 .select-mini option{background:#04101c;color:#fff}
 
-/* DRAWER */
+/* PROMOÇÕES */
+.promo-card{
+  border-radius:16px;padding:20px;margin-bottom:12px;
+  border:1px solid var(--border-0);
+  background:linear-gradient(160deg,#08203a,#061828);
+  transition:.2s;position:relative;overflow:hidden;
+}
+.promo-card.ativa{border-color:#00e67640;background:linear-gradient(160deg,#0a2f2a,#061828)}
+.promo-card.encerrada{opacity:.6;border-color:var(--border-0)}
+.promo-card.pausada{border-color:#ffc85740;background:linear-gradient(160deg,#2a220a,#061828)}
+.promo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent,#00DDFF),transparent);opacity:.5}
+.promo-card.ativa::before{--accent:#00E676}
+.promo-card.pausada::before{--accent:#FFC857}
+.promo-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
+.promo-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.promo-desc{font-size:13px;color:var(--txt-2);margin-top:4px}
+.promo-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-0)}
+.promo-meta .item{font-size:11px;color:var(--txt-3);display:flex;align-items:center;gap:6px}
+.promo-meta .item strong{color:var(--txt-2);font-weight:700}
+.promo-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+
+/* CASHBACK CONFIG */
+.cb-config{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+.cb-field{background:#ffffff04;border:1px solid var(--border-0);border-radius:12px;padding:16px}
+.cb-field label{font-size:11px;color:var(--txt-2);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;display:block}
+.cb-field input,.cb-field select{width:100%;padding:11px 14px;border-radius:10px;font-size:14px;background:#ffffff06;border:1.5px solid var(--border-0);color:var(--txt-1)}
+.cb-field input:focus,.cb-field select:focus{border-color:var(--cyan);background:#00ddff08}
+.toggle{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.toggle input{display:none}
+.toggle-slider{width:44px;height:24px;border-radius:12px;background:#ffffff15;position:relative;transition:.2s;flex-shrink:0}
+.toggle-slider::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
+.toggle input:checked + .toggle-slider{background:var(--green)}
+.toggle input:checked + .toggle-slider::after{transform:translateX(20px)}
+
+.nivel-card{
+  border-radius:14px;padding:18px;
+  border:1px solid var(--border-0);
+  display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;
+  margin-bottom:10px;
+}
+.nivel-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.nivel-bronze{background:linear-gradient(135deg,#CD7F32,#8B5A2B);box-shadow:0 6px 20px #cd7f3240}
+.nivel-prata{background:linear-gradient(135deg,#C0C0C0,#808080);box-shadow:0 6px 20px #c0c0c040}
+.nivel-ouro{background:linear-gradient(135deg,#FFD700,#FFA500);box-shadow:0 6px 20px #ffd70040}
+.nivel-info .name{font-size:15px;font-weight:800}
+.nivel-info .desc{font-size:12px;color:var(--txt-3);margin-top:3px}
+.nivel-campos{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.nivel-campos .campo{display:flex;flex-direction:column;gap:4px}
+.nivel-campos .campo label{font-size:9px;color:var(--txt-3);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.nivel-campos input{width:80px;padding:8px 10px;border-radius:8px;font-size:13px;background:#ffffff06;border:1px solid var(--border-1);color:var(--txt-1);text-align:center;font-weight:700}
+.nivel-campos input:focus{border-color:var(--cyan)}
+
 .drawer-bg{position:fixed;inset:0;background:#02080fcc;backdrop-filter:blur(6px);z-index:800;opacity:0;visibility:hidden;transition:.3s}
 .drawer-bg.active{opacity:1;visibility:visible}
 .drawer{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:480px;background:linear-gradient(180deg,#0a2035,#04101c);border-left:1px solid var(--border-1);z-index:801;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.9,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px #00000080}
@@ -153,13 +202,14 @@ tbody tr:last-child td{border-bottom:none}
 
 .client-hero{padding:24px;background:radial-gradient(ellipse at top,#00ddff10,transparent 70%),#ffffff04;border:1px solid var(--border-0);border-radius:16px;text-align:center;margin-bottom:20px}
 .client-hero .av{width:80px;height:80px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(135deg,#00DDFF,#00E676);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#02080f;box-shadow:0 15px 40px #00ddff30}
+.client-hero .av.vip{background:linear-gradient(135deg,#FF6B9D,#FFC857);box-shadow:0 15px 40px #ff6b9d40}
 .client-hero h2{font-size:20px;font-weight:800}
 .client-hero p{font-size:12px;color:var(--txt-3);margin-top:4px;font-family:var(--mono)}
 .client-hero .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border-0)}
 .client-hero .stats > div{text-align:center}
 .client-hero .stats .v{font-size:16px;font-weight:800;color:var(--cyan);font-variant-numeric:tabular-nums}
 .client-hero .stats .k{font-size:9.5px;color:var(--txt-3);letter-spacing:1.2px;text-transform:uppercase;margin-top:4px;font-weight:700}
-.detail-rows{background:#ffffff04;border:1px solid var(--border-0);border-radius:12px;overflow:hidden}
+.detail-rows{background:#ffffff04;border:1px solid var(--border-0);border-radius:12px;overflow:hidden;margin-bottom:16px}
 .detail-row{display:flex;justify-content:space-between;gap:14px;padding:13px 16px;border-bottom:1px solid #ffffff06;align-items:center}
 .detail-row:last-child{border-bottom:none}
 .detail-row .k{font-size:12px;color:var(--txt-3);font-weight:600;flex-shrink:0}
@@ -168,10 +218,21 @@ tbody tr:last-child td{border-bottom:none}
 .tab{flex:1;padding:9px;font-size:12.5px;font-weight:700;color:var(--txt-3);border-radius:7px;transition:.15s;text-align:center}
 .tab.active{background:#00ddff15;color:var(--cyan)}
 
-/* MODAL */
+.vip-box{
+  background:linear-gradient(135deg,#FF6B9D15,#FFC85715);
+  border:1px solid #FF6B9D40;border-radius:14px;padding:16px;margin-bottom:16px;
+}
+.vip-box .vip-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.vip-box .vip-title{font-size:13px;font-weight:800;color:var(--pink);display:flex;align-items:center;gap:6px}
+.vip-box .vip-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vip-box .vip-fields .campo{display:flex;flex-direction:column;gap:4px}
+.vip-box .vip-fields label{font-size:9px;color:var(--txt-3);letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.vip-box .vip-fields select,.vip-box .vip-fields input{padding:9px 12px;border-radius:9px;font-size:13px;background:#ffffff06;border:1px solid var(--border-1);color:var(--txt-1)}
+.vip-box .vip-fields input:focus,.vip-box .vip-fields select:focus{border-color:var(--pink)}
+
 .modal-bg{position:fixed;inset:0;background:#02080fcc;backdrop-filter:blur(6px);z-index:900;opacity:0;visibility:hidden;transition:.3s;display:flex;align-items:center;justify-content:center;padding:20px}
 .modal-bg.active{opacity:1;visibility:visible}
-.modal{width:100%;max-width:520px;max-height:92vh;overflow-y:auto;background:linear-gradient(180deg,#0a2035,#051428);border:1px solid var(--border-2);border-radius:18px;transform:scale(.94);transition:transform .3s cubic-bezier(.2,.9,.2,1);box-shadow:0 20px 60px #00000060}
+.modal{width:100%;max-width:560px;max-height:92vh;overflow-y:auto;background:linear-gradient(180deg,#0a2035,#051428);border:1px solid var(--border-2);border-radius:18px;transform:scale(.94);transition:transform .3s cubic-bezier(.2,.9,.2,1);box-shadow:0 20px 60px #00000060}
 .modal-bg.active .modal{transform:none}
 .modal-head{padding:22px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border-0);position:sticky;top:0;background:#0a2035;z-index:2;border-radius:18px 18px 0 0}
 .modal-head h3{font-size:16px;font-weight:800}
@@ -181,19 +242,29 @@ tbody tr:last-child td{border-bottom:none}
 .modal-body{padding:24px}
 .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;padding-top:20px;border-top:1px solid var(--border-0)}
 .row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 
-/* TX ROW */
+.tipo-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.tipo-opt{padding:14px 10px;border-radius:12px;background:#ffffff04;border:2px solid var(--border-1);text-align:center;cursor:pointer;transition:.15s}
+.tipo-opt:hover{background:#ffffff08}
+.tipo-opt.active{border-color:var(--cyan);background:#00ddff10}
+.tipo-opt .ico{font-size:22px;margin-bottom:6px}
+.tipo-opt .lbl{font-size:11px;font-weight:700}
+
 .tx-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:#ffffff04;margin-bottom:6px;border:1px solid transparent;transition:.15s}
 .tx-row:hover{background:#ffffff06;border-color:var(--border-0)}
 .tx-ico{width:38px;height:38px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .tx-ico.in{background:#00e67615;color:var(--green)}
 .tx-ico.out{background:#ff4d6d15;color:var(--red)}
+.tx-ico.gift{background:#ffc85715;color:var(--yellow)}
 .tx-ico svg{width:17px;height:17px}
 .tx-body{flex:1;min-width:0}
 .tx-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tx-date{font-size:11px;color:var(--txt-3);margin-top:2px}
 .tx-amount{font-size:14px;font-weight:800;flex-shrink:0;font-variant-numeric:tabular-nums}
 .tx-amount.in{color:var(--green)}
+.tx-amount.bonus{color:var(--yellow)}
+.tx-amount small{display:block;font-size:10px;font-weight:600;color:var(--txt-3);margin-top:2px}
 
 .empty{text-align:center;padding:56px 20px}
 .empty-ico{width:56px;height:56px;margin:0 auto 16px;border-radius:16px;background:#ffffff06;display:flex;align-items:center;justify-content:center;color:var(--txt-3)}
@@ -258,11 +329,15 @@ tbody tr:last-child td{border-bottom:none}
       <div class="sb-item active" data-page="dashboard" onclick="nav('dashboard')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Visão geral</div>
       <div class="sb-item" data-page="clientes" onclick="nav('clientes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.8 3.1-6.5 7-6.5s7 2.7 7 6.5"/></svg>Clientes</div>
       <div class="sb-item" data-page="transacoes" onclick="nav('transacoes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12H3M16 7l5 5-5 5M8 17l-5-5 5-5"/></svg>Transações</div>
+
+      <div class="sb-sec">Marketing</div>
+      <div class="sb-item" data-page="promocoes" onclick="nav('promocoes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Promoções<span class="badge new" id="badge-promos" style="display:none">0</span></div>
+      <div class="sb-item" data-page="cashback" onclick="nav('cashback')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Cashback & Níveis</div>
+
+      <div class="sb-sec">Sistema</div>
       <div class="sb-item" data-page="estornos" onclick="nav('estornos')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Estornos<span class="badge" id="badge-estornos" style="display:none">0</span></div>
       <div class="sb-item" data-page="ciclos" onclick="nav('ciclos')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg>Garrafões</div>
-      <div class="sb-sec">Sistema</div>
       <div class="sb-item" data-page="status" onclick="nav('status')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 20h.01"/></svg>Máquina</div>
-      <div class="sb-item" data-page="config" onclick="nav('config')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Configurações</div>
       <div class="sb-item" data-page="logs" onclick="nav('logs')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Logs</div>
     </nav>
     <div class="sb-user">
@@ -303,7 +378,7 @@ tbody tr:last-child td{border-bottom:none}
           <div style="font-size:12px;color:var(--txt-3);font-weight:600" id="contagem-clientes"></div>
         </div>
         <div class="table-wrap"><table>
-          <thead><tr><th>Cliente</th><th>WhatsApp</th><th>Saldo</th><th>Recargas</th><th>Status</th><th></th></tr></thead>
+          <thead><tr><th>Cliente</th><th>WhatsApp</th><th>Saldo</th><th>Cashback</th><th>Status</th><th></th></tr></thead>
           <tbody id="tabela-clientes"></tbody>
         </table></div>
       </div>
@@ -318,32 +393,124 @@ tbody tr:last-child td{border-bottom:none}
           </select>
         </div>
         <div class="table-wrap"><table>
-          <thead><tr><th>ID</th><th>Valor</th><th>Status</th><th>Origem</th><th>Motivo</th><th>Data</th></tr></thead>
+          <thead><tr><th>ID</th><th>Pago</th><th>Bônus</th><th>Total</th><th>Status</th><th>Data</th></tr></thead>
           <tbody id="tabela-tx"></tbody>
         </table></div>
       </div>
     </div>
 
+    <!-- PROMOÇÕES -->
+    <div class="page" id="page-promocoes" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><h2>Promoções ativas</h2><div class="sub">Crie bônus temporários pros clientes</div></div>
+          <button class="btn btn-pink" onclick="abrirNovaPromo()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Nova promoção</button>
+        </div>
+        <div id="lista-promos"></div>
+      </div>
+    </div>
+
+    <!-- CASHBACK -->
+    <div class="page" id="page-cashback" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><h2>Cashback padrão</h2><div class="sub">Aplicado a todos os clientes</div></div>
+        </div>
+        <div class="cb-config">
+          <div class="cb-field">
+            <label>Status</label>
+            <label class="toggle"><input type="checkbox" id="cb-ativo"><span class="toggle-slider"></span><span style="font-size:13px;font-weight:600">Ativado</span></label>
+          </div>
+          <div class="cb-field">
+            <label>Tipo</label>
+            <select id="cb-tipo">
+              <option value="percentual">Percentual (%)</option>
+              <option value="fixo">Valor fixo (R$)</option>
+            </select>
+          </div>
+          <div class="cb-field">
+            <label>Valor</label>
+            <input type="number" id="cb-valor" step="0.5" min="0" placeholder="5">
+          </div>
+          <div class="cb-field">
+            <label>Aplicar acima de (R$)</label>
+            <input type="number" id="cb-minimo" step="0.5" min="0" placeholder="2,50">
+          </div>
+          <div class="cb-field">
+            <label>Teto por recarga (R$)</label>
+            <input type="number" id="cb-teto" step="1" min="0" placeholder="0 = sem teto">
+          </div>
+        </div>
+        <button class="btn btn-p" onclick="salvarCashback()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+          Salvar configuração
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div><h2>Níveis automáticos</h2><div class="sub">Cliente sobe de nível conforme recarrega</div></div>
+          <button class="btn btn-s" onclick="salvarNiveis()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+            Salvar níveis
+          </button>
+        </div>
+
+        <div class="nivel-card">
+          <div class="nivel-icon nivel-bronze">🥉</div>
+          <div class="nivel-info">
+            <div class="name">Bronze</div>
+            <div class="desc">Todos os clientes começam aqui</div>
+          </div>
+          <div class="nivel-campos">
+            <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-bronze-min" value="0"></div>
+            <div class="campo"><label>Cashback %</label><input type="number" id="nivel-bronze-pct" value="5" step="0.5"></div>
+          </div>
+        </div>
+
+        <div class="nivel-card">
+          <div class="nivel-icon nivel-prata">🥈</div>
+          <div class="nivel-info">
+            <div class="name">Prata</div>
+            <div class="desc">Clientes frequentes</div>
+          </div>
+          <div class="nivel-campos">
+            <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-prata-min" value="10"></div>
+            <div class="campo"><label>Cashback %</label><input type="number" id="nivel-prata-pct" value="8" step="0.5"></div>
+          </div>
+        </div>
+
+        <div class="nivel-card">
+          <div class="nivel-icon nivel-ouro">🥇</div>
+          <div class="nivel-info">
+            <div class="name">Ouro</div>
+            <div class="desc">Os melhores clientes</div>
+          </div>
+          <div class="nivel-campos">
+            <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-ouro-min" value="50"></div>
+            <div class="campo"><label>Cashback %</label><input type="number" id="nivel-ouro-pct" value="12" step="0.5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTORNOS -->
     <div class="page" id="page-estornos" style="display:none">
       <div class="card"><div class="card-head"><div><h2>Fila de estornos</h2><div class="sub">Aguardando decisão</div></div></div><div id="lista-estornos"></div></div>
     </div>
 
     <div class="page" id="page-ciclos" style="display:none">
-      <div class="card"><div class="card-head"><div><h2>Histórico de garrafões</h2><div class="sub">Recargas por venda</div></div></div><div id="lista-ciclos"></div></div>
+      <div class="card"><div class="card-head"><div><h2>Histórico de garrafões</h2></div></div><div id="lista-ciclos"></div></div>
     </div>
 
     <div class="page" id="page-status" style="display:none">
       <div class="grid-stats" id="stats-maquina"></div>
-      <div class="card"><div class="card-head"><div><h2>Detalhes da máquina</h2><div class="sub">Status em tempo real</div></div></div><div id="status-esp"></div></div>
-    </div>
-
-    <div class="page" id="page-config" style="display:none">
-      <div class="card"><div class="card-head"><div><h2>Configurações</h2><div class="sub">Ajustes aplicados à máquina</div></div></div><div id="config-form"></div></div>
+      <div class="card"><div class="card-head"><div><h2>Detalhes da máquina</h2></div></div><div id="status-esp"></div></div>
     </div>
 
     <div class="page" id="page-logs" style="display:none">
       <div class="card">
-        <div class="card-head"><div><h2>Logs</h2><div class="sub">Eventos do sistema</div></div>
+        <div class="card-head"><div><h2>Logs</h2></div>
           <select class="select-mini" id="filtro-logs-tipo" onchange="renderLogs()"><option value="esp">ESP</option><option value="api">API</option><option value="conexao">Conexão</option></select>
         </div>
         <div id="lista-logs"></div>
@@ -352,12 +519,77 @@ tbody tr:last-child td{border-bottom:none}
   </main>
 </div>
 
+<!-- DRAWER CLIENTE -->
 <div class="drawer-bg" id="drawer-bg" onclick="fecharDrawer()"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-head"><h3 id="drawer-title">Cliente</h3><button class="drawer-close" onclick="fecharDrawer()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
   <div class="drawer-body" id="drawer-body"></div>
 </div>
 
+<!-- MODAL: NOVA/EDITAR PROMOÇÃO -->
+<div class="modal-bg" id="modal-promo">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="promo-modal-titulo">Nova promoção</h3>
+      <button class="modal-close" onclick="fecharModal('modal-promo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="promo-id">
+
+      <div class="field">
+        <label>Título (o que aparece no app)</label>
+        <input id="promo-titulo" placeholder="Ex: Recarregue R$20 e ganhe R$2,50">
+      </div>
+
+      <div class="field">
+        <label>Tipo de bônus</label>
+        <div class="tipo-opts" id="promo-tipo-opts">
+          <div class="tipo-opt active" data-tipo="bonus_fixo" onclick="selTipoPromo(this)">
+            <div class="ico">💰</div>
+            <div class="lbl">Valor fixo</div>
+          </div>
+          <div class="tipo-opt" data-tipo="percentual" onclick="selTipoPromo(this)">
+            <div class="ico">📊</div>
+            <div class="lbl">Percentual</div>
+          </div>
+          <div class="tipo-opt" data-tipo="multiplicador" onclick="selTipoPromo(this)">
+            <div class="ico">✨</div>
+            <div class="lbl">Multiplicador</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label>Valor mínimo da recarga (R$)</label>
+          <input id="promo-minimo" type="number" step="0.5" value="20">
+        </div>
+        <div class="field" id="promo-valor-field">
+          <label id="promo-valor-label">Bônus (R$)</label>
+          <input id="promo-valor" type="number" step="0.1" value="2.50">
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label>Início</label>
+          <input id="promo-inicio" type="datetime-local">
+        </div>
+        <div class="field">
+          <label>Fim</label>
+          <input id="promo-fim" type="datetime-local">
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-s" onclick="fecharModal('modal-promo')">Cancelar</button>
+        <button class="btn btn-pink" onclick="salvarPromo()">Salvar promoção</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ADICIONAR SALDO -->
 <div class="modal-bg" id="modal-saldo">
   <div class="modal" style="max-width:440px">
     <div class="modal-head"><h3>Adicionar saldo</h3><button class="modal-close" onclick="fecharModal('modal-saldo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
@@ -370,6 +602,7 @@ tbody tr:last-child td{border-bottom:none}
   </div>
 </div>
 
+<!-- MODAL: NOVO CLIENTE -->
 <div class="modal-bg" id="modal-novo">
   <div class="modal">
     <div class="modal-head"><h3>Novo cliente</h3><button class="modal-close" onclick="fecharModal('modal-novo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
@@ -388,8 +621,10 @@ tbody tr:last-child td{border-bottom:none}
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getDatabase, ref, set, get, update, remove, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+import { getDatabase, ref, set, get, update, remove, onValue, push }
+  from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, createUserWithEmailAndPassword }
+  from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDvbkFX3kgtg08HLcpAvt7JbM7OA5yUYaU",
@@ -401,15 +636,15 @@ const firebaseConfig = {
   appId: "1:701934323063:web:3f770d23a2a0f25775cd72"
 };
 
-// 🔑 NOME ÚNICO DO APP — separado do app do cliente!
 const app  = initializeApp(firebaseConfig, "visionAdmin");
 const db   = getDatabase(app);
 const auth = getAuth(app);
 
 const ADMIN_EMAIL = 'esp@vision.com.br';
-let clientes = {}, transacoes = {}, estornos = {}, ciclos = {}, logs_esp = [], logs_api = [], logs_conn = [];
-let statusESP = {}, configSistema = {};
-let clienteSelecionado = null;
+let clientes = {}, transacoes = {}, estornos = {}, ciclos = {}, promocoes = {};
+let logs_esp = [], logs_api = [], logs_conn = [];
+let statusESP = {}, configSistema = {}, configCashback = {}, configNiveis = {};
+let clienteSelecionado = null, promoEditando = null, tipoPromoSel = 'bonus_fixo';
 let unsubscribers = [];
 
 const fmtBRL = v => 'R$ ' + Number(v||0).toFixed(2).replace('.',',');
@@ -434,7 +669,7 @@ window.fazerLogin = async function(){
   if(!email || !senha) return toast('Preencha os campos','error');
   showLoading();
   try { await signInWithEmailAndPassword(auth, email, senha); toast('Bem-vindo!','success'); }
-  catch(e){ let msg = 'Erro ao entrar'; if(e.code === 'auth/user-not-found') msg = 'E-mail não cadastrado'; else if(e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') msg = 'Senha incorreta'; toast(msg,'error'); }
+  catch(e){ let msg = 'Erro'; if(e.code === 'auth/user-not-found') msg = 'E-mail não cadastrado'; else if(e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') msg = 'Senha incorreta'; toast(msg,'error'); }
   finally { hideLoading(); }
 };
 
@@ -448,8 +683,7 @@ onAuthStateChanged(auth, (user)=>{
     document.getElementById('sb-av').innerText = user.email.charAt(0).toUpperCase();
     iniciarListeners();
   } else if(user){
-    toast('Acesso negado','error');
-    signOut(auth);
+    toast('Acesso negado','error'); signOut(auth);
   } else {
     document.getElementById('login').classList.remove('hide');
     document.getElementById('app').classList.remove('active');
@@ -463,8 +697,11 @@ function iniciarListeners(){
   unsubscribers.push(onValue(ref(db,'transacoes'), s=>{ transacoes = s.val()||{}; renderAll(); }));
   unsubscribers.push(onValue(ref(db,'fila_estornos'), s=>{ estornos = s.val()||{}; renderAll(); }));
   unsubscribers.push(onValue(ref(db,'ciclos'), s=>{ ciclos = s.val()||{}; renderAll(); }));
+  unsubscribers.push(onValue(ref(db,'promocoes'), s=>{ promocoes = s.val()||{}; renderAll(); }));
   unsubscribers.push(onValue(ref(db,'status'), s=>{ statusESP = s.val()||{}; renderAll(); }));
-  unsubscribers.push(onValue(ref(db,'config'), s=>{ configSistema = s.val()||{}; renderConfig(); }));
+  unsubscribers.push(onValue(ref(db,'config'), s=>{ configSistema = s.val()||{}; }));
+  unsubscribers.push(onValue(ref(db,'config/cashback_padrao'), s=>{ configCashback = s.val()||{}; renderCashbackConfig(); }));
+  unsubscribers.push(onValue(ref(db,'config/niveis'), s=>{ configNiveis = s.val()||{}; renderNiveis(); }));
   unsubscribers.push(onValue(ref(db,'logs/esp'), s=>{ const v = s.val()||{}; logs_esp = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,50); renderLogs(); }));
   unsubscribers.push(onValue(ref(db,'logs/api'), s=>{ const v = s.val()||{}; logs_api = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,50); renderLogs(); }));
   unsubscribers.push(onValue(ref(db,'logs/conexao'), s=>{ const v = s.val()||{}; logs_conn = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,50); renderLogs(); }));
@@ -478,7 +715,17 @@ window.nav = function(page){
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
   const pg = document.getElementById('page-'+page);
   if(pg) pg.style.display='block';
-  const titles = {dashboard:['Visão geral','Resumo em tempo real'],clientes:['Clientes','Gerencie usuários do app'],transacoes:['Transações','Movimentações do sistema'],estornos:['Estornos','Aguardando decisão'],ciclos:['Garrafões','Histórico de recargas'],status:['Máquina','Status do ESP Vision Água'],config:['Configurações','Ajustes aplicados'],logs:['Logs','Eventos do sistema']};
+  const titles = {
+    dashboard:['Visão geral','Resumo em tempo real'],
+    clientes:['Clientes','Gerencie usuários do app'],
+    transacoes:['Transações','Movimentações do sistema'],
+    promocoes:['Promoções','Crie bônus temporários'],
+    cashback:['Cashback & Níveis','Configuração de fidelidade'],
+    estornos:['Estornos','Aguardando decisão'],
+    ciclos:['Garrafões','Histórico de recargas'],
+    status:['Máquina','Status do ESP'],
+    logs:['Logs','Eventos do sistema']
+  };
   const [t,s] = titles[page] || ['',''];
   document.getElementById('page-title').innerText = t;
   document.getElementById('page-sub').innerText = s;
@@ -488,12 +735,19 @@ window.toggleSidebar = function(open){ document.getElementById('sidebar').classL
 window.recarregarTudo = ()=> { renderAll(); toast('Dados atualizados','success'); };
 
 function renderAll(){
-  renderDashboard(); renderClientes(); renderTransacoes(); renderEstornos(); renderCiclos(); renderStatus(); renderLogs();
-  const n = Object.keys(estornos).length;
-  const badge = document.getElementById('badge-estornos');
-  if(n > 0){ badge.style.display='inline-block'; badge.innerText = n; } else badge.style.display = 'none';
+  renderDashboard(); renderClientes(); renderTransacoes(); renderPromocoes();
+  renderEstornos(); renderCiclos(); renderStatus(); renderLogs();
+  const nE = Object.keys(estornos).length;
+  const bE = document.getElementById('badge-estornos');
+  if(nE > 0){ bE.style.display='inline-block'; bE.innerText = nE; } else bE.style.display = 'none';
+
+  const agora = Math.floor(Date.now()/1000);
+  const nP = Object.values(promocoes).filter(p => p.ativo && agora >= (p.data_inicio||0) && agora <= (p.data_fim||Infinity)).length;
+  const bP = document.getElementById('badge-promos');
+  if(nP > 0){ bP.style.display='inline-block'; bP.innerText = nP; } else bP.style.display = 'none';
 }
 
+// ============ DASHBOARD ============
 function renderDashboard(){
   const arr = Object.entries(clientes).map(([id,c])=>({id,...c}));
   const saldoTotal = arr.reduce((s,c)=>s+Number(c.saldo||0),0);
@@ -501,68 +755,156 @@ function renderDashboard(){
   const hoje = new Date(); hoje.setHours(0,0,0,0);
   const hojeTs = hoje.getTime()/1000;
   const txHoje = txArr.filter(t=>(t.processado_em||t.data_pagamento_utc||0) >= hojeTs);
+  const cashbackTotal = txArr.reduce((s,t)=>s+Number(t.bonus_total||0),0);
+  const vipCount = arr.filter(c=>c.cashback_especial?.ativo).length;
 
   document.getElementById('stats-grid').innerHTML = `
-    <div class="stat fade-in" style="--accent:#00DDFF"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.8 3.1-6.5 7-6.5s7 2.7 7 6.5"/></svg></div><div class="lbl">Clientes</div><div class="val">${arr.length}</div><div class="sub">No sistema</div></div>
-    <div class="stat fade-in" style="--accent:#00E676"><div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h9a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg></div><div class="lbl">Saldo total</div><div class="val green">${fmtBRL(saldoTotal)}</div><div class="sub">Em circulação</div></div>
-    <div class="stat fade-in" style="--accent:#00DDFF"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12H3M16 7l5 5-5 5"/></svg></div><div class="lbl">Transações hoje</div><div class="val">${txHoje.length}</div><div class="sub">Últimas 24h</div></div>
+    <div class="stat fade-in" style="--accent:#00DDFF"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.8 3.1-6.5 7-6.5s7 2.7 7 6.5"/></svg></div><div class="lbl">Clientes</div><div class="val">${arr.length}</div><div class="sub">${vipCount} VIP</div></div>
+    <div class="stat fade-in" style="--accent:#00E676"><div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h9a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg></div><div class="lbl">Saldo em circulação</div><div class="val green">${fmtBRL(saldoTotal)}</div><div class="sub">Total nas contas</div></div>
+    <div class="stat fade-in" style="--accent:#A78BFA"><div class="ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="lbl">Cashback dado</div><div class="val purple">${fmtBRL(cashbackTotal)}</div><div class="sub">Total histórico</div></div>
     <div class="stat fade-in" style="--accent:#FF4D6D"><div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="lbl">Estornos pendentes</div><div class="val ${Object.keys(estornos).length?'red':''}">${Object.keys(estornos).length}</div><div class="sub">Aguardando</div></div>
   `;
 
   const ultimas = txArr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0)).slice(0,8);
   document.getElementById('dash-transacoes').innerHTML = ultimas.length
     ? ultimas.map(t=>{
-      const isIn = t.status==='liberado' && t.origem === 'app_cliente' || t.motivo === 'valor_ok';
-      return `<div class="tx-row"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${t.id||'-'}</div><div class="tx-date">${fmtData(t.processado_em||t.data_pagamento_utc)} · ${t.status||'-'}</div></div><div class="tx-amount ${isIn?'in':''}">${fmtBRL(t.valor)}</div></div>`;
+      const isIn = t.origem==='app_cliente' || t.status==='liberado';
+      const bonus = Number(t.bonus_total||0);
+      return `<div class="tx-row"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${t.id||'-'}</div><div class="tx-date">${fmtData(t.processado_em||t.data_pagamento_utc)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div><div class="tx-amount ${isIn?'in':''}">${fmtBRL(t.total_creditado||t.valor)}</div></div>`;
     }).join('')
-    : `<div class="empty"><div class="empty-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/></svg></div><h4>Sem transações</h4></div>`;
+    : `<div class="empty"><h4>Sem transações</h4></div>`;
 
   const top = arr.sort((a,b)=>Number(b.saldo||0)-Number(a.saldo||0)).slice(0,5);
   document.getElementById('dash-top-clientes').innerHTML = top.length
-    ? top.map(c=>`<div class="tx-row" style="cursor:pointer" onclick="abrirDrawer('${c.id}')"><div class="cell-av">${(c.nome||'?').charAt(0).toUpperCase()}</div><div class="tx-body"><div class="tx-title">${c.nome||'-'}</div><div class="tx-date">${c.cpf||'-'}</div></div><div class="tx-amount in">${fmtBRL(c.saldo)}</div></div>`).join('')
+    ? top.map(c=>{
+      const isVip = c.cashback_especial?.ativo;
+      return `<div class="tx-row" style="cursor:pointer" onclick="abrirDrawer('${c.id}')"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div class="tx-body"><div class="tx-title">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="tx-date">${c.cpf||'-'}</div></div><div class="tx-amount in">${fmtBRL(c.saldo)}</div></div>`;
+    }).join('')
     : `<div class="empty"><h4>Sem clientes</h4></div>`;
 }
 
+// ============ CLIENTES ============
 function renderClientes(){
   const busca = (document.getElementById('busca-clientes')?.value||'').toLowerCase();
   const arr = Object.entries(clientes).map(([id,c])=>({id,...c}))
     .filter(c=> !busca || (c.nome||'').toLowerCase().includes(busca) || (c.cpf||'').includes(busca) || (c.whatsapp||'').includes(busca))
     .sort((a,b)=>Number(b.saldo||0)-Number(a.saldo||0));
-  document.getElementById('contagem-clientes').innerText = `${arr.length} cliente${arr.length===1?'':'s'}`;
+
+  const el = document.getElementById('contagem-clientes');
+  if(el) el.innerText = `${arr.length} cliente${arr.length===1?'':'s'}`;
+
   document.getElementById('tabela-clientes').innerHTML = arr.length
     ? arr.map(c=>{
-      const nRec = c.transacoes ? Object.values(c.transacoes).filter(t=>t.tipo==='recarga').length : 0;
       const ativo = c.ativo !== false;
-      return `<tr><td><div class="cell-user"><div class="cell-av">${(c.nome||'?').charAt(0).toUpperCase()}</div><div><div class="n">${c.nome||'-'}</div><div class="s">${c.cpf||'-'}</div></div></div></td><td>${c.whatsapp||'-'}</td><td><strong style="color:var(--cyan)">${fmtBRL(c.saldo)}</strong></td><td>${nRec}</td><td><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></td><td><div class="actions-cell"><button class="mini" onclick="abrirDrawer('${c.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="mini" onclick="abrirModalSaldo('${c.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></button></div></td></tr>`;
+      const isVip = c.cashback_especial?.ativo;
+      const cbTotal = Number(c.stats?.total_cashback_recebido || 0);
+      return `<tr>
+        <td><div class="cell-user"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div><div class="n">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="s">${c.cpf||'-'}</div></div></div></td>
+        <td>${c.whatsapp||'-'}</td>
+        <td><strong style="color:var(--cyan)">${fmtBRL(c.saldo)}</strong></td>
+        <td><span style="color:var(--purple)">${fmtBRL(cbTotal)}</span></td>
+        <td><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></td>
+        <td><div class="actions-cell">
+          <button class="mini" onclick="abrirDrawer('${c.id}')" title="Detalhes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+          <button class="mini" onclick="abrirModalSaldo('${c.id}')" title="Saldo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div></td>
+      </tr>`;
     }).join('')
     : `<tr><td colspan="6"><div class="empty"><h4>Nenhum cliente</h4></div></td></tr>`;
 }
 
+// ============ DRAWER CLIENTE ============
 window.abrirDrawer = function(uid){
   const c = clientes[uid];
   if(!c) return;
   clienteSelecionado = uid;
-  const nRec = c.transacoes ? Object.values(c.transacoes).filter(t=>t.tipo==='recarga').length : 0;
-  const txArr = c.transacoes ? Object.entries(c.transacoes).map(([id,t])=>({id,...t})).sort((a,b)=>(b.data||0)-(a.data||0)) : [];
   const ativo = c.ativo !== false;
+  const isVip = c.cashback_especial?.ativo;
   const desde = c.criado_em ? new Date(c.criado_em*1000).toLocaleDateString('pt-BR') : '—';
+  const stats = c.stats || {};
+  const nRec = Number(stats.total_recargas || 0);
+  const txArr = c.transacoes ? Object.entries(c.transacoes).map(([id,t])=>({id,...t})).sort((a,b)=>(b.data||0)-(a.data||0)) : [];
+
+  // Calcula o nível atual
+  let nivelAtual = 'Bronze';
+  const niveis = configNiveis || {};
+  if(niveis.ouro && nRec >= (niveis.ouro.min || 50)) nivelAtual = 'Ouro';
+  else if(niveis.prata && nRec >= (niveis.prata.min || 10)) nivelAtual = 'Prata';
+
   document.getElementById('drawer-title').innerText = c.nome || 'Cliente';
   document.getElementById('drawer-body').innerHTML = `
-    <div class="client-hero"><div class="av">${(c.nome||'?').charAt(0).toUpperCase()}</div><h2>${c.nome||'-'}</h2><p>${c.cpf||'-'}</p>
-      <div class="stats"><div><div class="v">${fmtBRL(c.saldo)}</div><div class="k">Saldo</div></div><div><div class="v">${nRec}</div><div class="k">Recargas</div></div><div><div class="v">${txArr.length}</div><div class="k">Transações</div></div></div>
+    <div class="client-hero">
+      <div class="av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div>
+      <h2>${c.nome||'-'} ${isVip?'⭐':''}</h2>
+      <p>${c.cpf||'-'}</p>
+      <div class="stats">
+        <div><div class="v">${fmtBRL(c.saldo)}</div><div class="k">Saldo</div></div>
+        <div><div class="v">${nRec}</div><div class="k">Recargas</div></div>
+        <div><div class="v">${fmtBRL(stats.total_cashback_recebido||0)}</div><div class="k">Cashback</div></div>
+      </div>
     </div>
-    <div class="tabs"><button class="tab active" onclick="abaCliente('info',this)">Info</button><button class="tab" onclick="abaCliente('hist',this)">Histórico</button></div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="abaCliente('info',this)">Info</button>
+      <button class="tab" onclick="abaCliente('vip',this)">VIP</button>
+      <button class="tab" onclick="abaCliente('hist',this)">Histórico</button>
+    </div>
+
     <div id="aba-info" class="detalhe-aba">
-      <div class="detail-rows"><div class="detail-row"><span class="k">WhatsApp</span><span class="v">${c.whatsapp||'-'}</span></div><div class="detail-row"><span class="k">Endereço</span><span class="v">${c.endereco||'-'}</span></div><div class="detail-row"><span class="k">Cliente desde</span><span class="v">${desde}</span></div><div class="detail-row"><span class="k">Status</span><span class="v"><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></span></div></div>
-      <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+      <div class="detail-rows">
+        <div class="detail-row"><span class="k">WhatsApp</span><span class="v">${c.whatsapp||'-'}</span></div>
+        <div class="detail-row"><span class="k">Endereço</span><span class="v">${c.endereco||'-'}</span></div>
+        <div class="detail-row"><span class="k">Cliente desde</span><span class="v">${desde}</span></div>
+        <div class="detail-row"><span class="k">Nível atual</span><span class="v"><span class="pill purple">${nivelAtual}</span></span></div>
+        <div class="detail-row"><span class="k">Status</span><span class="v"><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></span></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn btn-p" onclick="abrirModalSaldo('${uid}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Adicionar saldo</button>
         <button class="btn btn-s" onclick="toggleBloqueio('${uid}')">${ativo?'Bloquear':'Desbloquear'}</button>
         <button class="btn btn-d" onclick="excluirCliente('${uid}')">Excluir</button>
       </div>
     </div>
+
+    <div id="aba-vip" class="detalhe-aba" style="display:none">
+      <div class="vip-box">
+        <div class="vip-head">
+          <div class="vip-title">⭐ Cliente VIP</div>
+          <label class="toggle"><input type="checkbox" id="vip-toggle" ${isVip?'checked':''}><span class="toggle-slider"></span></label>
+        </div>
+        <div class="vip-fields">
+          <div class="campo">
+            <label>Tipo</label>
+            <select id="vip-tipo">
+              <option value="percentual" ${(c.cashback_especial?.tipo||'percentual')==='percentual'?'selected':''}>Percentual (%)</option>
+              <option value="fixo" ${c.cashback_especial?.tipo==='fixo'?'selected':''}>Fixo (R$)</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Valor</label>
+            <input type="number" id="vip-valor" step="0.5" min="0" value="${c.cashback_especial?.valor||10}">
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:#00000020;border-radius:10px;font-size:11px;color:var(--txt-3);line-height:1.5">
+          💡 VIP ignora o nível automático. Aplica o valor configurado acima em toda recarga.
+        </div>
+        <button class="btn btn-pink" style="margin-top:14px" onclick="salvarVip('${uid}')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Salvar VIP
+        </button>
+      </div>
+    </div>
+
     <div id="aba-hist" class="detalhe-aba" style="display:none">
-      ${txArr.length ? txArr.map(t=>{ const isIn = t.tipo==='recarga'; return `<div class="tx-row"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${isIn?'Recarga':'Consumo'} — ${t.garrafoes||1} garrafão${(t.garrafoes||1)>1?'es':''}</div><div class="tx-date">${fmtData(t.data)}</div></div><div class="tx-amount ${isIn?'in':''}">${isIn?'+':'−'} ${fmtBRL(Math.abs(t.valor||0))}</div></div>`; }).join('') : '<div class="empty"><h4>Sem histórico</h4></div>'}
-    </div>`;
+      ${txArr.length ? txArr.map(t=>{
+        const isIn = t.tipo==='recarga';
+        const bonus = Number(t.bonus_total || 0);
+        return `<div class="tx-row">
+          <div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div>
+          <div class="tx-body"><div class="tx-title">${isIn?'Recarga':'Consumo'} — ${t.garrafoes||1} garrafão${(t.garrafoes||1)>1?'es':''}</div><div class="tx-date">${fmtData(t.data)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div>
+          <div class="tx-amount ${isIn?'in':'out'}">${isIn?'+':'−'} ${fmtBRL(Math.abs(t.total||t.valor||0))}</div>
+        </div>`;
+      }).join('') : '<div class="empty"><h4>Sem histórico</h4></div>'}
+    </div>
+  `;
   document.getElementById('drawer').classList.add('active');
   document.getElementById('drawer-bg').classList.add('active');
 };
@@ -574,20 +916,243 @@ window.abaCliente = function(aba, el){
   document.getElementById('aba-'+aba).style.display = 'block';
 };
 
+window.salvarVip = async function(uid){
+  const ativo = document.getElementById('vip-toggle').checked;
+  const tipo = document.getElementById('vip-tipo').value;
+  const valor = Number(document.getElementById('vip-valor').value) || 0;
+  try {
+    await update(ref(db, `clientes/${uid}/cashback_especial`), { ativo, tipo, valor });
+    toast(ativo ? 'Cliente marcado como VIP' : 'VIP removido', 'success');
+  } catch(e){ toast('Erro: '+e.message, 'error'); }
+};
+
 window.toggleBloqueio = async function(uid){
   const c = clientes[uid]; if(!c) return;
   const ativo = c.ativo !== false;
-  try { await update(ref(db, 'clientes/'+uid), { ativo: !ativo }); toast(ativo?'Cliente bloqueado':'Cliente desbloqueado','success'); fecharDrawer(); }
-  catch(e){ toast('Erro: '+e.message,'error'); }
+  try { await update(ref(db, 'clientes/'+uid), { ativo: !ativo }); toast(ativo?'Bloqueado':'Desbloqueado','success'); fecharDrawer(); }
+  catch(e){ toast('Erro','error'); }
 };
 
 window.excluirCliente = async function(uid){
   const c = clientes[uid]; if(!c) return;
   if(!confirm(`Excluir "${c.nome}"?`)) return;
-  try { await remove(ref(db, 'clientes/'+uid)); toast('Cliente removido','success'); fecharDrawer(); }
-  catch(e){ toast('Erro: '+e.message,'error'); }
+  try { await remove(ref(db, 'clientes/'+uid)); toast('Removido','success'); fecharDrawer(); }
+  catch(e){ toast('Erro','error'); }
 };
 
+// ============ PROMOÇÕES ============
+function renderPromocoes(){
+  const agora = Math.floor(Date.now()/1000);
+  const arr = Object.entries(promocoes).map(([id,p])=>({id,...p}));
+  arr.sort((a,b)=>(b.criado_em||0)-(a.criado_em||0));
+
+  const list = document.getElementById('lista-promos');
+  if(!list) return;
+
+  if(arr.length===0){
+    list.innerHTML = `<div class="empty"><div class="empty-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><h4>Nenhuma promoção</h4><p>Crie a primeira no botão acima</p></div>`;
+    return;
+  }
+
+  list.innerHTML = arr.map(p=>{
+    const ativa = p.ativo && agora >= (p.data_inicio||0) && agora <= (p.data_fim||Infinity);
+    const encerrada = agora > (p.data_fim||Infinity);
+    const pausada = !p.ativo;
+    const cls = encerrada ? 'encerrada' : (pausada ? 'pausada' : (ativa ? 'ativa' : 'encerrada'));
+
+    let tipoDesc = '';
+    let statusBadge = '';
+    if(ativa) statusBadge = '<span class="pill green">● ATIVA</span>';
+    else if(encerrada) statusBadge = '<span class="pill gray">ENCERRADA</span>';
+    else statusBadge = '<span class="pill yellow">PAUSADA</span>';
+
+    if(p.regra === 'bonus_fixo') tipoDesc = `Bônus de ${fmtBRL(p.valor_bonus)}`;
+    else if(p.regra === 'percentual') tipoDesc = `+${p.percentual}% de bônus`;
+    else if(p.regra === 'multiplicador') tipoDesc = `${p.multiplicador}x de saldo`;
+
+    const inicioStr = p.data_inicio ? new Date(p.data_inicio*1000).toLocaleDateString('pt-BR') : '—';
+    const fimStr = p.data_fim && p.data_fim < 9999999999 ? new Date(p.data_fim*1000).toLocaleDateString('pt-BR') : 'Sem data final';
+
+    let tempoStr = '';
+    if(ativa && p.data_fim && p.data_fim < 9999999999){
+      const dias = Math.ceil((p.data_fim - agora) / 86400);
+      tempoStr = dias > 0 ? `${dias} dia${dias>1?'s':''} restante${dias>1?'s':''}` : 'Último dia';
+    }
+
+    return `<div class="promo-card ${cls}">
+      <div class="promo-head">
+        <div>
+          <div class="promo-title">🎁 ${p.titulo||'Promoção'}</div>
+          <div class="promo-desc">${tipoDesc} · Acima de ${fmtBRL(p.valor_minimo)}</div>
+        </div>
+        ${statusBadge}
+      </div>
+      <div class="promo-meta">
+        <div class="item">📅 <strong>${inicioStr}</strong> → <strong>${fimStr}</strong></div>
+        ${tempoStr ? `<div class="item">⏳ <strong>${tempoStr}</strong></div>` : ''}
+      </div>
+      <div class="promo-actions">
+        <button class="btn btn-s" onclick="editarPromo('${p.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Editar</button>
+        <button class="btn ${p.ativo?'btn-y':'btn-g'}" onclick="togglePromo('${p.id}', ${!p.ativo})">${p.ativo?'Pausar':'Reativar'}</button>
+        <button class="btn btn-d" onclick="excluirPromo('${p.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>Excluir</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+window.abrirNovaPromo = function(){
+  promoEditando = null;
+  document.getElementById('promo-modal-titulo').innerText = 'Nova promoção';
+  document.getElementById('promo-id').value = '';
+  document.getElementById('promo-titulo').value = '';
+  document.getElementById('promo-minimo').value = '20';
+  document.getElementById('promo-valor').value = '2.50';
+  tipoPromoSel = 'bonus_fixo';
+  document.querySelectorAll('#promo-tipo-opts .tipo-opt').forEach(o=>o.classList.toggle('active', o.dataset.tipo === 'bonus_fixo'));
+  atualizarLabelValorPromo();
+  const agora = new Date();
+  const daqui30 = new Date(Date.now() + 30*86400000);
+  document.getElementById('promo-inicio').value = toLocalDT(agora);
+  document.getElementById('promo-fim').value = toLocalDT(daqui30);
+  document.getElementById('modal-promo').classList.add('active');
+};
+
+window.editarPromo = function(id){
+  const p = promocoes[id];
+  if(!p) return;
+  promoEditando = id;
+  document.getElementById('promo-modal-titulo').innerText = 'Editar promoção';
+  document.getElementById('promo-id').value = id;
+  document.getElementById('promo-titulo').value = p.titulo || '';
+  document.getElementById('promo-minimo').value = p.valor_minimo || 20;
+  tipoPromoSel = p.regra || 'bonus_fixo';
+  document.querySelectorAll('#promo-tipo-opts .tipo-opt').forEach(o=>o.classList.toggle('active', o.dataset.tipo === tipoPromoSel));
+  let valor = p.valor_bonus || p.percentual || p.multiplicador || 2.5;
+  document.getElementById('promo-valor').value = valor;
+  if(p.data_inicio) document.getElementById('promo-inicio').value = toLocalDT(new Date(p.data_inicio*1000));
+  if(p.data_fim && p.data_fim < 9999999999) document.getElementById('promo-fim').value = toLocalDT(new Date(p.data_fim*1000));
+  atualizarLabelValorPromo();
+  document.getElementById('modal-promo').classList.add('active');
+};
+
+function toLocalDT(date){
+  const pad = n => String(n).padStart(2,'0');
+  return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+}
+
+window.selTipoPromo = function(el){
+  document.querySelectorAll('#promo-tipo-opts .tipo-opt').forEach(o=>o.classList.remove('active'));
+  el.classList.add('active');
+  tipoPromoSel = el.dataset.tipo;
+  atualizarLabelValorPromo();
+};
+
+function atualizarLabelValorPromo(){
+  const lbl = document.getElementById('promo-valor-label');
+  const input = document.getElementById('promo-valor');
+  if(tipoPromoSel === 'bonus_fixo'){ lbl.innerText = 'Bônus (R$)'; input.value = input.value || '2.50'; input.step = '0.1'; }
+  else if(tipoPromoSel === 'percentual'){ lbl.innerText = 'Percentual (%)'; input.value = input.value || '15'; input.step = '0.5'; }
+  else if(tipoPromoSel === 'multiplicador'){ lbl.innerText = 'Multiplicador (x)'; input.value = input.value || '2'; input.step = '0.5'; }
+}
+
+window.salvarPromo = async function(){
+  const titulo = document.getElementById('promo-titulo').value.trim();
+  const minimo = Number(document.getElementById('promo-minimo').value) || 0;
+  const valor = Number(document.getElementById('promo-valor').value) || 0;
+  const inicioStr = document.getElementById('promo-inicio').value;
+  const fimStr = document.getElementById('promo-fim').value;
+
+  if(!titulo) return toast('Digite um título', 'error');
+  if(valor <= 0) return toast('Valor deve ser maior que 0', 'error');
+
+  const data_inicio = inicioStr ? Math.floor(new Date(inicioStr).getTime()/1000) : 0;
+  const data_fim = fimStr ? Math.floor(new Date(fimStr).getTime()/1000) : 9999999999;
+
+  const dados = {
+    ativo: true,
+    titulo,
+    regra: tipoPromoSel,
+    valor_minimo: minimo,
+    data_inicio,
+    data_fim
+  };
+
+  if(tipoPromoSel === 'bonus_fixo') dados.valor_bonus = valor;
+  else if(tipoPromoSel === 'percentual') dados.percentual = valor;
+  else if(tipoPromoSel === 'multiplicador') dados.multiplicador = valor;
+
+  try {
+    if(promoEditando){
+      await update(ref(db, `promocoes/${promoEditando}`), dados);
+      toast('Promoção atualizada!', 'success');
+    } else {
+      const novoRef = push(ref(db, 'promocoes'));
+      dados.criado_em = Math.floor(Date.now()/1000);
+      await set(novoRef, dados);
+      toast('Promoção criada!', 'success');
+    }
+    fecharModal('modal-promo');
+  } catch(e){ toast('Erro: '+e.message, 'error'); }
+};
+
+window.togglePromo = async function(id, ativo){
+  try { await update(ref(db, `promocoes/${id}`), { ativo }); toast(ativo?'Promoção ativada':'Promoção pausada','success'); }
+  catch(e){ toast('Erro','error'); }
+};
+
+window.excluirPromo = async function(id){
+  const p = promocoes[id]; if(!p) return;
+  if(!confirm(`Excluir "${p.titulo}"?`)) return;
+  try { await remove(ref(db, `promocoes/${id}`)); toast('Excluída','success'); }
+  catch(e){ toast('Erro','error'); }
+};
+
+// ============ CASHBACK CONFIG ============
+function renderCashbackConfig(){
+  const c = configCashback;
+  const ativoEl = document.getElementById('cb-ativo');
+  if(!ativoEl) return;
+  ativoEl.checked = c.ativo !== false;
+  document.getElementById('cb-tipo').value = c.tipo || 'percentual';
+  document.getElementById('cb-valor').value = c.valor || 5;
+  document.getElementById('cb-minimo').value = c.valor_minimo || 2.5;
+  document.getElementById('cb-teto').value = c.teto_bonus || 0;
+}
+
+window.salvarCashback = async function(){
+  const dados = {
+    ativo: document.getElementById('cb-ativo').checked,
+    tipo: document.getElementById('cb-tipo').value,
+    valor: Number(document.getElementById('cb-valor').value) || 0,
+    valor_minimo: Number(document.getElementById('cb-minimo').value) || 0,
+    teto_bonus: Number(document.getElementById('cb-teto').value) || 0
+  };
+  try { await set(ref(db, 'config/cashback_padrao'), dados); toast('Cashback salvo!', 'success'); }
+  catch(e){ toast('Erro: '+e.message, 'error'); }
+};
+
+function renderNiveis(){
+  const n = configNiveis;
+  if(!document.getElementById('nivel-bronze-min')) return;
+  document.getElementById('nivel-bronze-min').value = n.bronze?.min ?? 0;
+  document.getElementById('nivel-bronze-pct').value = n.bronze?.percentual ?? 5;
+  document.getElementById('nivel-prata-min').value = n.prata?.min ?? 10;
+  document.getElementById('nivel-prata-pct').value = n.prata?.percentual ?? 8;
+  document.getElementById('nivel-ouro-min').value = n.ouro?.min ?? 50;
+  document.getElementById('nivel-ouro-pct').value = n.ouro?.percentual ?? 12;
+}
+
+window.salvarNiveis = async function(){
+  const dados = {
+    bronze: { min: Number(document.getElementById('nivel-bronze-min').value) || 0, percentual: Number(document.getElementById('nivel-bronze-pct').value) || 5 },
+    prata: { min: Number(document.getElementById('nivel-prata-min').value) || 10, percentual: Number(document.getElementById('nivel-prata-pct').value) || 8 },
+    ouro: { min: Number(document.getElementById('nivel-ouro-min').value) || 50, percentual: Number(document.getElementById('nivel-ouro-pct').value) || 12 }
+  };
+  try { await set(ref(db, 'config/niveis'), dados); toast('Níveis salvos!', 'success'); }
+  catch(e){ toast('Erro: '+e.message, 'error'); }
+};
+
+// ============ SALDO ============
 window.abrirModalSaldo = function(uid){
   const c = clientes[uid]; if(!c) return;
   clienteSelecionado = uid;
@@ -604,21 +1169,22 @@ window.confirmarSaldo = async function(){
   const v = document.getElementById('ms-valor').value.replace(/\D/g,'');
   const valor = parseFloat(v)/100;
   const motivo = document.getElementById('ms-motivo').value.trim() || 'ajuste_admin';
-  if(!valor || valor <= 0) return toast('Digite um valor válido','error');
+  if(!valor || valor <= 0) return toast('Valor inválido','error');
   const c = clientes[clienteSelecionado];
   const novoSaldo = Number(c.saldo||0) + valor;
   showLoading();
   try {
     await update(ref(db, 'clientes/'+clienteSelecionado), { saldo: novoSaldo });
     const txId = 'admin_' + Date.now();
-    await update(ref(db, 'clientes/'+clienteSelecionado+'/transacoes/'+txId), { tipo: 'recarga', valor: valor, garrafoes: 0, data: Math.floor(Date.now()/1000), motivo: motivo, autorizado_por: 'admin' });
-    await update(ref(db, 'transacoes/'+txId), { id: txId, valor: valor, status: 'liberado', origem: 'admin', motivo: motivo, processado_em: Math.floor(Date.now()/1000), autorizado_por: auth.currentUser.email });
+    await update(ref(db, 'clientes/'+clienteSelecionado+'/transacoes/'+txId), { tipo: 'recarga', valor, garrafoes: 0, data: Math.floor(Date.now()/1000), motivo, autorizado_por: 'admin' });
+    await update(ref(db, 'transacoes/'+txId), { id: txId, valor, status: 'liberado', origem: 'admin', motivo, processado_em: Math.floor(Date.now()/1000), autorizado_por: auth.currentUser.email });
     toast(`+ ${fmtBRL(valor)} adicionado`,'success');
     fecharModal('modal-saldo'); fecharDrawer();
   } catch(e){ toast('Erro: '+e.message,'error'); }
   finally { hideLoading(); }
 };
 
+// ============ NOVO CLIENTE ============
 window.abrirNovoCliente = ()=> document.getElementById('modal-novo').classList.add('active');
 document.getElementById('nc-cpf')?.addEventListener('input', e=>{ e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2'); });
 document.getElementById('nc-whats')?.addEventListener('input', e=>{ e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2'); });
@@ -631,27 +1197,30 @@ window.criarCliente = async function(){
   const senha = document.getElementById('nc-senha').value;
   const saldoV = document.getElementById('nc-saldo').value.replace(/\D/g,'');
   const saldo = parseFloat(saldoV)/100 || 0;
-  if(!nome || nome.length < 3) return toast('Digite o nome completo','error');
+
+  if(!nome || nome.length < 3) return toast('Nome completo','error');
   if(cpf.replace(/\D/g,'').length !== 11) return toast('CPF inválido','error');
   if(whats.replace(/\D/g,'').length < 10) return toast('WhatsApp inválido','error');
-  if(!endereco || endereco.length < 5) return toast('Digite o endereço','error');
-  if(senha.length < 6) return toast('Senha muito curta','error');
+  if(!endereco || endereco.length < 5) return toast('Endereço','error');
+  if(senha.length < 6) return toast('Senha curta','error');
+
   showLoading();
   try {
     const email = cpf.replace(/\D/g,'') + '@visionagua.app';
     const cred = await createUserWithEmailAndPassword(auth, email, senha);
-    await set(ref(db, 'clientes/' + cred.user.uid), { nome, cpf, whatsapp: whats, endereco, saldo: saldo, criado_em: Math.floor(Date.now()/1000), ativo: true, criado_por: 'admin' });
+    await set(ref(db, 'clientes/' + cred.user.uid), { nome, cpf, whatsapp: whats, endereco, saldo, criado_em: Math.floor(Date.now()/1000), ativo: true, criado_por: 'admin' });
     toast('Cliente criado!','success');
     fecharModal('modal-novo');
     ['nc-nome','nc-cpf','nc-whats','nc-endereco','nc-senha','nc-saldo'].forEach(id=>{ document.getElementById(id).value = ''; });
   } catch(e){
-    let msg = 'Erro ao criar';
-    if(e.code === 'auth/email-already-in-use') msg = 'Este CPF já está cadastrado';
-    else if(e.code === 'auth/weak-password') msg = 'Senha muito fraca';
-    toast(msg,'error'); console.error(e);
+    let msg = 'Erro';
+    if(e.code === 'auth/email-already-in-use') msg = 'CPF já cadastrado';
+    else if(e.code === 'auth/weak-password') msg = 'Senha fraca';
+    toast(msg,'error');
   } finally { hideLoading(); }
 };
 
+// ============ TRANSAÇÕES ============
 function renderTransacoes(){
   const busca = (document.getElementById('busca-tx')?.value||'').toLowerCase();
   const filtro = document.getElementById('filtro-tx-status')?.value || '';
@@ -660,19 +1229,22 @@ function renderTransacoes(){
   if(busca) arr = arr.filter(t=> (t.id||'').toLowerCase().includes(busca) || (t.motivo||'').toLowerCase().includes(busca) || (t.origem||'').toLowerCase().includes(busca));
   arr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0));
   arr = arr.slice(0,100);
-  const cores = {liberado: 'green', ignorado_app: 'cyan', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red', aguardando_autorizacao: 'yellow', estorno_simulado: 'purple'};
+  const cores = {liberado: 'green', ignorado_app: 'cyan', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red', aguardando_autorizacao: 'yellow'};
   document.getElementById('tabela-tx').innerHTML = arr.length
-    ? arr.map(t=>`<tr><td><code style="font-size:11px;color:var(--txt-2);font-family:var(--mono)">${t.id||'-'}</code></td><td><strong>${fmtBRL(t.valor)}</strong></td><td><span class="pill ${cores[t.status]||'gray'}">${t.status||'-'}</span></td><td style="font-size:12px">${t.origem||'-'}</td><td style="color:var(--txt-3);font-size:12px">${t.motivo||'-'}</td><td style="color:var(--txt-3);font-size:12px;font-family:var(--mono)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td></tr>`).join('')
+    ? arr.map(t=>{
+      const bonus = Number(t.bonus_total||0);
+      return `<tr><td><code style="font-size:11px;color:var(--txt-2);font-family:var(--mono)">${(t.id||'-').substring(0,20)}</code></td><td>${fmtBRL(t.valor||t.valor_pago)}</td><td style="color:var(--purple)">${bonus>0?fmtBRL(bonus):'—'}</td><td><strong>${fmtBRL(t.total_creditado||t.total||t.valor)}</strong></td><td><span class="pill ${cores[t.status]||'gray'}">${t.status||'-'}</span></td><td style="color:var(--txt-3);font-size:12px;font-family:var(--mono)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td></tr>`;
+    }).join('')
     : `<tr><td colspan="6"><div class="empty"><h4>Sem transações</h4></div></td></tr>`;
 }
 
+// ============ ESTORNOS / CICLOS / STATUS / LOGS ============
 function renderEstornos(){
   const arr = Object.entries(estornos).map(([id,e])=>({id,...e}));
   document.getElementById('lista-estornos').innerHTML = arr.length
-    ? arr.map(e=>`<div class="tx-row"><div class="tx-ico out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="tx-body"><div class="tx-title">${e.id||'-'}</div><div class="tx-date">${e.motivo||'-'} · ${e.tentativas||0} tentativas</div></div><button class="mini danger" onclick="cancelarEstorno('${e.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>`).join('')
-    : `<div class="empty"><div class="empty-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h4>Fila vazia</h4></div>`;
+    ? arr.map(e=>`<div class="tx-row"><div class="tx-ico out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="tx-body"><div class="tx-title">${e.id||'-'}</div><div class="tx-date">${e.motivo||'-'}</div></div><button class="mini danger" onclick="cancelarEstorno('${e.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>`).join('')
+    : `<div class="empty"><h4>Fila vazia</h4></div>`;
 }
-
 window.cancelarEstorno = async function(id){ if(!confirm('Remover?')) return; try { await remove(ref(db, 'fila_estornos/'+id)); toast('Removido','success'); } catch(e){ toast('Erro','error'); } };
 
 function renderCiclos(){
@@ -680,7 +1252,7 @@ function renderCiclos(){
   arr.sort((a,b)=>(b.iniciado_em||0)-(a.iniciado_em||0));
   arr.splice(50);
   document.getElementById('lista-ciclos').innerHTML = arr.length
-    ? arr.map(c=>{ const total = c.garrafoes_previstos||0; const comp = c.garrafoes_completos||0; return `<div class="tx-row"><div class="tx-ico ${c.status==='concluido'?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="tx-body"><div class="tx-title">${c.id||'-'} · ${comp}/${total} garrafões</div><div class="tx-date">${fmtData(c.iniciado_em)}</div></div><span class="pill ${c.status==='concluido'?'green':c.status==='interrompido'?'yellow':'gray'}">${c.status||'-'}</span></div>`; }).join('')
+    ? arr.map(c=>{ const total = c.garrafoes_previstos||0; const comp = c.garrafoes_completos||0; return `<div class="tx-row"><div class="tx-ico ${c.status==='concluido'?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="tx-body"><div class="tx-title">${comp}/${total} garrafões</div><div class="tx-date">${fmtData(c.iniciado_em)}</div></div><span class="pill ${c.status==='concluido'?'green':'yellow'}">${c.status||'-'}</span></div>`; }).join('')
     : `<div class="empty"><h4>Sem ciclos</h4></div>`;
 }
 
@@ -688,48 +1260,32 @@ function renderStatus(){
   const s = statusESP;
   const online = s.online && s.ultimo_heartbeat && (Date.now()/1000 - s.ultimo_heartbeat) < 60;
   document.getElementById('stats-maquina').innerHTML = `
-    <div class="stat fade-in" style="--accent:${online?'#00E676':'#FF4D6D'}"><div class="ico ${online?'green':'red'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 20h.01"/></svg></div><div class="lbl">Conexão</div><div class="val ${online?'green':'red'}">${online?'Online':'Offline'}</div><div class="sub">${s.ultimo_heartbeat ? 'Último: ' + new Date(s.ultimo_heartbeat*1000).toLocaleTimeString('pt-BR') : 'Sem dados'}</div></div>
-    <div class="stat fade-in" style="--accent:#00DDFF"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg></div><div class="lbl">Versão</div><div class="val" style="font-size:22px">${s.versao||'—'}</div><div class="sub">Firmware</div></div>
-    <div class="stat fade-in" style="--accent:#00DDFF"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0"/></svg></div><div class="lbl">Wi-Fi</div><div class="val">${s.rssi||0} <span style="font-size:14px;color:var(--txt-3)">dBm</span></div><div class="sub" style="font-family:var(--mono)">${s.ip||'—'}</div></div>
-    <div class="stat fade-in" style="--accent:${s.bomba_ativa?'#FFC857':'#00E676'}"><div class="ico ${s.bomba_ativa?'yellow':'green'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="lbl">Bomba</div><div class="val ${s.bomba_ativa?'yellow':''}">${s.bomba_ativa?'Ligada':'Parada'}</div><div class="sub">Estado</div></div>`;
+    <div class="stat"><div class="ico ${online?'green':'red'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0"/></svg></div><div class="lbl">Conexão</div><div class="val ${online?'green':'red'}">${online?'Online':'Offline'}</div></div>
+    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></div><div class="lbl">Versão</div><div class="val" style="font-size:22px">${s.versao||'—'}</div></div>
+    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0"/></svg></div><div class="lbl">Wi-Fi</div><div class="val">${s.rssi||0} dBm</div></div>
+    <div class="stat"><div class="ico ${s.bomba_ativa?'yellow':'green'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="lbl">Bomba</div><div class="val ${s.bomba_ativa?'yellow':''}">${s.bomba_ativa?'Ligada':'Parada'}</div></div>
+  `;
   document.getElementById('status-esp').innerHTML = `
     <div class="detail-rows">
-      <div class="detail-row"><span class="k">Pedido atual</span><span class="v" style="font-family:var(--mono)">${s.pedido_atual||'—'}</span></div>
+      <div class="detail-row"><span class="k">Pedido</span><span class="v">${s.pedido_atual||'—'}</span></div>
       <div class="detail-row"><span class="k">Garrafões</span><span class="v">${s.doses_completas||0} / ${s.doses_total||0}</span></div>
       <div class="detail-row"><span class="k">Freio</span><span class="v"><span class="pill ${s.freio_ativo?'red':'green'}">${s.freio_ativo?'Ativo':'Inativo'}</span></span></div>
       <div class="detail-row"><span class="k">Estornos hoje</span><span class="v">${s.estornos_dia||0}</span></div>
       <div class="detail-row"><span class="k">Entregas hoje</span><span class="v">${s.entregas_dia||0}</span></div>
-      <div class="detail-row"><span class="k">Memória</span><span class="v">${((s.heap_livre||0)/1024).toFixed(1)} KB</span></div>
-      <div class="detail-row"><span class="k">Uptime</span><span class="v">${Math.floor((s.uptime_seg||0)/3600)}h ${Math.floor(((s.uptime_seg||0)%3600)/60)}min</span></div>
     </div>
     <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn btn-p" onclick="comandoESP('ligar_bomba',true)">Ligar bomba</button>
+      <button class="btn btn-p" onclick="comandoESP('ligar_bomba',true)">Ligar</button>
       <button class="btn btn-s" onclick="comandoESP('desligar_bomba',true)">Desligar</button>
       <button class="btn btn-d" onclick="comandoESP('cancelar_fila',true)">Cancelar fila</button>
-      <button class="btn btn-g" onclick="comandoESP('reativar_freio',true)">Reativar freio</button>
     </div>`;
 }
-
-window.comandoESP = async function(cmd, valor){ try { await update(ref(db, 'comandos'), { [cmd]: valor }); toast('Comando enviado','success'); } catch(e){ toast('Erro','error'); } };
-
-function renderConfig(){
-  const c = configSistema;
-  const fields = [{k:'ligado',l:'Sistema ligado',t:'bool'},{k:'valor',l:'Valor do PIX (R$)',t:'number'},{k:'tempo_bomba_seg',l:'Tempo bomba (s)',t:'number'},{k:'multi_garrafao',l:'Multi-garrafão',t:'bool'},{k:'max_garrafoes',l:'Máx. garrafões',t:'number'},{k:'intervalo_doses_seg',l:'Intervalo (s)',t:'number'},{k:'modo_simulacao',l:'Modo simulação',t:'bool'},{k:'max_estornos_dia',l:'Máx. estornos/dia',t:'number'},{k:'janela_estorno_min',l:'Janela estorno (min)',t:'number'}];
-  document.getElementById('config-form').innerHTML = `<div class="row-2" style="gap:16px">` + fields.map(f=>{
-    const v = c[f.k];
-    if(f.t === 'bool') return `<div class="field"><label>${f.l}</label><select onchange="salvarConfig('${f.k}', this.value === 'true')"><option value="true" ${v===true?'selected':''}>Ativado</option><option value="false" ${v!==true?'selected':''}>Desativado</option></select></div>`;
-    return `<div class="field"><label>${f.l}</label><input type="number" value="${v!==undefined?v:''}" onchange="salvarConfig('${f.k}', parseFloat(this.value))"></div>`;
-  }).join('') + `</div><div style="margin-top:16px;padding:14px;background:#00ddff08;border-radius:12px;border:1px solid #00ddff20;font-size:12px;color:var(--txt-2)">💡 Alterações aplicadas em até 5 segundos.</div>`;
-}
-
-window.salvarConfig = async function(k, v){ try { await update(ref(db, 'config'), { [k]: v }); toast('Configuração salva','success'); } catch(e){ toast('Erro','error'); } };
+window.comandoESP = async function(cmd, v){ try { await update(ref(db, 'comandos'), { [cmd]: v }); toast('Enviado','success'); } catch(e){ toast('Erro','error'); } };
 
 function renderLogs(){
   const tipo = document.getElementById('filtro-logs-tipo')?.value || 'esp';
-  let arr = [];
-  if(tipo === 'esp') arr = logs_esp; else if(tipo === 'api') arr = logs_api; else arr = logs_conn;
+  let arr = tipo === 'esp' ? logs_esp : (tipo === 'api' ? logs_api : logs_conn);
   document.getElementById('lista-logs').innerHTML = arr.length
-    ? arr.map(l=>{ const nivel = l.nivel || l.tipo || 'info'; const msg = l.mensagem || l.detalhe || l.motivo || JSON.stringify(l); const isErr = nivel === 'error' || nivel === 'sem_energia'; return `<div class="tx-row"><div class="tx-ico ${isErr?'out':'in'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${isErr?'<circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>':'<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14l-3-3"/>'}</svg></div><div class="tx-body"><div class="tx-title" style="font-size:12px;font-weight:600">${msg.substring(0,140)}</div><div class="tx-date">${fmtData(l.timestamp)} · <span style="color:var(--cyan);font-weight:700">${nivel}</span></div></div></div>`; }).join('')
+    ? arr.map(l=>{ const nivel = l.nivel || l.tipo || 'info'; const msg = l.mensagem || l.detalhe || l.motivo || JSON.stringify(l); const isErr = nivel === 'error'; return `<div class="tx-row"><div class="tx-ico ${isErr?'out':'in'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div><div class="tx-body"><div class="tx-title" style="font-size:12px">${msg.substring(0,140)}</div><div class="tx-date">${fmtData(l.timestamp)} · <span style="color:var(--cyan)">${nivel}</span></div></div></div>`; }).join('')
     : `<div class="empty"><h4>Sem logs</h4></div>`;
 }
 
