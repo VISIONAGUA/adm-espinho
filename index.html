@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vision Água · Painel Admin</title>
+<title>VISION · Painel Administrativo</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg-0:#02080f;--bg-1:#04101c;--surface-0:#0a2035;--surface-1:#0d2941;--border-0:#ffffff08;--border-1:#ffffff12;--border-2:#ffffff1c;--cyan:#00DDFF;--cyan-2:#00b8d4;--green:#00E676;--red:#FF4D6D;--yellow:#FFC857;--purple:#A78BFA;--pink:#FF6B9D;--txt-1:#FFFFFF;--txt-2:#94A9BE;--txt-3:#5A7089;--txt-4:#3A4A5C;--font:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Roboto,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace}
+:root{--bg-0:#02080f;--surface-0:#0a2035;--surface-1:#0d2941;--border-0:#ffffff08;--border-1:#ffffff12;--border-2:#ffffff1c;--cyan:#00DDFF;--green:#00E676;--red:#FF4D6D;--yellow:#FFC857;--purple:#A78BFA;--pink:#FF6B9D;--txt-1:#FFFFFF;--txt-2:#94A9BE;--txt-3:#5A7089;--txt-4:#3A4A5C;--mono:ui-monospace,monospace}
 html,body{height:100%}
-body{font-family:var(--font);background:var(--bg-0);color:var(--txt-1);font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+body{font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Roboto,sans-serif;background:var(--bg-0);color:var(--txt-1);font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
 button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
 button{cursor:pointer;background:none;border:none;outline:none}
 input,select,textarea{outline:none}
@@ -137,19 +137,10 @@ tbody tr:last-child td{border-bottom:none}
 .select-mini{padding:11px 14px;border-radius:10px;font-size:13px;background:#ffffff06;border:1.5px solid var(--border-0);color:var(--txt-1);cursor:pointer}
 .select-mini option{background:#04101c;color:#fff}
 
-/* PROMOÇÕES */
-.promo-card{
-  border-radius:16px;padding:20px;margin-bottom:12px;
-  border:1px solid var(--border-0);
-  background:linear-gradient(160deg,#08203a,#061828);
-  transition:.2s;position:relative;overflow:hidden;
-}
+.promo-card{border-radius:16px;padding:20px;margin-bottom:12px;border:1px solid var(--border-0);background:linear-gradient(160deg,#08203a,#061828);transition:.2s;position:relative;overflow:hidden}
 .promo-card.ativa{border-color:#00e67640;background:linear-gradient(160deg,#0a2f2a,#061828)}
 .promo-card.encerrada{opacity:.6;border-color:var(--border-0)}
 .promo-card.pausada{border-color:#ffc85740;background:linear-gradient(160deg,#2a220a,#061828)}
-.promo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent,#00DDFF),transparent);opacity:.5}
-.promo-card.ativa::before{--accent:#00E676}
-.promo-card.pausada::before{--accent:#FFC857}
 .promo-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
 .promo-title{font-size:16px;font-weight:800;letter-spacing:-.2px}
 .promo-desc{font-size:13px;color:var(--txt-2);margin-top:4px}
@@ -158,7 +149,6 @@ tbody tr:last-child td{border-bottom:none}
 .promo-meta .item strong{color:var(--txt-2);font-weight:700}
 .promo-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 
-/* CASHBACK CONFIG */
 .cb-config{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
 .cb-field{background:#ffffff04;border:1px solid var(--border-0);border-radius:12px;padding:16px}
 .cb-field label{font-size:11px;color:var(--txt-2);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;display:block}
@@ -171,16 +161,11 @@ tbody tr:last-child td{border-bottom:none}
 .toggle input:checked + .toggle-slider{background:var(--green)}
 .toggle input:checked + .toggle-slider::after{transform:translateX(20px)}
 
-.nivel-card{
-  border-radius:14px;padding:18px;
-  border:1px solid var(--border-0);
-  display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;
-  margin-bottom:10px;
-}
+.nivel-card{border-radius:14px;padding:18px;border:1px solid var(--border-0);display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;margin-bottom:10px}
 .nivel-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.nivel-bronze{background:linear-gradient(135deg,#CD7F32,#8B5A2B);box-shadow:0 6px 20px #cd7f3240}
-.nivel-prata{background:linear-gradient(135deg,#C0C0C0,#808080);box-shadow:0 6px 20px #c0c0c040}
-.nivel-ouro{background:linear-gradient(135deg,#FFD700,#FFA500);box-shadow:0 6px 20px #ffd70040}
+.nivel-bronze{background:linear-gradient(135deg,#CD7F32,#8B5A2B)}
+.nivel-prata{background:linear-gradient(135deg,#C0C0C0,#808080)}
+.nivel-ouro{background:linear-gradient(135deg,#FFD700,#FFA500)}
 .nivel-info .name{font-size:15px;font-weight:800}
 .nivel-info .desc{font-size:12px;color:var(--txt-3);margin-top:3px}
 .nivel-campos{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
@@ -188,6 +173,18 @@ tbody tr:last-child td{border-bottom:none}
 .nivel-campos .campo label{font-size:9px;color:var(--txt-3);text-transform:uppercase;letter-spacing:1px;font-weight:700}
 .nivel-campos input{width:80px;padding:8px 10px;border-radius:8px;font-size:13px;background:#ffffff06;border:1px solid var(--border-1);color:var(--txt-1);text-align:center;font-weight:700}
 .nivel-campos input:focus{border-color:var(--cyan)}
+
+/* BANNERS */
+.upload-zone{padding:48px 20px;border:2px dashed var(--border-2);border-radius:16px;text-align:center;cursor:pointer;transition:.2s;background:#ffffff04}
+.upload-zone:hover{border-color:var(--cyan);background:#00ddff08}
+.upload-zone.dragover{border-color:var(--cyan);background:#00ddff15}
+
+.banner-card{background:linear-gradient(160deg,#08203a,#061828);border:1px solid var(--border-0);border-radius:16px;overflow:hidden;margin-bottom:14px}
+.banner-card.inativo{opacity:.5}
+.banner-card img{width:100%;display:block;aspect-ratio:2/1;object-fit:cover}
+.banner-card .banner-info{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.banner-card .banner-info .data{font-size:12px;color:var(--txt-3);display:flex;align-items:center;gap:10px}
+.banner-card .banner-actions{display:flex;gap:8px}
 
 .drawer-bg{position:fixed;inset:0;background:#02080fcc;backdrop-filter:blur(6px);z-index:800;opacity:0;visibility:hidden;transition:.3s}
 .drawer-bg.active{opacity:1;visibility:visible}
@@ -215,15 +212,12 @@ tbody tr:last-child td{border-bottom:none}
 .detail-row .k{font-size:12px;color:var(--txt-3);font-weight:600;flex-shrink:0}
 .detail-row .v{font-size:13px;font-weight:600;text-align:right;word-break:break-all}
 .tabs{display:flex;gap:4px;margin-bottom:18px;background:#ffffff04;padding:4px;border-radius:10px;border:1px solid var(--border-0)}
-.tab{flex:1;padding:9px;font-size:12.5px;font-weight:700;color:var(--txt-3);border-radius:7px;transition:.15s;text-align:center}
+.tab{flex:1;padding:9px;font-size:12.5px;font-weight:700;color:var(--txt-3);border-radius:7px;transition:.15s;text-align:center;cursor:pointer}
 .tab.active{background:#00ddff15;color:var(--cyan)}
 
-.vip-box{
-  background:linear-gradient(135deg,#FF6B9D15,#FFC85715);
-  border:1px solid #FF6B9D40;border-radius:14px;padding:16px;margin-bottom:16px;
-}
+.vip-box{background:linear-gradient(135deg,#FF6B9D15,#FFC85715);border:1px solid #FF6B9D40;border-radius:14px;padding:16px;margin-bottom:16px}
 .vip-box .vip-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.vip-box .vip-title{font-size:13px;font-weight:800;color:var(--pink);display:flex;align-items:center;gap:6px}
+.vip-box .vip-title{font-size:13px;font-weight:800;color:var(--pink)}
 .vip-box .vip-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .vip-box .vip-fields .campo{display:flex;flex-direction:column;gap:4px}
 .vip-box .vip-fields label{font-size:9px;color:var(--txt-3);letter-spacing:1px;text-transform:uppercase;font-weight:700}
@@ -242,7 +236,6 @@ tbody tr:last-child td{border-bottom:none}
 .modal-body{padding:24px}
 .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;padding-top:20px;border-top:1px solid var(--border-0)}
 .row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 
 .tipo-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
 .tipo-opt{padding:14px 10px;border-radius:12px;background:#ffffff04;border:2px solid var(--border-1);text-align:center;cursor:pointer;transition:.15s}
@@ -256,15 +249,12 @@ tbody tr:last-child td{border-bottom:none}
 .tx-ico{width:38px;height:38px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .tx-ico.in{background:#00e67615;color:var(--green)}
 .tx-ico.out{background:#ff4d6d15;color:var(--red)}
-.tx-ico.gift{background:#ffc85715;color:var(--yellow)}
 .tx-ico svg{width:17px;height:17px}
 .tx-body{flex:1;min-width:0}
 .tx-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tx-date{font-size:11px;color:var(--txt-3);margin-top:2px}
 .tx-amount{font-size:14px;font-weight:800;flex-shrink:0;font-variant-numeric:tabular-nums}
 .tx-amount.in{color:var(--green)}
-.tx-amount.bonus{color:var(--yellow)}
-.tx-amount small{display:block;font-size:10px;font-weight:600;color:var(--txt-3);margin-top:2px}
 
 .empty{text-align:center;padding:56px 20px}
 .empty-ico{width:56px;height:56px;margin:0 auto 16px;border-radius:16px;background:#ffffff06;display:flex;align-items:center;justify-content:center;color:var(--txt-3)}
@@ -307,8 +297,8 @@ tbody tr:last-child td{border-bottom:none}
 <div id="login">
   <div class="login-card">
     <div class="login-inner">
-      <div class="login-logo"><svg viewBox="0 0 24 24" fill="#02080f"><path d="M12 2.5C12 2.5 5 10 5 15a7 7 0 0 0 14 0c0-5-7-12.5-7-12.5z"/></svg></div>
-      <h1>Vision Água</h1>
+      <div class="login-logo"><svg viewBox="0 0 24 24" fill="#02080f"><path d="M4 4L12 20L20 4" stroke="#02080f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+      <h1>VISION</h1>
       <div class="sub">Painel Administrativo</div>
       <div class="field"><label>E-mail</label><input id="login-email" type="email" value="esp@vision.com.br"></div>
       <div class="field"><label>Senha</label><input id="login-senha" type="password" placeholder="••••••••"></div>
@@ -321,8 +311,8 @@ tbody tr:last-child td{border-bottom:none}
   <div class="sb-overlay" id="sb-overlay" onclick="toggleSidebar(false)"></div>
   <aside class="sidebar" id="sidebar">
     <div class="sb-brand">
-      <div class="sb-brand-icon"><svg viewBox="0 0 24 24" fill="#02080f"><path d="M12 2.5C12 2.5 5 10 5 15a7 7 0 0 0 14 0c0-5-7-12.5-7-12.5z"/></svg></div>
-      <div class="sb-brand-txt"><div class="t">Vision Água</div><div class="s">Admin</div></div>
+      <div class="sb-brand-icon"><svg viewBox="0 0 24 24" fill="#02080f"><path d="M4 4L12 20L20 4" stroke="#02080f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+      <div class="sb-brand-txt"><div class="t">VISION</div><div class="s">Admin</div></div>
     </div>
     <nav class="sb-nav">
       <div class="sb-sec">Principal</div>
@@ -331,6 +321,7 @@ tbody tr:last-child td{border-bottom:none}
       <div class="sb-item" data-page="transacoes" onclick="nav('transacoes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12H3M16 7l5 5-5 5M8 17l-5-5 5-5"/></svg>Transações</div>
 
       <div class="sb-sec">Marketing</div>
+      <div class="sb-item" data-page="banners" onclick="nav('banners')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg>Banners</div>
       <div class="sb-item" data-page="promocoes" onclick="nav('promocoes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Promoções<span class="badge new" id="badge-promos" style="display:none">0</span></div>
       <div class="sb-item" data-page="cashback" onclick="nav('cashback')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Cashback & Níveis</div>
 
@@ -399,11 +390,53 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
+    <!-- BANNERS -->
+    <div class="page" id="page-banners" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><h2>Upload de banner</h2><div class="sub">Imagem 800x400 (proporção 2:1). Comprimida automaticamente.</div></div>
+        </div>
+
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('banner-file').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;color:var(--txt-3);margin:0 auto 12px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg>
+          <div style="font-size:14px;font-weight:700;color:var(--txt-2)">Clique para escolher uma imagem</div>
+          <div style="font-size:12px;color:var(--txt-3);margin-top:6px">JPG, PNG ou WEBP · máximo 5MB</div>
+          <input type="file" id="banner-file" accept="image/*" style="display:none" onchange="processarBanner(this)">
+        </div>
+
+        <div id="banner-preview" style="display:none;margin-top:20px">
+          <div style="font-size:12px;color:var(--txt-2);margin-bottom:8px;font-weight:700">Preview:</div>
+          <img id="banner-preview-img" style="width:100%;border-radius:12px;border:1px solid var(--border-1)">
+          <div style="display:flex;gap:10px;margin-top:14px">
+            <button class="btn btn-s" style="flex:1;justify-content:center" onclick="cancelarBanner()">Cancelar</button>
+            <button class="btn btn-p" style="flex:2;justify-content:center" onclick="salvarBanner()" id="btn-salvar-banner">Salvar banner</button>
+          </div>
+        </div>
+
+        <div id="banner-progresso" style="display:none;margin-top:16px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt-2);margin-bottom:6px">
+            <span>Processando imagem...</span>
+            <span id="banner-size-txt">—</span>
+          </div>
+          <div style="height:6px;background:#ffffff08;border-radius:3px;overflow:hidden">
+            <div id="banner-progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .3s"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div><h2>Banners ativos</h2><div class="sub" id="banner-contagem">0 banners</div></div>
+        </div>
+        <div id="lista-banners"></div>
+      </div>
+    </div>
+
     <!-- PROMOÇÕES -->
     <div class="page" id="page-promocoes" style="display:none">
       <div class="card">
         <div class="card-head">
-          <div><h2>Promoções ativas</h2><div class="sub">Crie bônus temporários pros clientes</div></div>
+          <div><h2>Promoções</h2><div class="sub">Crie bônus temporários</div></div>
           <button class="btn btn-pink" onclick="abrirNovaPromo()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Nova promoção</button>
         </div>
         <div id="lista-promos"></div>
@@ -423,91 +456,57 @@ tbody tr:last-child td{border-bottom:none}
           </div>
           <div class="cb-field">
             <label>Tipo</label>
-            <select id="cb-tipo">
-              <option value="percentual">Percentual (%)</option>
-              <option value="fixo">Valor fixo (R$)</option>
-            </select>
+            <select id="cb-tipo"><option value="percentual">Percentual (%)</option><option value="fixo">Fixo (R$)</option></select>
           </div>
-          <div class="cb-field">
-            <label>Valor</label>
-            <input type="number" id="cb-valor" step="0.5" min="0" placeholder="5">
-          </div>
-          <div class="cb-field">
-            <label>Aplicar acima de (R$)</label>
-            <input type="number" id="cb-minimo" step="0.5" min="0" placeholder="2,50">
-          </div>
-          <div class="cb-field">
-            <label>Teto por recarga (R$)</label>
-            <input type="number" id="cb-teto" step="1" min="0" placeholder="0 = sem teto">
-          </div>
+          <div class="cb-field"><label>Valor</label><input type="number" id="cb-valor" step="0.5" min="0" placeholder="5"></div>
+          <div class="cb-field"><label>Aplicar acima de (R$)</label><input type="number" id="cb-minimo" step="0.5" min="0" placeholder="2,50"></div>
+          <div class="cb-field"><label>Teto por recarga (R$)</label><input type="number" id="cb-teto" step="1" min="0" placeholder="0 = sem teto"></div>
         </div>
-        <button class="btn btn-p" onclick="salvarCashback()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
-          Salvar configuração
-        </button>
+        <button class="btn btn-p" onclick="salvarCashback()">Salvar configuração</button>
       </div>
 
       <div class="card">
         <div class="card-head">
           <div><h2>Níveis automáticos</h2><div class="sub">Cliente sobe de nível conforme recarrega</div></div>
-          <button class="btn btn-s" onclick="salvarNiveis()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
-            Salvar níveis
-          </button>
+          <button class="btn btn-s" onclick="salvarNiveis()">Salvar níveis</button>
         </div>
-
         <div class="nivel-card">
           <div class="nivel-icon nivel-bronze">🥉</div>
-          <div class="nivel-info">
-            <div class="name">Bronze</div>
-            <div class="desc">Todos os clientes começam aqui</div>
-          </div>
+          <div class="nivel-info"><div class="name">Bronze</div><div class="desc">Todos começam aqui</div></div>
           <div class="nivel-campos">
             <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-bronze-min" value="0"></div>
-            <div class="campo"><label>Cashback %</label><input type="number" id="nivel-bronze-pct" value="5" step="0.5"></div>
+            <div class="campo"><label>%</label><input type="number" id="nivel-bronze-pct" value="5" step="0.5"></div>
           </div>
         </div>
-
         <div class="nivel-card">
           <div class="nivel-icon nivel-prata">🥈</div>
-          <div class="nivel-info">
-            <div class="name">Prata</div>
-            <div class="desc">Clientes frequentes</div>
-          </div>
+          <div class="nivel-info"><div class="name">Prata</div><div class="desc">Clientes frequentes</div></div>
           <div class="nivel-campos">
             <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-prata-min" value="10"></div>
-            <div class="campo"><label>Cashback %</label><input type="number" id="nivel-prata-pct" value="8" step="0.5"></div>
+            <div class="campo"><label>%</label><input type="number" id="nivel-prata-pct" value="8" step="0.5"></div>
           </div>
         </div>
-
         <div class="nivel-card">
           <div class="nivel-icon nivel-ouro">🥇</div>
-          <div class="nivel-info">
-            <div class="name">Ouro</div>
-            <div class="desc">Os melhores clientes</div>
-          </div>
+          <div class="nivel-info"><div class="name">Ouro</div><div class="desc">Melhores clientes</div></div>
           <div class="nivel-campos">
             <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-ouro-min" value="50"></div>
-            <div class="campo"><label>Cashback %</label><input type="number" id="nivel-ouro-pct" value="12" step="0.5"></div>
+            <div class="campo"><label>%</label><input type="number" id="nivel-ouro-pct" value="12" step="0.5"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ESTORNOS -->
     <div class="page" id="page-estornos" style="display:none">
-      <div class="card"><div class="card-head"><div><h2>Fila de estornos</h2><div class="sub">Aguardando decisão</div></div></div><div id="lista-estornos"></div></div>
+      <div class="card"><div class="card-head"><div><h2>Fila de estornos</h2></div></div><div id="lista-estornos"></div></div>
     </div>
-
     <div class="page" id="page-ciclos" style="display:none">
-      <div class="card"><div class="card-head"><div><h2>Histórico de garrafões</h2></div></div><div id="lista-ciclos"></div></div>
+      <div class="card"><div class="card-head"><div><h2>Histórico</h2></div></div><div id="lista-ciclos"></div></div>
     </div>
-
     <div class="page" id="page-status" style="display:none">
       <div class="grid-stats" id="stats-maquina"></div>
-      <div class="card"><div class="card-head"><div><h2>Detalhes da máquina</h2></div></div><div id="status-esp"></div></div>
+      <div class="card"><div class="card-head"><div><h2>Máquina</h2></div></div><div id="status-esp"></div></div>
     </div>
-
     <div class="page" id="page-logs" style="display:none">
       <div class="card">
         <div class="card-head"><div><h2>Logs</h2></div>
@@ -519,77 +518,39 @@ tbody tr:last-child td{border-bottom:none}
   </main>
 </div>
 
-<!-- DRAWER CLIENTE -->
 <div class="drawer-bg" id="drawer-bg" onclick="fecharDrawer()"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-head"><h3 id="drawer-title">Cliente</h3><button class="drawer-close" onclick="fecharDrawer()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
   <div class="drawer-body" id="drawer-body"></div>
 </div>
 
-<!-- MODAL: NOVA/EDITAR PROMOÇÃO -->
 <div class="modal-bg" id="modal-promo">
   <div class="modal">
-    <div class="modal-head">
-      <h3 id="promo-modal-titulo">Nova promoção</h3>
-      <button class="modal-close" onclick="fecharModal('modal-promo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    </div>
+    <div class="modal-head"><h3 id="promo-modal-titulo">Nova promoção</h3><button class="modal-close" onclick="fecharModal('modal-promo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
     <div class="modal-body">
       <input type="hidden" id="promo-id">
-
-      <div class="field">
-        <label>Título (o que aparece no app)</label>
-        <input id="promo-titulo" placeholder="Ex: Recarregue R$20 e ganhe R$2,50">
-      </div>
-
+      <div class="field"><label>Título</label><input id="promo-titulo" placeholder="Ex: Recarregue R$20 e ganhe R$2,50"></div>
       <div class="field">
         <label>Tipo de bônus</label>
         <div class="tipo-opts" id="promo-tipo-opts">
-          <div class="tipo-opt active" data-tipo="bonus_fixo" onclick="selTipoPromo(this)">
-            <div class="ico">💰</div>
-            <div class="lbl">Valor fixo</div>
-          </div>
-          <div class="tipo-opt" data-tipo="percentual" onclick="selTipoPromo(this)">
-            <div class="ico">📊</div>
-            <div class="lbl">Percentual</div>
-          </div>
-          <div class="tipo-opt" data-tipo="multiplicador" onclick="selTipoPromo(this)">
-            <div class="ico">✨</div>
-            <div class="lbl">Multiplicador</div>
-          </div>
+          <div class="tipo-opt active" data-tipo="bonus_fixo" onclick="selTipoPromo(this)"><div class="ico">💰</div><div class="lbl">Fixo</div></div>
+          <div class="tipo-opt" data-tipo="percentual" onclick="selTipoPromo(this)"><div class="ico">📊</div><div class="lbl">%</div></div>
+          <div class="tipo-opt" data-tipo="multiplicador" onclick="selTipoPromo(this)"><div class="ico">✨</div><div class="lbl">Multi</div></div>
         </div>
       </div>
-
       <div class="row-2">
-        <div class="field">
-          <label>Valor mínimo da recarga (R$)</label>
-          <input id="promo-minimo" type="number" step="0.5" value="20">
-        </div>
-        <div class="field" id="promo-valor-field">
-          <label id="promo-valor-label">Bônus (R$)</label>
-          <input id="promo-valor" type="number" step="0.1" value="2.50">
-        </div>
+        <div class="field"><label>Valor mínimo (R$)</label><input id="promo-minimo" type="number" step="0.5" value="20"></div>
+        <div class="field" id="promo-valor-field"><label id="promo-valor-label">Bônus (R$)</label><input id="promo-valor" type="number" step="0.1" value="2.50"></div>
       </div>
-
       <div class="row-2">
-        <div class="field">
-          <label>Início</label>
-          <input id="promo-inicio" type="datetime-local">
-        </div>
-        <div class="field">
-          <label>Fim</label>
-          <input id="promo-fim" type="datetime-local">
-        </div>
+        <div class="field"><label>Início</label><input id="promo-inicio" type="datetime-local"></div>
+        <div class="field"><label>Fim</label><input id="promo-fim" type="datetime-local"></div>
       </div>
-
-      <div class="modal-actions">
-        <button class="btn btn-s" onclick="fecharModal('modal-promo')">Cancelar</button>
-        <button class="btn btn-pink" onclick="salvarPromo()">Salvar promoção</button>
-      </div>
+      <div class="modal-actions"><button class="btn btn-s" onclick="fecharModal('modal-promo')">Cancelar</button><button class="btn btn-pink" onclick="salvarPromo()">Salvar</button></div>
     </div>
   </div>
 </div>
 
-<!-- MODAL: ADICIONAR SALDO -->
 <div class="modal-bg" id="modal-saldo">
   <div class="modal" style="max-width:440px">
     <div class="modal-head"><h3>Adicionar saldo</h3><button class="modal-close" onclick="fecharModal('modal-saldo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
@@ -602,16 +563,15 @@ tbody tr:last-child td{border-bottom:none}
   </div>
 </div>
 
-<!-- MODAL: NOVO CLIENTE -->
 <div class="modal-bg" id="modal-novo">
   <div class="modal">
     <div class="modal-head"><h3>Novo cliente</h3><button class="modal-close" onclick="fecharModal('modal-novo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
     <div class="modal-body">
-      <div class="field"><label>Nome completo</label><input id="nc-nome" placeholder="João da Silva"></div>
+      <div class="field"><label>Nome</label><input id="nc-nome" placeholder="João da Silva"></div>
       <div class="row-2"><div class="field"><label>CPF</label><input id="nc-cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14"></div><div class="field"><label>WhatsApp</label><input id="nc-whats" placeholder="(11) 99999-9999" inputmode="numeric" maxlength="16"></div></div>
       <div class="field"><label>Endereço</label><input id="nc-endereco" placeholder="Rua, número, bairro"></div>
       <div class="row-2"><div class="field"><label>Senha</label><input id="nc-senha" type="text" placeholder="senha123"></div><div class="field"><label>Saldo inicial</label><input id="nc-saldo" placeholder="R$ 0,00" inputmode="numeric" oninput="maskMoeda(this)"></div></div>
-      <div class="modal-actions"><button class="btn btn-s" onclick="fecharModal('modal-novo')">Cancelar</button><button class="btn btn-p" onclick="criarCliente()">Criar cliente</button></div>
+      <div class="modal-actions"><button class="btn btn-s" onclick="fecharModal('modal-novo')">Cancelar</button><button class="btn btn-p" onclick="criarCliente()">Criar</button></div>
     </div>
   </div>
 </div>
@@ -621,10 +581,8 @@ tbody tr:last-child td{border-bottom:none}
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getDatabase, ref, set, get, update, remove, onValue, push }
-  from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, createUserWithEmailAndPassword }
-  from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+import { getDatabase, ref, set, get, update, remove, onValue, push } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDvbkFX3kgtg08HLcpAvt7JbM7OA5yUYaU",
@@ -641,10 +599,11 @@ const db   = getDatabase(app);
 const auth = getAuth(app);
 
 const ADMIN_EMAIL = 'esp@vision.com.br';
-let clientes = {}, transacoes = {}, estornos = {}, ciclos = {}, promocoes = {};
+let clientes = {}, transacoes = {}, estornos = {}, ciclos = {}, promocoes = {}, banners = {};
 let logs_esp = [], logs_api = [], logs_conn = [];
 let statusESP = {}, configSistema = {}, configCashback = {}, configNiveis = {};
 let clienteSelecionado = null, promoEditando = null, tipoPromoSel = 'bonus_fixo';
+let bannerTemp = null;
 let unsubscribers = [];
 
 const fmtBRL = v => 'R$ ' + Number(v||0).toFixed(2).replace('.',',');
@@ -698,8 +657,8 @@ function iniciarListeners(){
   unsubscribers.push(onValue(ref(db,'fila_estornos'), s=>{ estornos = s.val()||{}; renderAll(); }));
   unsubscribers.push(onValue(ref(db,'ciclos'), s=>{ ciclos = s.val()||{}; renderAll(); }));
   unsubscribers.push(onValue(ref(db,'promocoes'), s=>{ promocoes = s.val()||{}; renderAll(); }));
+  unsubscribers.push(onValue(ref(db,'banners'), s=>{ banners = s.val()||{}; renderBanners(); }));
   unsubscribers.push(onValue(ref(db,'status'), s=>{ statusESP = s.val()||{}; renderAll(); }));
-  unsubscribers.push(onValue(ref(db,'config'), s=>{ configSistema = s.val()||{}; }));
   unsubscribers.push(onValue(ref(db,'config/cashback_padrao'), s=>{ configCashback = s.val()||{}; renderCashbackConfig(); }));
   unsubscribers.push(onValue(ref(db,'config/niveis'), s=>{ configNiveis = s.val()||{}; renderNiveis(); }));
   unsubscribers.push(onValue(ref(db,'logs/esp'), s=>{ const v = s.val()||{}; logs_esp = Object.values(v).sort((a,b)=>(b.timestamp||0)-(a.timestamp||0)).slice(0,50); renderLogs(); }));
@@ -719,6 +678,7 @@ window.nav = function(page){
     dashboard:['Visão geral','Resumo em tempo real'],
     clientes:['Clientes','Gerencie usuários do app'],
     transacoes:['Transações','Movimentações do sistema'],
+    banners:['Banners do app','Carrossel que aparece no app do cliente'],
     promocoes:['Promoções','Crie bônus temporários'],
     cashback:['Cashback & Níveis','Configuração de fidelidade'],
     estornos:['Estornos','Aguardando decisão'],
@@ -752,17 +712,14 @@ function renderDashboard(){
   const arr = Object.entries(clientes).map(([id,c])=>({id,...c}));
   const saldoTotal = arr.reduce((s,c)=>s+Number(c.saldo||0),0);
   const txArr = Object.entries(transacoes).map(([id,t])=>({id,...t}));
-  const hoje = new Date(); hoje.setHours(0,0,0,0);
-  const hojeTs = hoje.getTime()/1000;
-  const txHoje = txArr.filter(t=>(t.processado_em||t.data_pagamento_utc||0) >= hojeTs);
   const cashbackTotal = txArr.reduce((s,t)=>s+Number(t.bonus_total||0),0);
   const vipCount = arr.filter(c=>c.cashback_especial?.ativo).length;
 
   document.getElementById('stats-grid').innerHTML = `
     <div class="stat fade-in" style="--accent:#00DDFF"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.8 3.1-6.5 7-6.5s7 2.7 7 6.5"/></svg></div><div class="lbl">Clientes</div><div class="val">${arr.length}</div><div class="sub">${vipCount} VIP</div></div>
     <div class="stat fade-in" style="--accent:#00E676"><div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h9a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg></div><div class="lbl">Saldo em circulação</div><div class="val green">${fmtBRL(saldoTotal)}</div><div class="sub">Total nas contas</div></div>
-    <div class="stat fade-in" style="--accent:#A78BFA"><div class="ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="lbl">Cashback dado</div><div class="val purple">${fmtBRL(cashbackTotal)}</div><div class="sub">Total histórico</div></div>
-    <div class="stat fade-in" style="--accent:#FF4D6D"><div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="lbl">Estornos pendentes</div><div class="val ${Object.keys(estornos).length?'red':''}">${Object.keys(estornos).length}</div><div class="sub">Aguardando</div></div>
+    <div class="stat fade-in" style="--accent:#A78BFA"><div class="ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="lbl">Cashback dado</div><div class="val purple">${fmtBRL(cashbackTotal)}</div><div class="sub">Histórico total</div></div>
+    <div class="stat fade-in" style="--accent:#FF4D6D"><div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="lbl">Estornos</div><div class="val ${Object.keys(estornos).length?'red':''}">${Object.keys(estornos).length}</div><div class="sub">Aguardando</div></div>
   `;
 
   const ultimas = txArr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0)).slice(0,8);
@@ -813,7 +770,7 @@ function renderClientes(){
     : `<tr><td colspan="6"><div class="empty"><h4>Nenhum cliente</h4></div></td></tr>`;
 }
 
-// ============ DRAWER CLIENTE ============
+// ============ DRAWER ============
 window.abrirDrawer = function(uid){
   const c = clientes[uid];
   if(!c) return;
@@ -825,7 +782,6 @@ window.abrirDrawer = function(uid){
   const nRec = Number(stats.total_recargas || 0);
   const txArr = c.transacoes ? Object.entries(c.transacoes).map(([id,t])=>({id,...t})).sort((a,b)=>(b.data||0)-(a.data||0)) : [];
 
-  // Calcula o nível atual
   let nivelAtual = 'Bronze';
   const niveis = configNiveis || {};
   if(niveis.ouro && nRec >= (niveis.ouro.min || 50)) nivelAtual = 'Ouro';
@@ -859,7 +815,7 @@ window.abrirDrawer = function(uid){
         <div class="detail-row"><span class="k">Status</span><span class="v"><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></span></div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-p" onclick="abrirModalSaldo('${uid}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Adicionar saldo</button>
+        <button class="btn btn-p" onclick="abrirModalSaldo('${uid}')">Adicionar saldo</button>
         <button class="btn btn-s" onclick="toggleBloqueio('${uid}')">${ativo?'Bloquear':'Desbloquear'}</button>
         <button class="btn btn-d" onclick="excluirCliente('${uid}')">Excluir</button>
       </div>
@@ -874,22 +830,14 @@ window.abrirDrawer = function(uid){
         <div class="vip-fields">
           <div class="campo">
             <label>Tipo</label>
-            <select id="vip-tipo">
-              <option value="percentual" ${(c.cashback_especial?.tipo||'percentual')==='percentual'?'selected':''}>Percentual (%)</option>
-              <option value="fixo" ${c.cashback_especial?.tipo==='fixo'?'selected':''}>Fixo (R$)</option>
-            </select>
+            <select id="vip-tipo"><option value="percentual" ${(c.cashback_especial?.tipo||'percentual')==='percentual'?'selected':''}>Percentual (%)</option><option value="fixo" ${c.cashback_especial?.tipo==='fixo'?'selected':''}>Fixo (R$)</option></select>
           </div>
-          <div class="campo">
-            <label>Valor</label>
-            <input type="number" id="vip-valor" step="0.5" min="0" value="${c.cashback_especial?.valor||10}">
-          </div>
+          <div class="campo"><label>Valor</label><input type="number" id="vip-valor" step="0.5" min="0" value="${c.cashback_especial?.valor||10}"></div>
         </div>
         <div style="margin-top:12px;padding:10px;background:#00000020;border-radius:10px;font-size:11px;color:var(--txt-3);line-height:1.5">
-          💡 VIP ignora o nível automático. Aplica o valor configurado acima em toda recarga.
+          💡 VIP ignora o nível automático. Aplica o valor acima em toda recarga.
         </div>
-        <button class="btn btn-pink" style="margin-top:14px" onclick="salvarVip('${uid}')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Salvar VIP
-        </button>
+        <button class="btn btn-pink" style="margin-top:14px" onclick="salvarVip('${uid}')">Salvar VIP</button>
       </div>
     </div>
 
@@ -897,11 +845,7 @@ window.abrirDrawer = function(uid){
       ${txArr.length ? txArr.map(t=>{
         const isIn = t.tipo==='recarga';
         const bonus = Number(t.bonus_total || 0);
-        return `<div class="tx-row">
-          <div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div>
-          <div class="tx-body"><div class="tx-title">${isIn?'Recarga':'Consumo'} — ${t.garrafoes||1} garrafão${(t.garrafoes||1)>1?'es':''}</div><div class="tx-date">${fmtData(t.data)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div>
-          <div class="tx-amount ${isIn?'in':'out'}">${isIn?'+':'−'} ${fmtBRL(Math.abs(t.total||t.valor||0))}</div>
-        </div>`;
+        return `<div class="tx-row"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${isIn?'Recarga':'Consumo'} — ${t.garrafoes||1} crédito${(t.garrafoes||1)>1?'s':''}</div><div class="tx-date">${fmtData(t.data)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div><div class="tx-amount ${isIn?'in':'out'}">${isIn?'+':'−'} ${fmtBRL(Math.abs(t.total||t.valor||0))}</div></div>`;
       }).join('') : '<div class="empty"><h4>Sem histórico</h4></div>'}
     </div>
   `;
@@ -920,10 +864,8 @@ window.salvarVip = async function(uid){
   const ativo = document.getElementById('vip-toggle').checked;
   const tipo = document.getElementById('vip-tipo').value;
   const valor = Number(document.getElementById('vip-valor').value) || 0;
-  try {
-    await update(ref(db, `clientes/${uid}/cashback_especial`), { ativo, tipo, valor });
-    toast(ativo ? 'Cliente marcado como VIP' : 'VIP removido', 'success');
-  } catch(e){ toast('Erro: '+e.message, 'error'); }
+  try { await update(ref(db, `clientes/${uid}/cashback_especial`), { ativo, tipo, valor }); toast(ativo ? 'VIP ativado' : 'VIP removido', 'success'); }
+  catch(e){ toast('Erro: '+e.message, 'error'); }
 };
 
 window.toggleBloqueio = async function(uid){
@@ -937,6 +879,133 @@ window.excluirCliente = async function(uid){
   const c = clientes[uid]; if(!c) return;
   if(!confirm(`Excluir "${c.nome}"?`)) return;
   try { await remove(ref(db, 'clientes/'+uid)); toast('Removido','success'); fecharDrawer(); }
+  catch(e){ toast('Erro','error'); }
+};
+
+// ============ BANNERS ============
+window.processarBanner = async function(input){
+  const file = input.files[0];
+  if(!file) return;
+  if(file.size > 5 * 1024 * 1024) return toast('Imagem muito grande (máx 5MB)','error');
+  if(!file.type.startsWith('image/')) return toast('Escolha uma imagem','error');
+
+  document.getElementById('upload-zone').style.display = 'none';
+  document.getElementById('banner-progresso').style.display = 'block';
+  document.getElementById('banner-progress-bar').style.width = '30%';
+
+  try {
+    const base64 = await comprimirImagem(file, 800, 400, 0.8);
+    document.getElementById('banner-progress-bar').style.width = '90%';
+    const sizeKB = Math.round(base64.length / 1024);
+    document.getElementById('banner-size-txt').innerText = sizeKB + ' KB';
+    bannerTemp = base64;
+    document.getElementById('banner-preview-img').src = base64;
+    document.getElementById('banner-preview').style.display = 'block';
+    document.getElementById('banner-progresso').style.display = 'none';
+  } catch(e){
+    toast('Erro ao processar: ' + e.message, 'error');
+    cancelarBanner();
+  }
+};
+
+function comprimirImagem(file, maxW, maxH, quality){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        let w = img.width, h = img.height;
+        const ratio = Math.min(maxW / w, maxH / h, 1);
+        w = Math.round(w * ratio);
+        h = Math.round(h * ratio);
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = () => reject(new Error('Imagem inválida'));
+      img.src = e.target.result;
+    };
+    reader.onerror = () => reject(new Error('Erro ao ler arquivo'));
+    reader.readAsDataURL(file);
+  });
+}
+
+window.cancelarBanner = function(){
+  bannerTemp = null;
+  document.getElementById('banner-file').value = '';
+  document.getElementById('upload-zone').style.display = 'block';
+  document.getElementById('banner-preview').style.display = 'none';
+  document.getElementById('banner-progresso').style.display = 'none';
+  document.getElementById('banner-progress-bar').style.width = '0%';
+};
+
+window.salvarBanner = async function(){
+  if(!bannerTemp) return;
+  document.getElementById('btn-salvar-banner').disabled = true;
+  document.getElementById('btn-salvar-banner').innerText = 'Salvando...';
+  try {
+    const novoRef = push(ref(db, 'banners'));
+    await set(novoRef, {
+      url: bannerTemp,
+      ativo: true,
+      ordem: Date.now(),
+      criado_em: Math.floor(Date.now()/1000)
+    });
+    toast('Banner adicionado!','success');
+    cancelarBanner();
+  } catch(e){
+    toast('Erro: ' + e.message, 'error');
+  } finally {
+    document.getElementById('btn-salvar-banner').disabled = false;
+    document.getElementById('btn-salvar-banner').innerText = 'Salvar banner';
+  }
+};
+
+function renderBanners(){
+  const arr = Object.entries(banners).map(([id,b])=>({id,...b}));
+  arr.sort((a,b)=>(b.ordem||b.criado_em||0)-(a.ordem||a.criado_em||0));
+
+  const cont = document.getElementById('banner-contagem');
+  if(cont) cont.innerText = `${arr.length} banner${arr.length===1?'':'s'}`;
+
+  const list = document.getElementById('lista-banners');
+  if(!list) return;
+
+  if(arr.length === 0){
+    list.innerHTML = '<div class="empty"><h4>Nenhum banner</h4><p>Faça o primeiro upload acima</p></div>';
+    return;
+  }
+
+  list.innerHTML = arr.map(b=>{
+    const data = b.criado_em ? new Date(b.criado_em*1000).toLocaleDateString('pt-BR') : '—';
+    const ativo = b.ativo !== false;
+    return `<div class="banner-card ${ativo?'':'inativo'}">
+      <img src="${b.url}" alt="banner">
+      <div class="banner-info">
+        <div class="data">
+          ${ativo ? '<span class="pill green">Ativo</span>' : '<span class="pill gray">Inativo</span>'}
+          <span>${data}</span>
+        </div>
+        <div class="banner-actions">
+          <button class="btn btn-s" onclick="toggleBanner('${b.id}', ${!ativo})">${ativo?'Desativar':'Ativar'}</button>
+          <button class="btn btn-d" onclick="excluirBanner('${b.id}')">Excluir</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+window.toggleBanner = async function(id, ativo){
+  try { await update(ref(db, `banners/${id}`), { ativo }); toast(ativo?'Banner ativado':'Banner desativado','success'); }
+  catch(e){ toast('Erro','error'); }
+};
+
+window.excluirBanner = async function(id){
+  if(!confirm('Excluir este banner?')) return;
+  try { await remove(ref(db, `banners/${id}`)); toast('Banner removido','success'); }
   catch(e){ toast('Erro','error'); }
 };
 
@@ -973,12 +1042,6 @@ function renderPromocoes(){
     const inicioStr = p.data_inicio ? new Date(p.data_inicio*1000).toLocaleDateString('pt-BR') : '—';
     const fimStr = p.data_fim && p.data_fim < 9999999999 ? new Date(p.data_fim*1000).toLocaleDateString('pt-BR') : 'Sem data final';
 
-    let tempoStr = '';
-    if(ativa && p.data_fim && p.data_fim < 9999999999){
-      const dias = Math.ceil((p.data_fim - agora) / 86400);
-      tempoStr = dias > 0 ? `${dias} dia${dias>1?'s':''} restante${dias>1?'s':''}` : 'Último dia';
-    }
-
     return `<div class="promo-card ${cls}">
       <div class="promo-head">
         <div>
@@ -989,12 +1052,11 @@ function renderPromocoes(){
       </div>
       <div class="promo-meta">
         <div class="item">📅 <strong>${inicioStr}</strong> → <strong>${fimStr}</strong></div>
-        ${tempoStr ? `<div class="item">⏳ <strong>${tempoStr}</strong></div>` : ''}
       </div>
       <div class="promo-actions">
-        <button class="btn btn-s" onclick="editarPromo('${p.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Editar</button>
+        <button class="btn btn-s" onclick="editarPromo('${p.id}')">Editar</button>
         <button class="btn ${p.ativo?'btn-y':'btn-g'}" onclick="togglePromo('${p.id}', ${!p.ativo})">${p.ativo?'Pausar':'Reativar'}</button>
-        <button class="btn btn-d" onclick="excluirPromo('${p.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>Excluir</button>
+        <button class="btn btn-d" onclick="excluirPromo('${p.id}')">Excluir</button>
       </div>
     </div>`;
   }).join('');
@@ -1010,16 +1072,13 @@ window.abrirNovaPromo = function(){
   tipoPromoSel = 'bonus_fixo';
   document.querySelectorAll('#promo-tipo-opts .tipo-opt').forEach(o=>o.classList.toggle('active', o.dataset.tipo === 'bonus_fixo'));
   atualizarLabelValorPromo();
-  const agora = new Date();
-  const daqui30 = new Date(Date.now() + 30*86400000);
-  document.getElementById('promo-inicio').value = toLocalDT(agora);
-  document.getElementById('promo-fim').value = toLocalDT(daqui30);
+  document.getElementById('promo-inicio').value = toLocalDT(new Date());
+  document.getElementById('promo-fim').value = toLocalDT(new Date(Date.now() + 30*86400000));
   document.getElementById('modal-promo').classList.add('active');
 };
 
 window.editarPromo = function(id){
-  const p = promocoes[id];
-  if(!p) return;
+  const p = promocoes[id]; if(!p) return;
   promoEditando = id;
   document.getElementById('promo-modal-titulo').innerText = 'Editar promoção';
   document.getElementById('promo-id').value = id;
@@ -1068,15 +1127,7 @@ window.salvarPromo = async function(){
   const data_inicio = inicioStr ? Math.floor(new Date(inicioStr).getTime()/1000) : 0;
   const data_fim = fimStr ? Math.floor(new Date(fimStr).getTime()/1000) : 9999999999;
 
-  const dados = {
-    ativo: true,
-    titulo,
-    regra: tipoPromoSel,
-    valor_minimo: minimo,
-    data_inicio,
-    data_fim
-  };
-
+  const dados = { ativo: true, titulo, regra: tipoPromoSel, valor_minimo: minimo, data_inicio, data_fim };
   if(tipoPromoSel === 'bonus_fixo') dados.valor_bonus = valor;
   else if(tipoPromoSel === 'percentual') dados.percentual = valor;
   else if(tipoPromoSel === 'multiplicador') dados.multiplicador = valor;
@@ -1096,7 +1147,7 @@ window.salvarPromo = async function(){
 };
 
 window.togglePromo = async function(id, ativo){
-  try { await update(ref(db, `promocoes/${id}`), { ativo }); toast(ativo?'Promoção ativada':'Promoção pausada','success'); }
+  try { await update(ref(db, `promocoes/${id}`), { ativo }); toast(ativo?'Ativada':'Pausada','success'); }
   catch(e){ toast('Erro','error'); }
 };
 
@@ -1107,7 +1158,7 @@ window.excluirPromo = async function(id){
   catch(e){ toast('Erro','error'); }
 };
 
-// ============ CASHBACK CONFIG ============
+// ============ CASHBACK ============
 function renderCashbackConfig(){
   const c = configCashback;
   const ativoEl = document.getElementById('cb-ativo');
@@ -1220,7 +1271,7 @@ window.criarCliente = async function(){
   } finally { hideLoading(); }
 };
 
-// ============ TRANSAÇÕES ============
+// ============ OUTROS ============
 function renderTransacoes(){
   const busca = (document.getElementById('busca-tx')?.value||'').toLowerCase();
   const filtro = document.getElementById('filtro-tx-status')?.value || '';
@@ -1229,7 +1280,7 @@ function renderTransacoes(){
   if(busca) arr = arr.filter(t=> (t.id||'').toLowerCase().includes(busca) || (t.motivo||'').toLowerCase().includes(busca) || (t.origem||'').toLowerCase().includes(busca));
   arr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0));
   arr = arr.slice(0,100);
-  const cores = {liberado: 'green', ignorado_app: 'cyan', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red', aguardando_autorizacao: 'yellow'};
+  const cores = {liberado: 'green', ignorado_app: 'cyan', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red'};
   document.getElementById('tabela-tx').innerHTML = arr.length
     ? arr.map(t=>{
       const bonus = Number(t.bonus_total||0);
@@ -1238,7 +1289,6 @@ function renderTransacoes(){
     : `<tr><td colspan="6"><div class="empty"><h4>Sem transações</h4></div></td></tr>`;
 }
 
-// ============ ESTORNOS / CICLOS / STATUS / LOGS ============
 function renderEstornos(){
   const arr = Object.entries(estornos).map(([id,e])=>({id,...e}));
   document.getElementById('lista-estornos').innerHTML = arr.length
@@ -1252,7 +1302,7 @@ function renderCiclos(){
   arr.sort((a,b)=>(b.iniciado_em||0)-(a.iniciado_em||0));
   arr.splice(50);
   document.getElementById('lista-ciclos').innerHTML = arr.length
-    ? arr.map(c=>{ const total = c.garrafoes_previstos||0; const comp = c.garrafoes_completos||0; return `<div class="tx-row"><div class="tx-ico ${c.status==='concluido'?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="tx-body"><div class="tx-title">${comp}/${total} garrafões</div><div class="tx-date">${fmtData(c.iniciado_em)}</div></div><span class="pill ${c.status==='concluido'?'green':'yellow'}">${c.status||'-'}</span></div>`; }).join('')
+    ? arr.map(c=>{ const total = c.garrafoes_previstos||0; const comp = c.garrafoes_completos||0; return `<div class="tx-row"><div class="tx-ico ${c.status==='concluido'?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="tx-body"><div class="tx-title">${comp}/${total} créditos</div><div class="tx-date">${fmtData(c.iniciado_em)}</div></div><span class="pill ${c.status==='concluido'?'green':'yellow'}">${c.status||'-'}</span></div>`; }).join('')
     : `<div class="empty"><h4>Sem ciclos</h4></div>`;
 }
 
@@ -1268,15 +1318,13 @@ function renderStatus(){
   document.getElementById('status-esp').innerHTML = `
     <div class="detail-rows">
       <div class="detail-row"><span class="k">Pedido</span><span class="v">${s.pedido_atual||'—'}</span></div>
-      <div class="detail-row"><span class="k">Garrafões</span><span class="v">${s.doses_completas||0} / ${s.doses_total||0}</span></div>
+      <div class="detail-row"><span class="k">Créditos</span><span class="v">${s.doses_completas||0} / ${s.doses_total||0}</span></div>
       <div class="detail-row"><span class="k">Freio</span><span class="v"><span class="pill ${s.freio_ativo?'red':'green'}">${s.freio_ativo?'Ativo':'Inativo'}</span></span></div>
-      <div class="detail-row"><span class="k">Estornos hoje</span><span class="v">${s.estornos_dia||0}</span></div>
-      <div class="detail-row"><span class="k">Entregas hoje</span><span class="v">${s.entregas_dia||0}</span></div>
     </div>
     <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
       <button class="btn btn-p" onclick="comandoESP('ligar_bomba',true)">Ligar</button>
       <button class="btn btn-s" onclick="comandoESP('desligar_bomba',true)">Desligar</button>
-      <button class="btn btn-d" onclick="comandoESP('cancelar_fila',true)">Cancelar fila</button>
+      <button class="btn btn-d" onclick="comandoESP('cancelar_fila',true)">Cancelar</button>
     </div>`;
 }
 window.comandoESP = async function(cmd, v){ try { await update(ref(db, 'comandos'), { [cmd]: v }); toast('Enviado','success'); } catch(e){ toast('Erro','error'); } };
