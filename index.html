@@ -98,6 +98,7 @@ svg{display:block}
 .stat .val.yellow{color:var(--yellow)}
 .stat .val.purple{color:var(--purple)}
 .stat .val.pink{color:var(--pink)}
+.stat .val.cyan{color:var(--cyan)}
 .stat .sub{font-size:12px;color:var(--txt-3);margin-top:6px}
 
 .card{background:linear-gradient(160deg,#08203a,#051428);border:1px solid var(--border-0);border-radius:16px;padding:22px;margin-bottom:20px;position:relative;overflow:hidden}
@@ -127,6 +128,7 @@ tbody tr:last-child td{border-bottom:none}
 .pill.gray{background:#ffffff10;color:var(--txt-2)}
 .pill.purple{background:#a78bfa15;color:var(--purple)}
 .pill.pink{background:#ff6b9d15;color:var(--pink)}
+.pill.blue{background:#3b82f615;color:#60a5fa}
 .actions-cell{display:flex;gap:6px;justify-content:flex-end}
 .mini{width:32px;height:32px;border-radius:9px;background:#ffffff06;border:1px solid var(--border-0);display:flex;align-items:center;justify-content:center;color:var(--txt-2);transition:.15s}
 .mini:hover{background:#ffffff12;color:var(--cyan)}
@@ -140,7 +142,6 @@ tbody tr:last-child td{border-bottom:none}
 .select-mini{padding:11px 14px;border-radius:10px;font-size:13px;background:#ffffff06;border:1.5px solid var(--border-0);color:var(--txt-1);cursor:pointer}
 .select-mini option{background:#04101c;color:#fff}
 
-/* FILTROS RÁPIDOS */
 .filtros-rapidos{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .chip{padding:8px 14px;border-radius:20px;background:#ffffff06;border:1px solid var(--border-0);color:var(--txt-2);font-size:12px;font-weight:700;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:6px}
 .chip:hover{background:#ffffff0c}
@@ -268,12 +269,14 @@ tbody tr:last-child td{border-bottom:none}
 .tx-ico.in{background:#00e67615;color:var(--green)}
 .tx-ico.out{background:#ff4d6d15;color:var(--red)}
 .tx-ico.warn{background:#ffc85715;color:var(--yellow)}
+.tx-ico.app{background:#3b82f620;color:#60a5fa}
 .tx-ico svg{width:17px;height:17px}
 .tx-body{flex:1;min-width:0}
 .tx-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tx-date{font-size:11px;color:var(--txt-3);margin-top:2px}
 .tx-amount{font-size:14px;font-weight:800;flex-shrink:0;font-variant-numeric:tabular-nums}
 .tx-amount.in{color:var(--green)}
+.tx-amount.app{color:#60a5fa}
 
 .empty{text-align:center;padding:56px 20px}
 .empty-ico{width:56px;height:56px;margin:0 auto 16px;border-radius:16px;background:#ffffff06;display:flex;align-items:center;justify-content:center;color:var(--txt-3)}
@@ -301,18 +304,49 @@ tbody tr:last-child td{border-bottom:none}
 .sb-overlay{position:fixed;inset:0;background:#02080f99;z-index:190;display:none}
 .sb-overlay.active{display:block}
 
-/* GRÁFICO */
 .chart-wrap{position:relative;height:220px;margin-top:10px}
 .chart-bar{position:absolute;bottom:0;width:calc(100% / var(--n) - 8px);background:linear-gradient(180deg,#00DDFF,#00a8c4);border-radius:6px 6px 0 0;transition:.4s;min-height:4px;display:flex;align-items:flex-end;justify-content:center;font-size:10px;font-weight:800;color:#02080f;padding-bottom:4px}
 .chart-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--txt-3);font-weight:700;text-transform:uppercase;letter-spacing:1px}
 
-/* ALERTA INLINE */
-.alert{border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.5;display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
-.alert svg{width:18px;height:18px;flex-shrink:0;margin-top:1px}
-.alert.warn{background:#ffc85712;border:1px solid #ffc85740;color:var(--yellow)}
-.alert.error{background:#ff4d6d12;border:1px solid #ff4d6d40;color:var(--red)}
-.alert.info{background:#00ddff12;border:1px solid #00ddff40;color:var(--cyan)}
-.alert.success{background:#00e67612;border:1px solid #00e67640;color:var(--green)}
+/* ===== RELATÓRIO ===== */
+.relatorio-tabs{display:flex;gap:6px;margin-bottom:20px;background:#ffffff04;padding:5px;border-radius:12px;border:1px solid var(--border-0);flex-wrap:wrap}
+.rel-tab{flex:1;min-width:110px;padding:10px 14px;font-size:12.5px;font-weight:700;color:var(--txt-3);border-radius:8px;transition:.15s;text-align:center;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.rel-tab:hover{background:#ffffff06}
+.rel-tab.active{background:#00ddff15;color:var(--cyan)}
+.rel-tab.active.blue{background:#3b82f620;color:#60a5fa}
+.rel-tab .n{background:#ffffff10;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:800}
+.rel-tab.active .n{background:#00ddff30}
+.rel-tab.active.blue .n{background:#3b82f640}
+
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--txt-2)}
+.legend .dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:middle}
+.legend .dot.cyan{background:#00DDFF;box-shadow:0 0 8px #00DDFF80}
+.legend .dot.blue{background:#60a5fa;box-shadow:0 0 8px #60a5fa80}
+.legend .dot.red{background:#FF4D6D;box-shadow:0 0 8px #ff4d6d80}
+
+.chart-stack{display:flex;align-items:flex-end;gap:3px;height:220px;padding:0 4px;border-bottom:1px solid var(--border-0);position:relative}
+.chart-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;min-width:6px;height:100%;position:relative;cursor:pointer}
+.chart-col .seg{width:100%;transition:.4s;min-height:0}
+.chart-col .seg.direct{background:linear-gradient(180deg,#00DDFF,#00a8c4);border-radius:4px 4px 0 0}
+.chart-col .seg.app{background:linear-gradient(180deg,#60a5fa,#3b82f6);border-radius:4px 4px 0 0}
+.chart-col .seg.estorno{background:linear-gradient(180deg,#FF4D6D,#e63946);border-radius:4px 4px 0 0}
+.chart-col:hover .seg{filter:brightness(1.2)}
+.chart-col .bubble{position:absolute;top:-32px;left:50%;transform:translateX(-50%);background:#0a2035;border:1px solid var(--cyan);padding:6px 10px;border-radius:8px;font-size:10px;font-weight:700;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s;z-index:10;color:var(--txt-1);box-shadow:0 8px 20px #00000080}
+.chart-col:hover .bubble{opacity:1}
+
+.alerta{border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.5;display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.alerta svg{width:18px;height:18px;flex-shrink:0;margin-top:1px}
+.alerta.warn{background:#ffc85712;border:1px solid #ffc85740;color:var(--yellow)}
+.alerta.error{background:#ff4d6d12;border:1px solid #ff4d6d40;color:var(--red)}
+.alerta.info{background:#00ddff12;border:1px solid #00ddff40;color:var(--cyan)}
+.alerta.success{background:#00e67612;border:1px solid #00e67640;color:var(--green)}
+
+.resumo-tabela{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.resumo-tabela th{text-align:left;padding:12px 14px;font-size:10.5px;color:var(--txt-3);letter-spacing:1.5px;text-transform:uppercase;font-weight:800;border-bottom:1px solid var(--border-0)}
+.resumo-tabela td{padding:13px 14px;border-bottom:1px solid #ffffff06;font-variant-numeric:tabular-nums}
+.resumo-tabela tbody tr:last-child td{border-bottom:none;font-weight:800;background:#00ddff06}
+.resumo-tabela tbody tr:last-child td:first-child{border-radius:0 0 0 10px}
+.resumo-tabela tbody tr:last-child td:last-child{border-radius:0 0 10px 0}
 
 @media(max-width:900px){
   #app.active{grid-template-columns:1fr}
@@ -321,6 +355,7 @@ tbody tr:last-child td{border-bottom:none}
   .main{padding:20px 18px 60px}
   .menu-btn{display:flex}
   .topbar-l h1{font-size:22px}
+  .chart-wrap,.chart-stack{height:180px}
 }
 </style>
 </head>
@@ -350,10 +385,9 @@ tbody tr:last-child td{border-bottom:none}
     <nav class="sb-nav">
       <div class="sb-sec">Principal</div>
       <div class="sb-item active" data-page="dashboard" onclick="nav('dashboard')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Visão geral</div>
-      <div class="sb-item" data-page="analytics" onclick="nav('analytics')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>Análise de vendas</div>
+      <div class="sb-item" data-page="relatorios" onclick="nav('relatorios')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="1"/><rect x="12" y="8" width="3" height="10" rx="1"/><rect x="17" y="14" width="3" height="4" rx="1"/></svg>Relatórios</div>
       <div class="sb-item" data-page="clientes" onclick="nav('clientes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-3.8 3.1-6.5 7-6.5s7 2.7 7 6.5"/></svg>Clientes</div>
       <div class="sb-item" data-page="transacoes" onclick="nav('transacoes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12H3M16 7l5 5-5 5M8 17l-5-5 5-5"/></svg>Transações</div>
-      <div class="sb-item" data-page="recargas_ext" onclick="nav('recargas_ext')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Recargas externas<span class="badge warn" id="badge-recext" style="display:none">0</span></div>
 
       <div class="sb-sec">Marketing</div>
       <div class="sb-item" data-page="banners" onclick="nav('banners')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 5-5 4 4"/><circle cx="9" cy="8" r="1.5"/></svg>Banners</div>
@@ -404,27 +438,44 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
-    <!-- ================= ANALYTICS ================= -->
-    <div class="page" id="page-analytics" style="display:none">
-      <div class="grid-stats" id="stats-analytics"></div>
+    <!-- ================= RELATÓRIOS ================= -->
+    <div class="page" id="page-relatorios" style="display:none">
+      <div class="relatorio-tabs" id="rel-tabs">
+        <div class="rel-tab active" data-rel="7" onclick="mudarRel(7, this)">Últimos 7 dias</div>
+        <div class="rel-tab" data-rel="15" onclick="mudarRel(15, this)">15 dias</div>
+        <div class="rel-tab" data-rel="30" onclick="mudarRel(30, this)">30 dias</div>
+        <div class="rel-tab" data-rel="90" onclick="mudarRel(90, this)">90 dias</div>
+        <div class="rel-tab" data-rel="0" onclick="mudarRel(0, this)">Tudo</div>
+      </div>
+
+      <div class="grid-stats" id="rel-stats"></div>
+
       <div class="card">
         <div class="card-head">
-          <div><h2>Vendas por dia</h2><div class="sub" id="an-sub-periodo">Últimos 30 dias</div></div>
-          <select class="select-mini" id="an-periodo" onchange="renderAnalytics()">
-            <option value="7">7 dias</option>
-            <option value="15">15 dias</option>
-            <option value="30" selected>30 dias</option>
-          </select>
+          <div><h2>Comparativo por dia</h2><div class="sub">PIX direto × Recarga app × Estorno</div></div>
+          <button class="btn btn-s btn-sm" onclick="exportarRelatorio()">📥 Exportar CSV</button>
         </div>
-        <div id="an-chart"></div>
+        <div id="rel-chart"></div>
+        <div class="legend">
+          <div><span class="dot cyan"></span>PIX direto (liberou água)</div>
+          <div><span class="dot blue"></span>Recarga app (creditou saldo)</div>
+          <div><span class="dot red"></span>Estorno</div>
+        </div>
       </div>
+
       <div class="card">
-        <div class="card-head"><div><h2>Ranking de clientes</h2><div class="sub">Quem mais consome</div></div></div>
-        <div id="an-ranking"></div>
+        <div class="card-head"><div><h2>Resumo por tipo</h2><div class="sub">Totalizadores no período</div></div></div>
+        <table class="resumo-tabela" id="rel-resumo"></table>
       </div>
+
       <div class="card">
-        <div class="card-head"><div><h2>Ranking de horários</h2><div class="sub">Horários de pico</div></div></div>
-        <div id="an-horarios"></div>
+        <div class="card-head"><div><h2>Detalhado por dia</h2><div class="sub">Cada linha = 1 dia</div></div></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Data</th><th>PIX direto</th><th>Valor direto</th><th>Recarga app</th><th>Valor app</th><th>Estornos</th></tr></thead>
+            <tbody id="rel-tabela"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -458,7 +509,7 @@ tbody tr:last-child td{border-bottom:none}
       <div class="filtros-rapidos" id="filtros-tx">
         <button class="chip active" data-txfil="" onclick="filtrarTx('', this)">Todas <span class="cnt" id="tx-cnt-todas">0</span></button>
         <button class="chip" data-txfil="pix_avulso" onclick="filtrarTx('pix_avulso', this)">💧 PIX Avulso <span class="cnt" id="tx-cnt-pix">0</span></button>
-        <button class="chip" data-txfil="app" onclick="filtrarTx('app', this)">📱 App <span class="cnt" id="tx-cnt-app">0</span></button>
+        <button class="chip" data-txfil="app" onclick="filtrarTx('app', this)">📱 Recarga App <span class="cnt" id="tx-cnt-app">0</span></button>
         <button class="chip" data-txfil="admin" onclick="filtrarTx('admin', this)">👤 Admin <span class="cnt" id="tx-cnt-admin">0</span></button>
         <button class="chip" data-txfil="estorno" onclick="filtrarTx('estorno', this)">↩️ Estornos <span class="cnt" id="tx-cnt-estorno">0</span></button>
         <button class="chip" data-txfil="falhas" onclick="filtrarTx('falhas', this)">❌ Falhas <span class="cnt" id="tx-cnt-falhas">0</span></button>
@@ -483,21 +534,6 @@ tbody tr:last-child td{border-bottom:none}
         <div class="table-wrap"><table>
           <thead><tr><th>ID</th><th>Valor</th><th>Créditos</th><th>Origem</th><th>Status</th><th>Data</th><th></th></tr></thead>
           <tbody id="tabela-tx"></tbody>
-        </table></div>
-      </div>
-    </div>
-
-    <!-- ================= RECARGAS EXTERNAS ================= -->
-    <div class="page" id="page-recargas_ext" style="display:none">
-      <div class="alert info">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg>
-        <div>Estas são as recargas que os clientes fizeram <strong>direto no banco</strong> (sem app). O ESP ignora e o backend credita o saldo. Útil pra conferência.</div>
-      </div>
-      <div class="card">
-        <div class="card-head"><div><h2>PIX do app (ignorados pelo ESP)</h2><div class="sub">Recargas externas confirmadas</div></div></div>
-        <div class="table-wrap"><table>
-          <thead><tr><th>ID</th><th>Valor</th><th>Cliente</th><th>Data</th></tr></thead>
-          <tbody id="tabela-recext"></tbody>
         </table></div>
       </div>
     </div>
@@ -539,7 +575,7 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
-    <!-- ================= CASHBACK & NÍVEIS ================= -->
+    <!-- ================= CASHBACK ================= -->
     <div class="page" id="page-cashback" style="display:none">
       <div class="card">
         <div class="card-head"><div><h2>Cashback padrão</h2><div class="sub">Aplicado a todos os clientes</div></div></div>
@@ -572,7 +608,7 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
-    <!-- ================= ESTORNOS (melhorado) ================= -->
+    <!-- ================= ESTORNOS ================= -->
     <div class="page" id="page-estornos" style="display:none">
       <div class="grid-stats" id="stats-estornos"></div>
       <div class="card">
@@ -585,7 +621,7 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
-    <!-- ================= GARRAFÕES ================= -->
+    <!-- ================= CICLOS ================= -->
     <div class="page" id="page-ciclos" style="display:none">
       <div class="card"><div class="card-head"><div><h2>Histórico de ciclos</h2><div class="sub">Cada pedido de enchimento</div></div></div><div id="lista-ciclos"></div></div>
     </div>
@@ -644,13 +680,13 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
-    <!-- ================= CONFIG SISTEMA ================= -->
+    <!-- ================= CONFIG ================= -->
     <div class="page" id="page-config" style="display:none">
       <div class="card">
         <div class="card-head"><div><h2>Informações</h2></div></div>
         <div class="detail-rows">
           <div class="detail-row"><span class="k">Versão do firmware</span><span class="v" id="cfg-versao-fw">—</span></div>
-          <div class="detail-row"><span class="k">Versão do painel</span><span class="v">3.0.2</span></div>
+          <div class="detail-row"><span class="k">Versão do painel</span><span class="v">3.0.4</span></div>
           <div class="detail-row"><span class="k">Firebase project</span><span class="v mono">visionespinho</span></div>
           <div class="detail-row"><span class="k">Mercado Pago</span><span class="v"><span class="pill green">Conectado</span></span></div>
         </div>
@@ -677,7 +713,7 @@ tbody tr:last-child td{border-bottom:none}
 <!-- MODAL DETALHE TX -->
 <div class="modal-bg" id="modal-txdet">
   <div class="modal">
-    <div class="modal-head"><h3>Detalhes da transação</h3><button class="modal-close" onclick="fecharModal('modal-txdet')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
+    <div class="modal-head"><h3 id="txdet-titulo">Detalhes da transação</h3><button class="modal-close" onclick="fecharModal('modal-txdet')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
     <div class="modal-body" id="txdet-body"></div>
   </div>
 </div>
@@ -786,6 +822,7 @@ let statusESP = {}, configSistema = {}, configCashback = {}, configNiveis = {};
 let clienteSelecionado = null, promoEditando = null, tipoPromoSel = 'bonus_fixo';
 let bannerTemp = null;
 let cFilAtual = '', txFilAtual = '', logFilAtual = 'esp';
+let relDias = 7;
 let unsubscribers = [];
 
 const fmtBRL = v => 'R$ ' + Number(v||0).toFixed(2).replace('.',',');
@@ -875,10 +912,9 @@ window.nav = function(page){
   if(pg) pg.style.display='block';
   const titles = {
     dashboard:['Visão geral','Resumo em tempo real'],
-    analytics:['Análise de vendas','Gráficos e rankings'],
+    relatorios:['Relatórios','PIX direto × Recarga app × Estornos'],
     clientes:['Clientes','Gerencie usuários do app'],
     transacoes:['Transações','Movimentações do sistema'],
-    recargas_ext:['Recargas externas','PIX do app (ignorados pelo ESP)'],
     banners:['Banners do app','Carrossel do app do cliente'],
     promocoes:['Promoções','Crie bônus temporários'],
     cashback:['Cashback & Níveis','Configuração de fidelidade'],
@@ -891,6 +927,7 @@ window.nav = function(page){
   const [t,s] = titles[page] || ['',''];
   document.getElementById('page-title').innerText = t;
   document.getElementById('page-sub').innerText = s;
+  if(page === 'relatorios') renderRelatorios();
   if(window.innerWidth <= 900) toggleSidebar(false);
 };
 window.toggleSidebar = function(open){ document.getElementById('sidebar').classList.toggle('open', open); document.getElementById('sb-overlay').classList.toggle('active', open); };
@@ -898,8 +935,8 @@ window.recarregarTudo = ()=> { renderAll(); toast('Dados atualizados','success')
 
 // ==================== RENDER ALL ====================
 function renderAll(){
-  renderAlertas(); renderDashboard(); renderAnalytics();
-  renderClientes(); renderTransacoes(); renderRecargasExt();
+  renderAlertas(); renderDashboard(); renderRelatorios();
+  renderClientes(); renderTransacoes();
   renderPromocoes(); renderEstornos(); renderCiclos();
   renderStatus(); renderLogs(); renderConfigSistema();
 
@@ -911,10 +948,6 @@ function renderAll(){
   const nP = Object.values(promocoes).filter(p => p.ativo && agora >= (p.data_inicio||0) && agora <= (p.data_fim||Infinity)).length;
   const bP = document.getElementById('badge-promos');
   if(bP){ if(nP > 0){ bP.style.display='inline-block'; bP.innerText = nP; } else bP.style.display = 'none'; }
-
-  const nRe = Object.values(transacoes).filter(t => t.status === 'ignorado_app').length;
-  const bRe = document.getElementById('badge-recext');
-  if(bRe){ if(nRe > 0){ bRe.style.display='inline-block'; bRe.innerText = nRe; } else bRe.style.display = 'none'; }
 }
 
 // ==================== ALERTAS ====================
@@ -922,29 +955,15 @@ function renderAlertas(){
   const el = document.getElementById('alerta-sistema');
   if(!el) return;
   const alertas = [];
-
-  // ESP offline?
   const online = statusESP.online && statusESP.ultimo_heartbeat && (Date.now()/1000 - statusESP.ultimo_heartbeat) < 60;
   if(!online && statusESP.versao) alertas.push({tipo:'error', txt:'⚠️ ESP32 está OFFLINE há mais de 1 minuto.'});
-
-  // Estornos falhados?
   const falhas = Object.values(transacoes).filter(t => t.status === 'estorno_falhou').length;
   if(falhas > 0) alertas.push({tipo:'error', txt:`❌ ${falhas} estorno(s) falharam e precisam de atenção manual.`});
-
-  // Estornos pendentes?
   const pend = Object.keys(estornos).length;
   if(pend > 0) alertas.push({tipo:'warn', txt:`⏳ ${pend} estorno(s) aguardando processamento.`});
-
-  // Estoque baixo de espaço NVS?
-  // (não temos essa info ainda, mas se tiver...)
-
-  if(alertas.length === 0){
-    el.innerHTML = '';
-    return;
-  }
-  el.innerHTML = alertas.map(a =>
-    `<div class="alert ${a.tipo}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg><div>${a.txt}</div></div>`
-  ).join('');
+  el.innerHTML = alertas.length ? alertas.map(a =>
+    `<div class="alerta ${a.tipo}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg><div>${a.txt}</div></div>`
+  ).join('') : '';
 }
 
 // ==================== DASHBOARD ====================
@@ -965,31 +984,79 @@ function renderDashboard(){
     <div class="stat fade-in" style="--accent:#FF4D6D"><div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div class="lbl">Estornos</div><div class="val ${Object.keys(estornos).length?'red':''}">${Object.keys(estornos).length}</div><div class="sub">Aguardando</div></div>
   `;
 
-  // Chart últimos 7 dias
   const chartEl = document.getElementById('dash-chart');
   if(chartEl) chartEl.innerHTML = renderBarChart(agruparPorDia(7), 7);
 
   const ultimas = txArr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0)).slice(0,8);
   const dtEl = document.getElementById('dash-transacoes');
-  if(dtEl) dtEl.innerHTML = ultimas.length
-    ? ultimas.map(t=>{
-      const isIn = t.status === 'liberado';
-      const bonus = Number(t.bonus_total||0);
-      return `<div class="tx-row" onclick="verDetalheTx('${t.id}')" style="cursor:pointer"><div class="tx-ico ${isIn?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">${isIn?'<path d="M12 5v14M19 12l-7 7-7-7"/>':'<path d="M12 19V5M5 12l7-7 7 7"/>'}</svg></div><div class="tx-body"><div class="tx-title">${t.id||'-'}</div><div class="tx-date">${fmtData(t.processado_em||t.data_pagamento_utc)}${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div></div><div class="tx-amount ${isIn?'in':''}">${fmtBRL(t.total_creditado||t.valor)}</div></div>`;
-    }).join('')
-    : `<div class="empty"><h4>Sem transações</h4></div>`;
+  if(dtEl) dtEl.innerHTML = ultimas.length ? ultimas.map(t => renderTxRow(t)).join('') : `<div class="empty"><h4>Sem transações</h4></div>`;
 
   const top = arr.sort((a,b)=>Number(b.saldo||0)-Number(a.saldo||0)).slice(0,5);
   const tcEl = document.getElementById('dash-top-clientes');
-  if(tcEl) tcEl.innerHTML = top.length
-    ? top.map(c=>{
-      const isVip = c.cashback_especial?.ativo;
-      return `<div class="tx-row" style="cursor:pointer" onclick="abrirDrawer('${c.id}')"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div class="tx-body"><div class="tx-title">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="tx-date">${c.cpf||'-'}</div></div><div class="tx-amount in">${fmtBRL(c.saldo)}</div></div>`;
-    }).join('')
-    : `<div class="empty"><h4>Sem clientes</h4></div>`;
+  if(tcEl) tcEl.innerHTML = top.length ? top.map(c=>{
+    const isVip = c.cashback_especial?.ativo;
+    return `<div class="tx-row" style="cursor:pointer" onclick="abrirDrawer('${c.id}')"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div class="tx-body"><div class="tx-title">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="tx-date">${c.cpf||'-'}</div></div><div class="tx-amount in">${fmtBRL(c.saldo)}</div></div>`;
+  }).join('') : `<div class="empty"><h4>Sem clientes</h4></div>`;
 }
 
-// Agrupa transações por dia (últimos N dias)
+// Ícone/cores dinâmicos baseado no status/origem da transação
+function renderTxRow(t){
+  const isApp = t.status === 'ignorado_app';
+  const isIn = t.status === 'liberado';
+  const isEstorno = (t.status||'').startsWith('estorno');
+  const bonus = Number(t.bonus_total||0);
+
+  let cls, icon, color;
+  if(isApp){
+    cls = 'app'; color = 'app';
+    icon = '<path d="M7 4h10v16H7zM9 18h6"/><circle cx="12" cy="8" r="2"/>'; // ícone celular
+  } else if(isIn){
+    cls = 'in'; color = 'in';
+    icon = '<path d="M12 5v14M19 12l-7 7-7-7"/>';
+  } else if(isEstorno){
+    cls = 'out'; color = 'out';
+    icon = '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>';
+  } else {
+    cls = 'warn'; color = '';
+    icon = '<circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>';
+  }
+
+  // Título e subtítulo
+  let titulo, sub, valorTxt;
+  if(isApp){
+    titulo = '📱 Recarga via App';
+    sub = 'Crédito no saldo do cliente · não libera água';
+    valorTxt = fmtBRL(t.valor);
+  } else if(isIn){
+    titulo = '💧 PIX direto';
+    sub = `Liberou ${t.garrafoes||1} garrafão${(t.garrafoes||1)>1?'es':''}`;
+    valorTxt = fmtBRL(t.total_creditado||t.valor);
+  } else if(isEstorno){
+    titulo = '↩️ Estorno';
+    sub = t.motivo_estorno || t.motivo || 'valor incorreto';
+    valorTxt = fmtBRL(t.valor_estornado || t.valor);
+  } else {
+    titulo = t.status || 'Transação';
+    sub = t.motivo || '—';
+    valorTxt = fmtBRL(t.valor);
+  }
+
+  const data = fmtData(t.processado_em || t.data_pagamento_utc);
+  const idCurto = (t.id||'').substring(0,18);
+
+  const valorCor = isIn ? 'in' : (isApp ? 'app' : '');
+  const sinal = isIn ? '+' : (isApp ? '' : '−');
+
+  return `<div class="tx-row" onclick="verDetalheTx('${t.id}')" style="cursor:pointer">
+    <div class="tx-ico ${cls}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${icon}</svg></div>
+    <div class="tx-body">
+      <div class="tx-title">${titulo}</div>
+      <div class="tx-date">${data} · <span style="font-family:var(--mono);font-size:10px;opacity:.7">${idCurto}</span>${bonus>0?` · 🎁 +${fmtBRL(bonus)}`:''}</div>
+    </div>
+    <div class="tx-amount ${valorCor}">${sinal ? sinal+' ' : ''}${valorTxt}</div>
+  </div>`;
+}
+
 function agruparPorDia(dias){
   const hoje = new Date(); hoje.setHours(0,0,0,0);
   const mapa = {};
@@ -999,7 +1066,7 @@ function agruparPorDia(dias){
     mapa[key] = 0;
   }
   Object.values(transacoes).forEach(t => {
-    if(t.status !== 'liberado' && t.status !== 'estornado') return;
+    if(t.status !== 'liberado') return;
     const ts = t.processado_em || t.data_pagamento_utc;
     if(!ts) return;
     const d = new Date(ts*1000); d.setHours(0,0,0,0);
@@ -1016,7 +1083,6 @@ function renderBarChart(mapa, dias){
     chaves.map((k,i)=>{
       const v = mapa[k];
       const h = (v/max) * 100;
-      const lbl = k.split('-').slice(1).reverse().join('/');
       return `<div class="chart-bar" style="left:calc(${i} * (100% / ${dias}));height:${Math.max(h,3)}%">${v > 0 ? v : ''}</div>`;
     }).join('') +
     `</div><div class="chart-labels">` +
@@ -1024,66 +1090,227 @@ function renderBarChart(mapa, dias){
     `</div>`;
 }
 
-// ==================== ANALYTICS ====================
-window.renderAnalytics = function(){
-  const dias = Number(document.getElementById('an-periodo')?.value || 30);
-  const sub = document.getElementById('an-sub-periodo');
-  if(sub) sub.innerText = `Últimos ${dias} dias`;
+// ==================== RELATÓRIOS ====================
+window.mudarRel = function(dias, el){
+  relDias = dias;
+  document.querySelectorAll('.rel-tab').forEach(t=>t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderRelatorios();
+};
 
-  const stats = document.getElementById('stats-analytics');
-  const limite = Date.now()/1000 - dias*86400;
-  const txPeriodo = Object.values(transacoes).filter(t => {
+// Calcula dados agregados por período
+function calcularRelatorio(){
+  const limite = relDias > 0 ? Math.floor(Date.now()/1000) - relDias*86400 : 0;
+  const txArr = Object.entries(transacoes).map(([id,t])=>({id,...t})).filter(t => {
     const ts = t.processado_em || t.data_pagamento_utc || 0;
-    return ts >= limite && t.status === 'liberado';
+    return ts >= limite;
   });
-  const totalGarrafoes = txPeriodo.reduce((s,t)=>s+Number(t.garrafoes||t.qtdPedido||1),0);
-  const totalReais = txPeriodo.reduce((s,t)=>s+Number(t.valor||0),0);
-  const ticketMedio = txPeriodo.length ? totalReais / txPeriodo.length : 0;
 
-  if(stats) stats.innerHTML = `
-    <div class="stat"><div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="lbl">Garrafões (${dias}d)</div><div class="val">${totalGarrafoes}</div></div>
-    <div class="stat"><div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h9a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg></div><div class="lbl">Faturamento (${dias}d)</div><div class="val green">${fmtBRL(totalReais)}</div></div>
-    <div class="stat"><div class="ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg></div><div class="lbl">Transações</div><div class="val">${txPeriodo.length}</div></div>
-    <div class="stat"><div class="ico yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="lbl">Ticket médio</div><div class="val yellow">${fmtBRL(ticketMedio)}</div></div>
-  `;
+  const diretos   = txArr.filter(t => t.status === 'liberado' && (t.origem === 'pix_direto' || t.origem === 'pix_avulso'));
+  const apps      = txArr.filter(t => t.status === 'ignorado_app');
+  const estornados = txArr.filter(t => (t.status||'').startsWith('estorno'));
 
-  // Chart
-  const chartEl = document.getElementById('an-chart');
-  if(chartEl) chartEl.innerHTML = renderBarChart(agruparPorDia(dias), dias);
+  const totalDireto   = diretos.reduce((s,t)=>s+Number(t.valor||0),0);
+  const totalApp      = apps.reduce((s,t)=>s+Number(t.valor||0),0);
+  const totalEstorno  = estornados.reduce((s,t)=>s+Number(t.valor_estornado||t.valor||0),0);
+  const credDireto    = diretos.reduce((s,t)=>s+Number(t.garrafoes||1),0);
 
-  // Ranking clientes
-  const ranking = {};
-  txPeriodo.forEach(t => {
-    const uid = t.uid || t.autorizado_por || t.id;
-    if(!ranking[uid]) ranking[uid] = {nome: 'Cliente', qtd: 0, total: 0};
-    ranking[uid].qtd += Number(t.garrafoes || 1);
-    ranking[uid].total += Number(t.valor || 0);
-  });
-  const arr = Object.values(ranking).sort((a,b)=>b.qtd - a.qtd).slice(0,10);
-  const rankEl = document.getElementById('an-ranking');
-  if(rankEl) rankEl.innerHTML = arr.length ? arr.map((r,i)=>{
-    const pos = ['🥇','🥈','🥉'][i] || `${i+1}º`;
-    return `<div class="tx-row"><div style="font-size:20px;width:32px;text-align:center">${pos}</div><div class="tx-body"><div class="tx-title">${r.nome}</div><div class="tx-date">${r.qtd} garrafões</div></div><div class="tx-amount in">${fmtBRL(r.total)}</div></div>`;
-  }).join('') : '<div class="empty"><h4>Sem dados no período</h4></div>';
+  return { diretos, apps, estornados, totalDireto, totalApp, totalEstorno, credDireto, limite };
+}
 
-  // Ranking horários
-  const horas = Array(24).fill(0);
-  txPeriodo.forEach(t => {
+// Agrupa por dia (todas as 3 categorias)
+function agruparPorDiaCompleto(limite){
+  const hoje = new Date(); hoje.setHours(0,0,0,0);
+  const mapa = {};
+  const dias = relDias > 0 ? relDias : 90;
+  const n = Math.min(dias, 90);
+  for(let i = n-1; i >= 0; i--){
+    const d = new Date(hoje); d.setDate(d.getDate() - i);
+    const key = d.toISOString().split('T')[0];
+    mapa[key] = { direto: 0, valorDireto: 0, app: 0, valorApp: 0, estorno: 0, valorEstorno: 0 };
+  }
+  Object.entries(transacoes).forEach(([id,t]) => {
     const ts = t.processado_em || t.data_pagamento_utc;
-    if(ts){
-      const h = new Date(ts*1000).getHours();
-      horas[h]++;
+    if(!ts || ts < limite) return;
+    const d = new Date(ts*1000); d.setHours(0,0,0,0);
+    const key = d.toISOString().split('T')[0];
+    if(!(key in mapa)) return;
+
+    if(t.status === 'liberado' && (t.origem === 'pix_direto' || t.origem === 'pix_avulso')){
+      mapa[key].direto++;
+      mapa[key].valorDireto += Number(t.valor||0);
+    } else if(t.status === 'ignorado_app'){
+      mapa[key].app++;
+      mapa[key].valorApp += Number(t.valor||0);
+    } else if((t.status||'').startsWith('estorno')){
+      mapa[key].estorno++;
+      mapa[key].valorEstorno += Number(t.valor_estornado || t.valor || 0);
     }
   });
-  const horasEl = document.getElementById('an-horarios');
-  if(horasEl){
-    const maxH = Math.max(1, ...horas);
-    horasEl.innerHTML = horas.map((v,i) => {
-      if(v === 0) return '';
-      const pct = (v/maxH) * 100;
-      return `<div style="margin-bottom:6px;display:flex;align-items:center;gap:10px;font-size:12px"><span style="width:40px;font-weight:700;color:var(--txt-3)">${String(i).padStart(2,'0')}h</span><div style="flex:1;height:20px;background:#ffffff06;border-radius:5px;overflow:hidden"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#00DDFF,#00E676);border-radius:5px;transition:.4s"></div></div><span style="width:40px;text-align:right;font-weight:800;color:var(--cyan)">${v}</span></div>`;
-    }).join('') || '<div class="empty"><h4>Sem dados</h4></div>';
+  return mapa;
+}
+
+function renderRelatorios(){
+  if(!document.getElementById('rel-stats')) return;
+
+  const rel = calcularRelatorio();
+  const periodo = relDias > 0 ? `Últimos ${relDias} dias` : 'Todo o período';
+
+  // Cards de stats
+  document.getElementById('rel-stats').innerHTML = `
+    <div class="stat" style="--accent:#00DDFF">
+      <div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div>
+      <div class="lbl">PIX direto</div>
+      <div class="val cyan">${rel.diretos.length}</div>
+      <div class="sub">${fmtBRL(rel.totalDireto)} · ${rel.credDireto} garrafões</div>
+    </div>
+    <div class="stat" style="--accent:#60a5fa">
+      <div class="ico" style="background:#3b82f620;color:#60a5fa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 18h4"/></svg></div>
+      <div class="lbl">Recarga App</div>
+      <div class="val" style="color:#60a5fa">${rel.apps.length}</div>
+      <div class="sub">${fmtBRL(rel.totalApp)} creditado</div>
+    </div>
+    <div class="stat" style="--accent:#FF4D6D">
+      <div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
+      <div class="lbl">Estornos</div>
+      <div class="val red">${rel.estornados.length}</div>
+      <div class="sub">${fmtBRL(rel.totalEstorno)} devolvido</div>
+    </div>
+    <div class="stat" style="--accent:#00E676">
+      <div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h9a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg></div>
+      <div class="lbl">Total movimentado</div>
+      <div class="val green">${fmtBRL(rel.totalDireto + rel.totalApp)}</div>
+      <div class="sub">${periodo}</div>
+    </div>
+  `;
+
+  // Chart empilhado
+  const dadosDia = agruparPorDiaCompleto(rel.limite);
+  const chaves = Object.keys(dadosDia);
+  let maxDia = 1;
+  chaves.forEach(k => {
+    const total = dadosDia[k].direto + dadosDia[k].app + dadosDia[k].estorno;
+    if(total > maxDia) maxDia = total;
+  });
+
+  const chartEl = document.getElementById('rel-chart');
+  if(chartEl){
+    if(chaves.length === 0){
+      chartEl.innerHTML = '<div class="empty"><h4>Sem dados no período</h4></div>';
+    } else {
+      chartEl.innerHTML = `<div class="chart-stack">` +
+        chaves.map(k => {
+          const d = dadosDia[k];
+          const alturaTotal = d.direto + d.app + d.estorno;
+          const pctDireto = (d.direto / maxDia) * 100;
+          const pctApp = (d.app / maxDia) * 100;
+          const pctEstorno = (d.estorno / maxDia) * 100;
+          const lblData = k.split('-').slice(1).reverse().join('/');
+          return `<div class="chart-col">
+            <div class="bubble">${lblData}<br>💧 ${d.direto} · 📱 ${d.app} · ↩️ ${d.estorno}</div>
+            ${d.estorno > 0 ? `<div class="seg estorno" style="height:${pctEstorno}%"></div>` : ''}
+            ${d.app > 0 ? `<div class="seg app" style="height:${pctApp}%"></div>` : ''}
+            ${d.direto > 0 ? `<div class="seg direct" style="height:${pctDireto}%"></div>` : ''}
+          </div>`;
+        }).join('') +
+      `</div>
+      <div class="chart-labels" style="margin-top:8px">
+        ${chaves.map(k => `<span style="flex:1;text-align:center">${k.split('-').slice(1).reverse().join('/')}</span>`).join('')}
+      </div>`;
+    }
   }
+
+  // Resumo por tipo
+  const resumoEl = document.getElementById('rel-resumo');
+  if(resumoEl){
+    const ticketDireto = rel.diretos.length ? rel.totalDireto / rel.diretos.length : 0;
+    const ticketApp = rel.apps.length ? rel.totalApp / rel.apps.length : 0;
+    resumoEl.innerHTML = `
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Qtd</th>
+          <th>Valor total</th>
+          <th>Ticket médio</th>
+          <th>%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill cyan">💧 PIX direto</span></td>
+          <td>${rel.diretos.length}</td>
+          <td>${fmtBRL(rel.totalDireto)}</td>
+          <td>${fmtBRL(ticketDireto)}</td>
+          <td>${((rel.diretos.length / (rel.diretos.length + rel.apps.length || 1)) * 100).toFixed(1)}%</td>
+        </tr>
+        <tr>
+          <td><span class="pill blue">📱 Recarga App</span></td>
+          <td>${rel.apps.length}</td>
+          <td>${fmtBRL(rel.totalApp)}</td>
+          <td>${fmtBRL(ticketApp)}</td>
+          <td>${((rel.apps.length / (rel.diretos.length + rel.apps.length || 1)) * 100).toFixed(1)}%</td>
+        </tr>
+        <tr>
+          <td><span class="pill red">↩️ Estornos</span></td>
+          <td>${rel.estornados.length}</td>
+          <td>${fmtBRL(rel.totalEstorno)}</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>TOTAL</strong></td>
+          <td>${rel.diretos.length + rel.apps.length}</td>
+          <td>${fmtBRL(rel.totalDireto + rel.totalApp)}</td>
+          <td>—</td>
+          <td>100%</td>
+        </tr>
+      </tbody>
+    `;
+  }
+
+  // Tabela detalhada
+  const tabEl = document.getElementById('rel-tabela');
+  if(tabEl){
+    const linhas = chaves.slice().reverse();
+    tabEl.innerHTML = linhas.length ? linhas.map(k => {
+      const d = dadosDia[k];
+      const lblData = k.split('-').reverse().join('/');
+      return `<tr>
+        <td><strong>${lblData}</strong></td>
+        <td>${d.direto}</td>
+        <td style="color:var(--cyan)">${fmtBRL(d.valorDireto)}</td>
+        <td>${d.app}</td>
+        <td style="color:#60a5fa">${fmtBRL(d.valorApp)}</td>
+        <td>${d.estorno > 0 ? `<span class="pill red">${d.estorno}</span>` : '—'}</td>
+      </tr>`;
+    }).join('') : `<tr><td colspan="6"><div class="empty"><h4>Sem dados</h4></div></td></tr>`;
+  }
+}
+
+// Exportar CSV do relatório
+window.exportarRelatorio = function(){
+  const rel = calcularRelatorio();
+  const dadosDia = agruparPorDiaCompleto(rel.limite);
+  const chaves = Object.keys(dadosDia).reverse();
+
+  const periodo = relDias > 0 ? `${relDias}d` : 'tudo';
+  const header = 'Data,PIX_direto_qtd,PIX_direto_valor,Recarga_app_qtd,Recarga_app_valor,Estornos_qtd,Estornos_valor\n';
+  const rows = chaves.map(k => {
+    const d = dadosDia[k];
+    return [
+      k,
+      d.direto,
+      d.valorDireto.toFixed(2),
+      d.app,
+      d.valorApp.toFixed(2),
+      d.estorno,
+      d.valorEstorno.toFixed(2)
+    ].join(',');
+  }).join('\n');
+
+  const resumo = `\n\nRESUMO (${periodo})\nTipo,Quantidade,Valor total,Ticket medio\nPIX direto,${rel.diretos.length},${rel.totalDireto.toFixed(2)},${(rel.diretos.length ? rel.totalDireto/rel.diretos.length : 0).toFixed(2)}\nRecarga app,${rel.apps.length},${rel.totalApp.toFixed(2)},${(rel.apps.length ? rel.totalApp/rel.apps.length : 0).toFixed(2)}\nEstornos,${rel.estornados.length},${rel.totalEstorno.toFixed(2)},-\n`;
+
+  baixarCSV(`relatorio_vision_${periodo}.csv`, header + rows + resumo);
 };
 
 // ==================== FILTROS CLIENTES ====================
@@ -1113,31 +1340,28 @@ function renderClientes(){
 
   const tbody = document.getElementById('tabela-clientes');
   if(!tbody) return;
-  tbody.innerHTML = arr.length
-    ? arr.map(c=>{
-      const ativo = c.ativo !== false;
-      const isVip = c.cashback_especial?.ativo;
-      const cbTotal = Number(c.stats?.total_cashback_recebido || 0);
-      const ultRec = c.stats?.ultima_recarga ? fmtDataCurta(c.stats.ultima_recarga) : '—';
-      return `<tr>
-        <td><div class="cell-user"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div><div class="n">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="s">${c.cpf||'-'}</div></div></div></td>
-        <td><span class="pill cyan" style="font-family:var(--mono);font-size:12px;letter-spacing:1px">${c.codigo_maquina||'—'}</span></td>
-        <td>${c.whatsapp||'-'}</td>
-        <td><strong style="color:var(--cyan)">${fmtBRL(c.saldo)}</strong></td>
-        <td><span style="color:var(--purple)">${fmtBRL(cbTotal)}</span></td>
-        <td style="font-size:12px;color:var(--txt-3)">${ultRec}</td>
-        <td><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></td>
-        <td><div class="actions-cell">
-          <button class="mini" onclick="abrirDrawer('${c.id}')" title="Detalhes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
-          <button class="mini" onclick="abrirEditar('${c.id}')" title="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
-          <button class="mini" onclick="abrirModalSaldo('${c.id}')" title="Saldo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></button>
-        </div></td>
-      </tr>`;
-    }).join('')
-    : `<tr><td colspan="8"><div class="empty"><h4>Nenhum cliente</h4></div></td></tr>`;
+  tbody.innerHTML = arr.length ? arr.map(c=>{
+    const ativo = c.ativo !== false;
+    const isVip = c.cashback_especial?.ativo;
+    const cbTotal = Number(c.stats?.total_cashback_recebido || 0);
+    const ultRec = c.stats?.ultima_recarga ? fmtDataCurta(c.stats.ultima_recarga) : '—';
+    return `<tr>
+      <td><div class="cell-user"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div><div class="n">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="s">${c.cpf||'-'}</div></div></div></td>
+      <td><span class="pill cyan" style="font-family:var(--mono);font-size:12px;letter-spacing:1px">${c.codigo_maquina||'—'}</span></td>
+      <td>${c.whatsapp||'-'}</td>
+      <td><strong style="color:var(--cyan)">${fmtBRL(c.saldo)}</strong></td>
+      <td><span style="color:var(--purple)">${fmtBRL(cbTotal)}</span></td>
+      <td style="font-size:12px;color:var(--txt-3)">${ultRec}</td>
+      <td><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></td>
+      <td><div class="actions-cell">
+        <button class="mini" onclick="abrirDrawer('${c.id}')" title="Detalhes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        <button class="mini" onclick="abrirEditar('${c.id}')" title="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
+        <button class="mini" onclick="abrirModalSaldo('${c.id}')" title="Saldo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></button>
+      </div></td>
+    </tr>`;
+  }).join('') : `<tr><td colspan="8"><div class="empty"><h4>Nenhum cliente</h4></div></td></tr>`;
 }
 
-// ==================== EXPORTAR CSV ====================
 window.exportarClientes = function(){
   const arr = Object.entries(clientes).map(([id,c])=>({id,...c}));
   const header = 'ID,Nome,CPF,WhatsApp,Endereco,Codigo,Saldo,Recargas,Cashback,Ativo,Criado\n';
@@ -1159,7 +1383,7 @@ window.exportarTransacoes = function(){
 };
 
 function baixarCSV(nome, conteudo){
-  const blob = new Blob([conteudo], {type:'text/csv;charset=utf-8;'});
+  const blob = new Blob(['\ufeff' + conteudo], {type:'text/csv;charset=utf-8;'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url; a.download = nome;
@@ -1168,7 +1392,7 @@ function baixarCSV(nome, conteudo){
   toast('CSV exportado!','success');
 }
 
-// ==================== FILTROS TRANSAÇÕES ====================
+// ==================== FILTROS TX ====================
 window.filtrarTx = function(fil, el){
   txFilAtual = fil;
   document.querySelectorAll('[data-txfil]').forEach(c=>c.classList.remove('active'));
@@ -1181,10 +1405,9 @@ function renderTransacoes(){
   const filtro = document.getElementById('filtro-tx-status')?.value || '';
   let arr = Object.entries(transacoes).map(([id,t])=>({id,...t}));
 
-  // Counts pros filtros rápidos
   const cntTodas = arr.length;
   const cntPix = arr.filter(t => t.origem === 'pix_direto').length;
-  const cntApp = arr.filter(t => t.origem === 'app_cliente' || t.origem === 'app').length;
+  const cntApp = arr.filter(t => t.origem === 'app_cliente' || t.origem === 'app' || t.status === 'ignorado_app').length;
   const cntAdmin = arr.filter(t => t.origem === 'admin').length;
   const cntEstorno = arr.filter(t => (t.status||'').startsWith('estorno')).length;
   const cntFalhas = arr.filter(t => t.status === 'estorno_falhou' || t.status === 'ignorado_data_invalida').length;
@@ -1192,9 +1415,8 @@ function renderTransacoes(){
   setCnt('tx-cnt-todas', cntTodas); setCnt('tx-cnt-pix', cntPix); setCnt('tx-cnt-app', cntApp);
   setCnt('tx-cnt-admin', cntAdmin); setCnt('tx-cnt-estorno', cntEstorno); setCnt('tx-cnt-falhas', cntFalhas);
 
-  // Filtro rápido
   if(txFilAtual === 'pix_avulso') arr = arr.filter(t => t.origem === 'pix_direto');
-  else if(txFilAtual === 'app') arr = arr.filter(t => t.origem === 'app_cliente' || t.origem === 'app');
+  else if(txFilAtual === 'app') arr = arr.filter(t => t.origem === 'app_cliente' || t.origem === 'app' || t.status === 'ignorado_app');
   else if(txFilAtual === 'admin') arr = arr.filter(t => t.origem === 'admin');
   else if(txFilAtual === 'estorno') arr = arr.filter(t => (t.status||'').startsWith('estorno'));
   else if(txFilAtual === 'falhas') arr = arr.filter(t => t.status === 'estorno_falhou' || t.status === 'ignorado_data_invalida');
@@ -1205,36 +1427,41 @@ function renderTransacoes(){
   arr.sort((a,b)=>(b.processado_em||b.data_pagamento_utc||0)-(a.processado_em||a.data_pagamento_utc||0));
   arr = arr.slice(0,200);
 
-  const cores = {liberado: 'green', ignorado_app: 'cyan', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red', estorno_simulado: 'purple', ignorado_data_invalida: 'yellow'};
   const tbody = document.getElementById('tabela-tx');
   if(!tbody) return;
-  tbody.innerHTML = arr.length
-    ? arr.map(t=>{
-      const bonus = Number(t.bonus_total||0);
-      const creditos = Number(t.garrafoes || t.qtdPedido || 1);
-      return `<tr style="cursor:pointer" onclick="verDetalheTx('${t.id}')">
-        <td><code style="font-size:11px;color:var(--txt-2);font-family:var(--mono)">${(t.id||'-').substring(0,20)}</code></td>
-        <td>${fmtBRL(t.valor||t.valor_pago)}</td>
-        <td><strong>${creditos}</strong></td>
-        <td><span class="pill ${t.origem==='pix_direto'?'cyan':t.origem==='admin'?'purple':t.origem==='app'||t.origem==='app_cliente'?'pink':'gray'}">${t.origem||'-'}</span></td>
-        <td><span class="pill ${cores[t.status]||'gray'}">${t.status||'-'}</span></td>
-        <td style="color:var(--txt-3);font-size:12px;font-family:var(--mono)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td>
-        <td><div class="actions-cell"><button class="mini" onclick="event.stopPropagation();verDetalheTx('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div></td>
-      </tr>`;
-    }).join('')
-    : `<tr><td colspan="7"><div class="empty"><h4>Sem transações</h4></div></td></tr>`;
+  tbody.innerHTML = arr.length ? arr.map(t=>{
+    const bonus = Number(t.bonus_total||0);
+    const creditos = Number(t.garrafoes || t.qtdPedido || 1);
+    const isApp = t.status === 'ignorado_app';
+    const origemPill = t.origem === 'pix_direto' ? 'cyan' : (t.origem === 'admin' ? 'purple' : (isApp ? 'blue' : 'gray'));
+    const origemNome = t.origem === 'pix_direto' ? 'PIX Direto' : (t.origem === 'app_cliente' || t.origem === 'app' ? 'App' : (t.origem === 'admin' ? 'Admin' : t.origem || '-'));
+    const cores = {liberado: 'green', ignorado_app: 'blue', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red', estorno_simulado: 'purple', ignorado_data_invalida: 'yellow'};
+    return `<tr style="cursor:pointer" onclick="verDetalheTx('${t.id}')">
+      <td><code style="font-size:11px;color:var(--txt-2);font-family:var(--mono)">${(t.id||'-').substring(0,20)}</code></td>
+      <td>${fmtBRL(t.valor||t.valor_pago)}</td>
+      <td><strong>${creditos}</strong></td>
+      <td><span class="pill ${origemPill}">${origemNome}</span></td>
+      <td><span class="pill ${cores[t.status]||'gray'}">${t.status||'-'}</span></td>
+      <td style="color:var(--txt-3);font-size:12px;font-family:var(--mono)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td>
+      <td><div class="actions-cell"><button class="mini" onclick="event.stopPropagation();verDetalheTx('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div></td>
+    </tr>`;
+  }).join('') : `<tr><td colspan="7"><div class="empty"><h4>Sem transações</h4></div></td></tr>`;
 }
 
 // ==================== DETALHE TX ====================
 window.verDetalheTx = function(id){
   const t = transacoes[id];
   if(!t) return;
+
+  const isApp = t.status === 'ignorado_app';
+  const titulo = isApp ? '📱 Recarga via App' : ((t.status||'').startsWith('estorno') ? '↩️ Estorno' : (t.status === 'liberado' ? '💧 PIX Direto' : 'Detalhes'));
+
   const rows = [
     ['ID', t.id, true],
     ['Status', t.status],
     ['Origem', t.origem],
     ['Valor', fmtBRL(t.valor || t.valor_pago)],
-    ['Valor esperado', fmtBRL(t.valor_esperado)],
+    ['Valor esperado', t.valor_esperado ? fmtBRL(t.valor_esperado) : null],
     ['Créditos', t.garrafoes || t.qtdPedido || 1],
     ['Motivo', t.motivo],
     ['Data pagamento', fmtData(t.data_pagamento_utc)],
@@ -1249,8 +1476,10 @@ window.verDetalheTx = function(id){
     ['Último erro', t.ultimo_erro]
   ].filter(r => r[1] != null && r[1] !== '' && r[1] !== 'null');
 
+  document.getElementById('txdet-titulo').innerText = titulo;
   const body = document.getElementById('txdet-body');
   body.innerHTML = `
+    ${isApp ? `<div class="alerta info" style="margin-bottom:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 18h4"/></svg><div>Este PIX foi feito <strong>pelo app do cliente</strong>. O saldo é creditado pelo backend — <strong>não libera água</strong>.</div></div>` : ''}
     <div class="detail-rows">
       ${rows.map(([k,v,mono]) => `<div class="detail-row"><span class="k">${k}</span><span class="v ${mono?'mono highlight':''}">${v}</span></div>`).join('')}
     </div>
@@ -1274,26 +1503,12 @@ window.reenfileirar = async function(id){
   } catch(e){ toast('Erro: '+e.message,'error'); }
 };
 
-// ==================== RECARGAS EXTERNAS ====================
-function renderRecargasExt(){
-  const arr = Object.entries(transacoes).map(([id,t])=>({id,...t}))
-    .filter(t => t.status === 'ignorado_app')
-    .sort((a,b)=>(b.processado_em||0)-(a.processado_em||0))
-    .slice(0,100);
-  const tbody = document.getElementById('tabela-recext');
-  if(!tbody) return;
-  tbody.innerHTML = arr.length
-    ? arr.map(t=>`<tr><td><code style="font-size:11px;font-family:var(--mono)">${t.id}</code></td><td><strong>${fmtBRL(t.valor)}</strong></td><td>${t.motivo||'PIX do app'}</td><td style="font-family:var(--mono);font-size:12px;color:var(--txt-3)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td></tr>`).join('')
-    : `<tr><td colspan="4"><div class="empty"><h4>Nenhuma recarga externa</h4></div></td></tr>`;
-}
-
 // ==================== ESTORNOS ====================
 function renderEstornos(){
   const arr = Object.entries(estornos).map(([id,e])=>({id,...e}));
-  const pend = arr.filter(e => (e.tentativas||0) < 6).length;
-  const tentando = arr.filter(e => (e.tentativas||0) > 0).length;
   const agora = Math.floor(Date.now()/1000);
   const aguardando = arr.filter(e => (e.proxima_tentativa||0) > agora).length;
+  const tentando = arr.filter(e => (e.tentativas||0) > 0).length;
 
   const statsEl = document.getElementById('stats-estornos');
   if(statsEl) statsEl.innerHTML = `
@@ -1304,37 +1519,32 @@ function renderEstornos(){
   `;
 
   const listaEl = document.getElementById('lista-estornos');
-  if(listaEl) listaEl.innerHTML = arr.length
-    ? arr.map(e=>{
-      const tent = Number(e.tentativas||0);
-      const proxima = e.proxima_tentativa ? fmtData(e.proxima_tentativa) : 'Imediato';
-      return `<div class="tx-row" style="align-items:flex-start;flex-wrap:wrap">
-        <div class="tx-ico out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
-        <div class="tx-body" style="flex:1">
-          <div class="tx-title" style="font-family:var(--mono);font-size:12px">${e.id}</div>
-          <div class="tx-date">Motivo: <b>${e.motivo||'-'}</b> · Tentativas: <b>${tent}/6</b> · Próxima: <b>${proxima}</b></div>
-          ${e.ultimo_erro ? `<div class="tx-date" style="color:var(--red)">⚠️ ${e.ultimo_erro}</div>` : ''}
-        </div>
-        <div style="display:flex;gap:6px">
-          <button class="mini" onclick="forcarEstorno('${e.id}')" title="Forçar agora"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-          <button class="mini danger" onclick="cancelarEstorno('${e.id}')" title="Cancelar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-        </div>
-      </div>`;
-    }).join('')
-    : `<div class="empty"><h4>Fila vazia</h4></div>`;
+  if(listaEl) listaEl.innerHTML = arr.length ? arr.map(e=>{
+    const tent = Number(e.tentativas||0);
+    const proxima = e.proxima_tentativa ? fmtData(e.proxima_tentativa) : 'Imediato';
+    return `<div class="tx-row" style="align-items:flex-start;flex-wrap:wrap">
+      <div class="tx-ico out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
+      <div class="tx-body" style="flex:1">
+        <div class="tx-title" style="font-family:var(--mono);font-size:12px">${e.id}</div>
+        <div class="tx-date">Motivo: <b>${e.motivo||'-'}</b> · Tentativas: <b>${tent}/6</b> · Próxima: <b>${proxima}</b></div>
+        ${e.ultimo_erro ? `<div class="tx-date" style="color:var(--red)">⚠️ ${e.ultimo_erro}</div>` : ''}
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="mini" onclick="forcarEstorno('${e.id}')" title="Forçar agora"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        <button class="mini danger" onclick="cancelarEstorno('${e.id}')" title="Cancelar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      </div>
+    </div>`;
+  }).join('') : `<div class="empty"><h4>Fila vazia</h4></div>`;
 
-  // Histórico
   const histArr = Object.values(transacoes).filter(t => t.status === 'estornado' || t.status === 'estorno_falhou').sort((a,b)=>(b.estornado_em||b.processado_em||0)-(a.estornado_em||a.processado_em||0)).slice(0,30);
   const histEl = document.getElementById('lista-estornos-hist');
-  if(histEl) histEl.innerHTML = histArr.length
-    ? histArr.map(t=>{
-      const ok = t.status === 'estornado';
-      return `<div class="tx-row">
-        <div class="tx-ico ${ok?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">${ok?'<path d="M5 12l5 5L20 7"/>':'<circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/>'}</svg></div>
-        <div class="tx-body"><div class="tx-title" style="font-family:var(--mono);font-size:12px">${t.id}</div><div class="tx-date">${ok ? '✅ Estornado em ' + fmtData(t.estornado_em) + ' · R$ ' + Number(t.valor_estornado||0).toFixed(2) : '❌ Falhou — ' + (t.ultimo_erro||'erro desconhecido')}</div></div>
-      </div>`;
-    }).join('')
-    : '<div class="empty"><h4>Sem histórico</h4></div>';
+  if(histEl) histEl.innerHTML = histArr.length ? histArr.map(t=>{
+    const ok = t.status === 'estornado';
+    return `<div class="tx-row">
+      <div class="tx-ico ${ok?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">${ok?'<path d="M5 12l5 5L20 7"/>':'<circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/>'}</svg></div>
+      <div class="tx-body"><div class="tx-title" style="font-family:var(--mono);font-size:12px">${t.id}</div><div class="tx-date">${ok ? '✅ Estornado em ' + fmtData(t.estornado_em) + ' · R$ ' + Number(t.valor_estornado||0).toFixed(2) : '❌ Falhou — ' + (t.ultimo_erro||'erro desconhecido')}</div></div>
+    </div>`;
+  }).join('') : '<div class="empty"><h4>Sem histórico</h4></div>';
 }
 
 window.forcarEstorno = async function(id){
@@ -1358,14 +1568,12 @@ function renderCiclos(){
   arr.splice(50);
   const el = document.getElementById('lista-ciclos');
   if(!el) return;
-  el.innerHTML = arr.length
-    ? arr.map(c=>{
-      const total = c.garrafoes_previstos||0;
-      const comp = c.garrafoes_completos||0;
-      const classe = c.status === 'concluido' ? 'green' : c.status === 'incompleto' ? 'yellow' : c.status === 'interrompido' ? 'red' : 'gray';
-      return `<div class="tx-row"><div class="tx-ico ${c.status==='concluido'?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="tx-body"><div class="tx-title">${comp}/${total} créditos</div><div class="tx-date">${fmtData(c.iniciado_em)} · ${c.id}</div></div><span class="pill ${classe}">${c.status||'-'}</span></div>`;
-    }).join('')
-    : `<div class="empty"><h4>Sem ciclos</h4></div>`;
+  el.innerHTML = arr.length ? arr.map(c=>{
+    const total = c.garrafoes_previstos||0;
+    const comp = c.garrafoes_completos||0;
+    const classe = c.status === 'concluido' ? 'green' : c.status === 'incompleto' ? 'yellow' : c.status === 'interrompido' ? 'red' : 'gray';
+    return `<div class="tx-row"><div class="tx-ico ${c.status==='concluido'?'in':'out'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v6M12 22a7 7 0 0 0 7-7v-3H5v3a7 7 0 0 0 7 7z"/></svg></div><div class="tx-body"><div class="tx-title">${comp}/${total} créditos</div><div class="tx-date">${fmtData(c.iniciado_em)} · ${c.id}</div></div><span class="pill ${classe}">${c.status||'-'}</span></div>`;
+  }).join('') : `<div class="empty"><h4>Sem ciclos</h4></div>`;
 }
 
 // ==================== STATUS ESP ====================
@@ -1450,7 +1658,6 @@ function renderConfigSistema(){
   el('cfg-max').value = c.max_garrafoes || 10;
   el('cfg-intervalo').value = c.intervalo_doses_seg || 25;
   el('cfg-simulacao').checked = c.modo_simulacao === true;
-
   const ver = document.getElementById('cfg-versao-fw');
   if(ver) ver.innerText = statusESP.versao || '—';
 }
@@ -1461,7 +1668,7 @@ window.enviarOTA = async function(){
   if(!confirm('Enviar atualização OTA? O ESP vai reiniciar.')) return;
   try {
     await update(ref(db, 'developer'), { atualizar: true, firmware_url: url, status: 'solicitado' });
-    document.getElementById('ota-status').innerHTML = '<div class="alert info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><div>Aguardando ESP baixar...</div></div>';
+    document.getElementById('ota-status').innerHTML = '<div class="alerta info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><div>Aguardando ESP baixar...</div></div>';
     toast('OTA enviado!','success');
   } catch(e){ toast('Erro: '+e.message,'error'); }
 };
@@ -1487,28 +1694,24 @@ function renderLogs(){
 
   const el = document.getElementById('lista-logs');
   if(!el) return;
-  el.innerHTML = arr.length
-    ? arr.map(l=>{
-      let nivel = l.nivel || l.tipo || 'info';
-      let msg = l.mensagem || l.detalhe || l.motivo || '';
-      let extra = '';
-      if(l.endpoint) extra = ` [${l.endpoint}]`;
-      if(l.comando) { msg = `Comando: ${l.comando} = ${l.valor}`; extra = ` por ${l.por||'?'}`; }
-      if(l.ip) extra += ` IP: ${l.ip}`;
-      const isErr = nivel === 'error';
-      const isWarn = nivel === 'warn' || nivel === 'warning';
-      const cls = isErr ? 'out' : isWarn ? 'warn' : 'in';
-      return `<div class="tx-row"><div class="tx-ico ${cls}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div><div class="tx-body"><div class="tx-title" style="font-size:12px;white-space:normal">${String(msg).substring(0,200)}${extra}</div><div class="tx-date">${fmtData(l.timestamp)} · <span style="color:var(--cyan)">${nivel}</span>${l.http_code ? ' · HTTP '+l.http_code : ''}</div></div></div>`;
-    }).join('')
-    : `<div class="empty"><h4>Sem logs</h4></div>`;
+  el.innerHTML = arr.length ? arr.map(l=>{
+    let nivel = l.nivel || l.tipo || 'info';
+    let msg = l.mensagem || l.detalhe || l.motivo || '';
+    let extra = '';
+    if(l.endpoint) extra = ` [${l.endpoint}]`;
+    if(l.comando) { msg = `Comando: ${l.comando} = ${l.valor}`; extra = ` por ${l.por||'?'}`; }
+    if(l.ip) extra += ` IP: ${l.ip}`;
+    const isErr = nivel === 'error';
+    const isWarn = nivel === 'warn' || nivel === 'warning';
+    const cls = isErr ? 'out' : isWarn ? 'warn' : 'in';
+    return `<div class="tx-row"><div class="tx-ico ${cls}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div><div class="tx-body"><div class="tx-title" style="font-size:12px;white-space:normal">${String(msg).substring(0,200)}${extra}</div><div class="tx-date">${fmtData(l.timestamp)} · <span style="color:var(--cyan)">${nivel}</span>${l.http_code ? ' · HTTP '+l.http_code : ''}</div></div></div>`;
+  }).join('') : `<div class="empty"><h4>Sem logs</h4></div>`;
 }
 
 window.limparLogs = async function(){
   if(!confirm('Limpar estes logs?')) return;
-  try {
-    await remove(ref(db, 'logs/' + logFilAtual));
-    toast('Logs limpos','success');
-  } catch(e){ toast('Erro','error'); }
+  try { await remove(ref(db, 'logs/' + logFilAtual)); toast('Logs limpos','success'); }
+  catch(e){ toast('Erro','error'); }
 };
 
 // ==================== BANNERS ====================
@@ -1595,16 +1798,8 @@ function renderBanners(){
   }).join('');
 }
 
-window.toggleBanner = async function(id, ativo){
-  try { await update(ref(db, `banners/${id}`), { ativo }); toast(ativo?'Ativado':'Desativado','success'); }
-  catch(e){ toast('Erro','error'); }
-};
-
-window.excluirBanner = async function(id){
-  if(!confirm('Excluir este banner?')) return;
-  try { await remove(ref(db, `banners/${id}`)); toast('Removido','success'); }
-  catch(e){ toast('Erro','error'); }
-};
+window.toggleBanner = async function(id, ativo){ try { await update(ref(db, `banners/${id}`), { ativo }); toast(ativo?'Ativado':'Desativado','success'); } catch(e){ toast('Erro','error'); } };
+window.excluirBanner = async function(id){ if(!confirm('Excluir este banner?')) return; try { await remove(ref(db, `banners/${id}`)); toast('Removido','success'); } catch(e){ toast('Erro','error'); } };
 
 // ==================== PROMOÇÕES ====================
 function renderPromocoes(){
@@ -1785,21 +1980,9 @@ window.abrirDrawer = function(uid){
 
     <div id="aba-info" class="detalhe-aba">
       <div class="detail-rows">
-        <div class="detail-row">
-          <span class="k">📧 E-mail (login)</span>
-          <span class="v mono">${c.email || '—'}</span>
-          <button class="copy-btn" onclick="copiar('${(c.email||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-        </div>
-        <div class="detail-row">
-          <span class="k">🔑 Senha</span>
-          <span class="v mono">${c.senha_info || '—'}</span>
-          <button class="copy-btn" onclick="copiar('${(c.senha_info||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-        </div>
-        <div class="detail-row">
-          <span class="k">🔢 Código máquina</span>
-          <span class="v highlight mono" style="font-size:15px;letter-spacing:2px">${c.codigo_maquina || '—'}</span>
-          <button class="copy-btn" onclick="copiar('${(c.codigo_maquina||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
-        </div>
+        <div class="detail-row"><span class="k">📧 E-mail (login)</span><span class="v mono">${c.email || '—'}</span><button class="copy-btn" onclick="copiar('${(c.email||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+        <div class="detail-row"><span class="k">🔑 Senha</span><span class="v mono">${c.senha_info || '—'}</span><button class="copy-btn" onclick="copiar('${(c.senha_info||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+        <div class="detail-row"><span class="k">🔢 Código máquina</span><span class="v highlight mono" style="font-size:15px;letter-spacing:2px">${c.codigo_maquina || '—'}</span><button class="copy-btn" onclick="copiar('${(c.codigo_maquina||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
         <div class="detail-row"><span class="k">📱 WhatsApp</span><span class="v">${c.whatsapp||'-'}</span></div>
         <div class="detail-row"><span class="k">📍 Endereço</span><span class="v">${c.endereco||'-'}</span></div>
         <div class="detail-row"><span class="k">📅 Cliente desde</span><span class="v">${desde}</span></div>
@@ -1814,10 +1997,7 @@ window.abrirDrawer = function(uid){
 
     <div id="aba-vip" class="detalhe-aba" style="display:none">
       <div class="vip-box">
-        <div class="vip-head">
-          <div class="vip-title">⭐ Cliente VIP</div>
-          <label class="toggle"><input type="checkbox" id="vip-toggle" ${isVip?'checked':''}><span class="toggle-slider"></span></label>
-        </div>
+        <div class="vip-head"><div class="vip-title">⭐ Cliente VIP</div><label class="toggle"><input type="checkbox" id="vip-toggle" ${isVip?'checked':''}><span class="toggle-slider"></span></label></div>
         <div class="vip-fields">
           <div class="campo"><label>Tipo</label><select id="vip-tipo"><option value="percentual" ${(c.cashback_especial?.tipo||'percentual')==='percentual'?'selected':''}>Percentual (%)</option><option value="fixo" ${c.cashback_especial?.tipo==='fixo'?'selected':''}>Fixo (R$)</option></select></div>
           <div class="campo"><label>Valor</label><input type="number" id="vip-valor" step="0.5" min="0" value="${c.cashback_especial?.valor||10}"></div>
@@ -1883,22 +2063,14 @@ window.abrirEditar = function(uid){
   document.getElementById('modal-editar').classList.add('active');
 };
 
-document.getElementById('ed-cpf')?.addEventListener('input', e=>{
-  e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
-});
-document.getElementById('ed-whats')?.addEventListener('input', e=>{
-  e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2');
-});
-document.getElementById('ed-codigo')?.addEventListener('input', e=>{
-  e.target.value = e.target.value.replace(/\D/g,'').slice(0,6);
-});
+document.getElementById('ed-cpf')?.addEventListener('input', e=>{ e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2'); });
+document.getElementById('ed-whats')?.addEventListener('input', e=>{ e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2'); });
+document.getElementById('ed-codigo')?.addEventListener('input', e=>{ e.target.value = e.target.value.replace(/\D/g,'').slice(0,6); });
 
 window.salvarEdicao = async function(){
   const uid = document.getElementById('ed-uid').value;
   if(!uid) return;
-  const c = clientes[uid];
-  if(!c) return;
-
+  const c = clientes[uid]; if(!c) return;
   const nome = document.getElementById('ed-nome').value.trim();
   const cpf = document.getElementById('ed-cpf').value.trim();
   const whats = document.getElementById('ed-whats').value.trim();
@@ -1906,26 +2078,17 @@ window.salvarEdicao = async function(){
   const codigo = document.getElementById('ed-codigo').value.trim();
   const senhaInfo = document.getElementById('ed-senha').value.trim();
   const saldo = parseFloat(document.getElementById('ed-saldo').value) || 0;
-
   if(!nome || nome.length < 3) return toast('Nome inválido','error');
   if(cpf.replace(/\D/g,'').length !== 11) return toast('CPF inválido','error');
   if(whats.replace(/\D/g,'').length < 10) return toast('WhatsApp inválido','error');
   if(!codigo || codigo.length < 4 || codigo.length > 6) return toast('Código deve ter 4 a 6 dígitos','error');
-
   const emUso = Object.entries(clientes).some(([id, cli]) => id !== uid && cli.codigo_maquina === codigo);
   if(emUso){ return toast('Este código já está em uso por outro cliente', 'error'); }
-
   showLoading();
   try {
-    await update(ref(db, 'clientes/' + uid), {
-      nome, cpf, whatsapp: whats, endereco,
-      codigo_maquina: codigo,
-      senha_info: senhaInfo,
-      saldo: Number(saldo.toFixed(2))
-    });
+    await update(ref(db, 'clientes/' + uid), { nome, cpf, whatsapp: whats, endereco, codigo_maquina: codigo, senha_info: senhaInfo, saldo: Number(saldo.toFixed(2)) });
     toast('Dados atualizados!','success');
-    fecharModal('modal-editar');
-    fecharDrawer();
+    fecharModal('modal-editar'); fecharDrawer();
   } catch(e){ toast('Erro: ' + e.message, 'error'); }
   finally { hideLoading(); }
 };
@@ -1977,29 +2140,19 @@ window.criarCliente = async function(){
   const senha = document.getElementById('nc-senha').value;
   const saldoV = document.getElementById('nc-saldo').value.replace(/\D/g,'');
   const saldo = parseFloat(saldoV)/100 || 0;
-
   if(!nome || nome.length < 3) return toast('Nome completo','error');
   if(cpf.replace(/\D/g,'').length !== 11) return toast('CPF inválido','error');
   if(whats.replace(/\D/g,'').length < 10) return toast('WhatsApp inválido','error');
   if(!endereco || endereco.length < 5) return toast('Endereço','error');
   if(!codigo || codigo.length < 4 || codigo.length > 6) return toast('Código deve ter 4 a 6 dígitos','error');
   if(senha.length < 6) return toast('Senha curta','error');
-
   const emUso = Object.values(clientes).some(c => c.codigo_maquina === codigo);
   if(emUso) return toast('Este código já está em uso','error');
-
   showLoading();
   try {
     const email = cpf.replace(/\D/g,'') + '@visionagua.app';
     const cred = await createUserWithEmailAndPassword(auth, email, senha);
-    await set(ref(db, 'clientes/' + cred.user.uid), {
-      nome, cpf, whatsapp: whats, endereco,
-      codigo_maquina: codigo,
-      senha_info: senha,
-      email: email,
-      saldo, criado_em: Math.floor(Date.now()/1000),
-      ativo: true, criado_por: 'admin'
-    });
+    await set(ref(db, 'clientes/' + cred.user.uid), { nome, cpf, whatsapp: whats, endereco, codigo_maquina: codigo, senha_info: senha, email: email, saldo, criado_em: Math.floor(Date.now()/1000), ativo: true, criado_por: 'admin' });
     toast('Cliente criado!','success');
     fecharModal('modal-novo');
     ['nc-nome','nc-cpf','nc-whats','nc-endereco','nc-codigo','nc-senha','nc-saldo'].forEach(id=>{ document.getElementById(id).value = ''; });
@@ -2041,3 +2194,5 @@ window.limparTodosEstornos = async function(){
 document.addEventListener('keydown', e=>{ if(e.key === 'Escape'){ document.querySelectorAll('.modal-bg.active').forEach(m=>m.classList.remove('active')); fecharDrawer(); } });
 document.querySelectorAll('.modal-bg').forEach(m=>{ m.addEventListener('click', e=>{ if(e.target === m) m.classList.remove('active'); }); });
 </script>
+</body>
+</html>
