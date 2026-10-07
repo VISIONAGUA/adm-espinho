@@ -24,7 +24,7 @@ svg{display:block}
 .login-inner{background:linear-gradient(180deg,#0a2035,#061828);border:1px solid var(--border-2);border-radius:20px;padding:36px 32px;box-shadow:0 20px 60px #00000060}
 .login-logo{width:60px;height:60px;border-radius:16px;margin:0 auto 20px;background:linear-gradient(135deg,#00DDFF,#00E676);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px #00ddff40}
 .login-logo svg{width:30px;height:30px}
-.login-inner h1{text-align:center;font-size:22px;font-weight:800}
+.login-inner h1{text-align:center;font-size:22px;font-weight:800;letter-spacing:2px}
 .login-inner .sub{text-align:center;color:var(--txt-3);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:6px 0 30px;font-weight:600}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:11px;color:var(--txt-2);margin-bottom:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
@@ -32,6 +32,7 @@ svg{display:block}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);background:#00ddff08;box-shadow:0 0 0 4px #00ddff10}
 .field input::placeholder,.field textarea::placeholder{color:var(--txt-4)}
 .field textarea{resize:vertical;min-height:60px;font-family:inherit}
+.field .hint{font-size:11px;color:var(--txt-3);margin-top:6px;line-height:1.4}
 .btn-login{width:100%;padding:15px;border-radius:12px;font-weight:700;font-size:14px;background:linear-gradient(135deg,#00DDFF,#00a8c4);color:#02080f;margin-top:10px;box-shadow:0 8px 24px #00ddff30}
 
 #app{display:none}
@@ -40,7 +41,7 @@ svg{display:block}
 .sb-brand{display:flex;align-items:center;gap:12px;padding:0 10px 24px;margin-bottom:8px;border-bottom:1px solid var(--border-0)}
 .sb-brand-icon{width:40px;height:40px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,#00DDFF,#00E676);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px #00ddff30}
 .sb-brand-icon svg{width:20px;height:20px}
-.sb-brand-txt .t{font-weight:800;font-size:14px}
+.sb-brand-txt .t{font-weight:800;font-size:14px;letter-spacing:2px}
 .sb-brand-txt .s{font-size:10px;color:var(--txt-3);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;font-weight:700}
 .sb-nav{flex:1;overflow-y:auto;margin:0 -6px;padding:0 6px}
 .sb-sec{font-size:10px;color:var(--txt-4);letter-spacing:2px;text-transform:uppercase;padding:18px 12px 8px;font-weight:800}
@@ -94,7 +95,6 @@ svg{display:block}
 .stat .val.red{color:var(--red)}
 .stat .val.yellow{color:var(--yellow)}
 .stat .val.purple{color:var(--purple)}
-.stat .val.pink{color:var(--pink)}
 .stat .sub{font-size:12px;color:var(--txt-3);margin-top:6px}
 
 .card{background:linear-gradient(160deg,#08203a,#051428);border:1px solid var(--border-0);border-radius:16px;padding:22px;margin-bottom:20px;position:relative;overflow:hidden}
@@ -174,11 +174,8 @@ tbody tr:last-child td{border-bottom:none}
 .nivel-campos input{width:80px;padding:8px 10px;border-radius:8px;font-size:13px;background:#ffffff06;border:1px solid var(--border-1);color:var(--txt-1);text-align:center;font-weight:700}
 .nivel-campos input:focus{border-color:var(--cyan)}
 
-/* BANNERS */
 .upload-zone{padding:48px 20px;border:2px dashed var(--border-2);border-radius:16px;text-align:center;cursor:pointer;transition:.2s;background:#ffffff04}
 .upload-zone:hover{border-color:var(--cyan);background:#00ddff08}
-.upload-zone.dragover{border-color:var(--cyan);background:#00ddff15}
-
 .banner-card{background:linear-gradient(160deg,#08203a,#061828);border:1px solid var(--border-0);border-radius:16px;overflow:hidden;margin-bottom:14px}
 .banner-card.inativo{opacity:.5}
 .banner-card img{width:100%;display:block;aspect-ratio:2/1;object-fit:cover}
@@ -202,15 +199,25 @@ tbody tr:last-child td{border-bottom:none}
 .client-hero .av.vip{background:linear-gradient(135deg,#FF6B9D,#FFC857);box-shadow:0 15px 40px #ff6b9d40}
 .client-hero h2{font-size:20px;font-weight:800}
 .client-hero p{font-size:12px;color:var(--txt-3);margin-top:4px;font-family:var(--mono)}
+.client-hero .codigo-hero{margin-top:16px;padding:12px;background:#00000030;border:1px dashed #00ddff50;border-radius:12px}
+.client-hero .codigo-hero .lbl{font-size:10px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;font-weight:800}
+.client-hero .codigo-hero .cod{font-size:26px;font-weight:900;letter-spacing:6px;color:#fff;margin-top:6px;font-family:var(--mono);text-shadow:0 0 16px #00ddff60}
 .client-hero .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border-0)}
 .client-hero .stats > div{text-align:center}
 .client-hero .stats .v{font-size:16px;font-weight:800;color:var(--cyan);font-variant-numeric:tabular-nums}
 .client-hero .stats .k{font-size:9.5px;color:var(--txt-3);letter-spacing:1.2px;text-transform:uppercase;margin-top:4px;font-weight:700}
+
 .detail-rows{background:#ffffff04;border:1px solid var(--border-0);border-radius:12px;overflow:hidden;margin-bottom:16px}
 .detail-row{display:flex;justify-content:space-between;gap:14px;padding:13px 16px;border-bottom:1px solid #ffffff06;align-items:center}
 .detail-row:last-child{border-bottom:none}
-.detail-row .k{font-size:12px;color:var(--txt-3);font-weight:600;flex-shrink:0}
-.detail-row .v{font-size:13px;font-weight:600;text-align:right;word-break:break-all}
+.detail-row .k{font-size:12px;color:var(--txt-3);font-weight:600;flex-shrink:0;display:flex;align-items:center;gap:6px}
+.detail-row .v{font-size:13px;font-weight:600;text-align:right;word-break:break-all;display:flex;align-items:center;gap:8px}
+.detail-row .v.mono{font-family:var(--mono);font-size:12px}
+.detail-row .v.highlight{color:var(--cyan)}
+.detail-row .copy-btn{background:#ffffff08;border:1px solid var(--border-0);width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--txt-3);cursor:pointer;transition:.15s;flex-shrink:0}
+.detail-row .copy-btn:hover{background:#00ddff20;color:var(--cyan)}
+.detail-row .copy-btn svg{width:12px;height:12px}
+
 .tabs{display:flex;gap:4px;margin-bottom:18px;background:#ffffff04;padding:4px;border-radius:10px;border:1px solid var(--border-0)}
 .tab{flex:1;padding:9px;font-size:12.5px;font-weight:700;color:var(--txt-3);border-radius:7px;transition:.15s;text-align:center;cursor:pointer}
 .tab.active{background:#00ddff15;color:var(--cyan)}
@@ -297,7 +304,7 @@ tbody tr:last-child td{border-bottom:none}
 <div id="login">
   <div class="login-card">
     <div class="login-inner">
-      <div class="login-logo"><svg viewBox="0 0 24 24" fill="#02080f"><path d="M4 4L12 20L20 4" stroke="#02080f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+      <div class="login-logo"><svg viewBox="0 0 24 24"><path d="M4 4L12 20L20 4" stroke="#02080f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
       <h1>VISION</h1>
       <div class="sub">Painel Administrativo</div>
       <div class="field"><label>E-mail</label><input id="login-email" type="email" value="esp@vision.com.br"></div>
@@ -311,7 +318,7 @@ tbody tr:last-child td{border-bottom:none}
   <div class="sb-overlay" id="sb-overlay" onclick="toggleSidebar(false)"></div>
   <aside class="sidebar" id="sidebar">
     <div class="sb-brand">
-      <div class="sb-brand-icon"><svg viewBox="0 0 24 24" fill="#02080f"><path d="M4 4L12 20L20 4" stroke="#02080f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+      <div class="sb-brand-icon"><svg viewBox="0 0 24 24"><path d="M4 4L12 20L20 4" stroke="#02080f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
       <div class="sb-brand-txt"><div class="t">VISION</div><div class="s">Admin</div></div>
     </div>
     <nav class="sb-nav">
@@ -365,11 +372,11 @@ tbody tr:last-child td{border-bottom:none}
     <div class="page" id="page-clientes" style="display:none">
       <div class="card">
         <div class="card-head">
-          <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="busca-clientes" placeholder="Buscar..." oninput="renderClientes()"></div>
+          <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="busca-clientes" placeholder="Buscar por nome, CPF, código..." oninput="renderClientes()"></div>
           <div style="font-size:12px;color:var(--txt-3);font-weight:600" id="contagem-clientes"></div>
         </div>
         <div class="table-wrap"><table>
-          <thead><tr><th>Cliente</th><th>WhatsApp</th><th>Saldo</th><th>Cashback</th><th>Status</th><th></th></tr></thead>
+          <thead><tr><th>Cliente</th><th>Código</th><th>WhatsApp</th><th>Saldo</th><th>Cashback</th><th>Status</th><th></th></tr></thead>
           <tbody id="tabela-clientes"></tbody>
         </table></div>
       </div>
@@ -390,20 +397,15 @@ tbody tr:last-child td{border-bottom:none}
       </div>
     </div>
 
-    <!-- BANNERS -->
     <div class="page" id="page-banners" style="display:none">
       <div class="card">
-        <div class="card-head">
-          <div><h2>Upload de banner</h2><div class="sub">Imagem 800x400 (proporção 2:1). Comprimida automaticamente.</div></div>
-        </div>
-
+        <div class="card-head"><div><h2>Upload de banner</h2><div class="sub">Imagem 800x400 (proporção 2:1). Comprimida automaticamente.</div></div></div>
         <div class="upload-zone" id="upload-zone" onclick="document.getElementById('banner-file').click()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;color:var(--txt-3);margin:0 auto 12px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg>
           <div style="font-size:14px;font-weight:700;color:var(--txt-2)">Clique para escolher uma imagem</div>
           <div style="font-size:12px;color:var(--txt-3);margin-top:6px">JPG, PNG ou WEBP · máximo 5MB</div>
           <input type="file" id="banner-file" accept="image/*" style="display:none" onchange="processarBanner(this)">
         </div>
-
         <div id="banner-preview" style="display:none;margin-top:20px">
           <div style="font-size:12px;color:var(--txt-2);margin-bottom:8px;font-weight:700">Preview:</div>
           <img id="banner-preview-img" style="width:100%;border-radius:12px;border:1px solid var(--border-1)">
@@ -412,87 +414,52 @@ tbody tr:last-child td{border-bottom:none}
             <button class="btn btn-p" style="flex:2;justify-content:center" onclick="salvarBanner()" id="btn-salvar-banner">Salvar banner</button>
           </div>
         </div>
-
         <div id="banner-progresso" style="display:none;margin-top:16px">
-          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt-2);margin-bottom:6px">
-            <span>Processando imagem...</span>
-            <span id="banner-size-txt">—</span>
-          </div>
-          <div style="height:6px;background:#ffffff08;border-radius:3px;overflow:hidden">
-            <div id="banner-progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .3s"></div>
-          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt-2);margin-bottom:6px"><span>Processando...</span><span id="banner-size-txt">—</span></div>
+          <div style="height:6px;background:#ffffff08;border-radius:3px;overflow:hidden"><div id="banner-progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .3s"></div></div>
         </div>
       </div>
-
       <div class="card">
-        <div class="card-head">
-          <div><h2>Banners ativos</h2><div class="sub" id="banner-contagem">0 banners</div></div>
-        </div>
+        <div class="card-head"><div><h2>Banners ativos</h2><div class="sub" id="banner-contagem">0 banners</div></div></div>
         <div id="lista-banners"></div>
       </div>
     </div>
 
-    <!-- PROMOÇÕES -->
     <div class="page" id="page-promocoes" style="display:none">
       <div class="card">
-        <div class="card-head">
-          <div><h2>Promoções</h2><div class="sub">Crie bônus temporários</div></div>
-          <button class="btn btn-pink" onclick="abrirNovaPromo()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Nova promoção</button>
-        </div>
+        <div class="card-head"><div><h2>Promoções</h2><div class="sub">Crie bônus temporários</div></div><button class="btn btn-pink" onclick="abrirNovaPromo()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Nova promoção</button></div>
         <div id="lista-promos"></div>
       </div>
     </div>
 
-    <!-- CASHBACK -->
     <div class="page" id="page-cashback" style="display:none">
       <div class="card">
-        <div class="card-head">
-          <div><h2>Cashback padrão</h2><div class="sub">Aplicado a todos os clientes</div></div>
-        </div>
+        <div class="card-head"><div><h2>Cashback padrão</h2><div class="sub">Aplicado a todos os clientes</div></div></div>
         <div class="cb-config">
-          <div class="cb-field">
-            <label>Status</label>
-            <label class="toggle"><input type="checkbox" id="cb-ativo"><span class="toggle-slider"></span><span style="font-size:13px;font-weight:600">Ativado</span></label>
-          </div>
-          <div class="cb-field">
-            <label>Tipo</label>
-            <select id="cb-tipo"><option value="percentual">Percentual (%)</option><option value="fixo">Fixo (R$)</option></select>
-          </div>
+          <div class="cb-field"><label>Status</label><label class="toggle"><input type="checkbox" id="cb-ativo"><span class="toggle-slider"></span><span style="font-size:13px;font-weight:600">Ativado</span></label></div>
+          <div class="cb-field"><label>Tipo</label><select id="cb-tipo"><option value="percentual">Percentual (%)</option><option value="fixo">Fixo (R$)</option></select></div>
           <div class="cb-field"><label>Valor</label><input type="number" id="cb-valor" step="0.5" min="0" placeholder="5"></div>
           <div class="cb-field"><label>Aplicar acima de (R$)</label><input type="number" id="cb-minimo" step="0.5" min="0" placeholder="2,50"></div>
           <div class="cb-field"><label>Teto por recarga (R$)</label><input type="number" id="cb-teto" step="1" min="0" placeholder="0 = sem teto"></div>
         </div>
         <button class="btn btn-p" onclick="salvarCashback()">Salvar configuração</button>
       </div>
-
       <div class="card">
-        <div class="card-head">
-          <div><h2>Níveis automáticos</h2><div class="sub">Cliente sobe de nível conforme recarrega</div></div>
-          <button class="btn btn-s" onclick="salvarNiveis()">Salvar níveis</button>
-        </div>
+        <div class="card-head"><div><h2>Níveis automáticos</h2><div class="sub">Cliente sobe de nível conforme recarrega</div></div><button class="btn btn-s" onclick="salvarNiveis()">Salvar níveis</button></div>
         <div class="nivel-card">
           <div class="nivel-icon nivel-bronze">🥉</div>
           <div class="nivel-info"><div class="name">Bronze</div><div class="desc">Todos começam aqui</div></div>
-          <div class="nivel-campos">
-            <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-bronze-min" value="0"></div>
-            <div class="campo"><label>%</label><input type="number" id="nivel-bronze-pct" value="5" step="0.5"></div>
-          </div>
+          <div class="nivel-campos"><div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-bronze-min" value="0"></div><div class="campo"><label>%</label><input type="number" id="nivel-bronze-pct" value="5" step="0.5"></div></div>
         </div>
         <div class="nivel-card">
           <div class="nivel-icon nivel-prata">🥈</div>
           <div class="nivel-info"><div class="name">Prata</div><div class="desc">Clientes frequentes</div></div>
-          <div class="nivel-campos">
-            <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-prata-min" value="10"></div>
-            <div class="campo"><label>%</label><input type="number" id="nivel-prata-pct" value="8" step="0.5"></div>
-          </div>
+          <div class="nivel-campos"><div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-prata-min" value="10"></div><div class="campo"><label>%</label><input type="number" id="nivel-prata-pct" value="8" step="0.5"></div></div>
         </div>
         <div class="nivel-card">
           <div class="nivel-icon nivel-ouro">🥇</div>
           <div class="nivel-info"><div class="name">Ouro</div><div class="desc">Melhores clientes</div></div>
-          <div class="nivel-campos">
-            <div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-ouro-min" value="50"></div>
-            <div class="campo"><label>%</label><input type="number" id="nivel-ouro-pct" value="12" step="0.5"></div>
-          </div>
+          <div class="nivel-campos"><div class="campo"><label>Mín. recargas</label><input type="number" id="nivel-ouro-min" value="50"></div><div class="campo"><label>%</label><input type="number" id="nivel-ouro-pct" value="12" step="0.5"></div></div>
         </div>
       </div>
     </div>
@@ -509,21 +476,55 @@ tbody tr:last-child td{border-bottom:none}
     </div>
     <div class="page" id="page-logs" style="display:none">
       <div class="card">
-        <div class="card-head"><div><h2>Logs</h2></div>
-          <select class="select-mini" id="filtro-logs-tipo" onchange="renderLogs()"><option value="esp">ESP</option><option value="api">API</option><option value="conexao">Conexão</option></select>
-        </div>
+        <div class="card-head"><div><h2>Logs</h2></div><select class="select-mini" id="filtro-logs-tipo" onchange="renderLogs()"><option value="esp">ESP</option><option value="api">API</option><option value="conexao">Conexão</option></select></div>
         <div id="lista-logs"></div>
       </div>
     </div>
   </main>
 </div>
 
+<!-- DRAWER CLIENTE -->
 <div class="drawer-bg" id="drawer-bg" onclick="fecharDrawer()"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-head"><h3 id="drawer-title">Cliente</h3><button class="drawer-close" onclick="fecharDrawer()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
   <div class="drawer-body" id="drawer-body"></div>
 </div>
 
+<!-- MODAL EDITAR CLIENTE -->
+<div class="modal-bg" id="modal-editar">
+  <div class="modal">
+    <div class="modal-head"><h3>Editar dados do cliente</h3><button class="modal-close" onclick="fecharModal('modal-editar')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
+    <div class="modal-body">
+      <input type="hidden" id="ed-uid">
+      <div class="field"><label>Nome completo</label><input id="ed-nome" placeholder="João da Silva"></div>
+      <div class="row-2">
+        <div class="field"><label>CPF</label><input id="ed-cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14"></div>
+        <div class="field"><label>WhatsApp</label><input id="ed-whats" placeholder="(11) 99999-9999" inputmode="numeric" maxlength="16"></div>
+      </div>
+      <div class="field"><label>Endereço</label><input id="ed-endereco" placeholder="Rua, número, bairro"></div>
+      <div class="field">
+        <label>🔢 Código na máquina</label>
+        <input id="ed-codigo" placeholder="0000" inputmode="numeric" maxlength="6">
+        <div class="hint">4 a 6 dígitos. Deve ser único entre os clientes.</div>
+      </div>
+      <div class="field">
+        <label>Senha</label>
+        <input id="ed-senha" placeholder="Senha do cliente">
+        <div class="hint">⚠️ Alterar aqui <b>não muda</b> a senha de login (Firebase). Serve só como referência pra você conferir com o cliente.</div>
+      </div>
+      <div class="field">
+        <label>Saldo atual (R$)</label>
+        <input id="ed-saldo" placeholder="0.00" inputmode="decimal">
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-s" onclick="fecharModal('modal-editar')">Cancelar</button>
+        <button class="btn btn-p" onclick="salvarEdicao()">Salvar alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PROMOÇÃO -->
 <div class="modal-bg" id="modal-promo">
   <div class="modal">
     <div class="modal-head"><h3 id="promo-modal-titulo">Nova promoção</h3><button class="modal-close" onclick="fecharModal('modal-promo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
@@ -540,7 +541,7 @@ tbody tr:last-child td{border-bottom:none}
       </div>
       <div class="row-2">
         <div class="field"><label>Valor mínimo (R$)</label><input id="promo-minimo" type="number" step="0.5" value="20"></div>
-        <div class="field" id="promo-valor-field"><label id="promo-valor-label">Bônus (R$)</label><input id="promo-valor" type="number" step="0.1" value="2.50"></div>
+        <div class="field"><label id="promo-valor-label">Bônus (R$)</label><input id="promo-valor" type="number" step="0.1" value="2.50"></div>
       </div>
       <div class="row-2">
         <div class="field"><label>Início</label><input id="promo-inicio" type="datetime-local"></div>
@@ -551,6 +552,7 @@ tbody tr:last-child td{border-bottom:none}
   </div>
 </div>
 
+<!-- MODAL SALDO -->
 <div class="modal-bg" id="modal-saldo">
   <div class="modal" style="max-width:440px">
     <div class="modal-head"><h3>Adicionar saldo</h3><button class="modal-close" onclick="fecharModal('modal-saldo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
@@ -563,6 +565,7 @@ tbody tr:last-child td{border-bottom:none}
   </div>
 </div>
 
+<!-- MODAL NOVO CLIENTE -->
 <div class="modal-bg" id="modal-novo">
   <div class="modal">
     <div class="modal-head"><h3>Novo cliente</h3><button class="modal-close" onclick="fecharModal('modal-novo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
@@ -570,6 +573,7 @@ tbody tr:last-child td{border-bottom:none}
       <div class="field"><label>Nome</label><input id="nc-nome" placeholder="João da Silva"></div>
       <div class="row-2"><div class="field"><label>CPF</label><input id="nc-cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14"></div><div class="field"><label>WhatsApp</label><input id="nc-whats" placeholder="(11) 99999-9999" inputmode="numeric" maxlength="16"></div></div>
       <div class="field"><label>Endereço</label><input id="nc-endereco" placeholder="Rua, número, bairro"></div>
+      <div class="field"><label>🔢 Código na máquina</label><input id="nc-codigo" placeholder="0000" inputmode="numeric" maxlength="6"><div class="hint">4 a 6 dígitos únicos.</div></div>
       <div class="row-2"><div class="field"><label>Senha</label><input id="nc-senha" type="text" placeholder="senha123"></div><div class="field"><label>Saldo inicial</label><input id="nc-saldo" placeholder="R$ 0,00" inputmode="numeric" oninput="maskMoeda(this)"></div></div>
       <div class="modal-actions"><button class="btn btn-s" onclick="fecharModal('modal-novo')">Cancelar</button><button class="btn btn-p" onclick="criarCliente()">Criar</button></div>
     </div>
@@ -700,14 +704,12 @@ function renderAll(){
   const nE = Object.keys(estornos).length;
   const bE = document.getElementById('badge-estornos');
   if(nE > 0){ bE.style.display='inline-block'; bE.innerText = nE; } else bE.style.display = 'none';
-
   const agora = Math.floor(Date.now()/1000);
   const nP = Object.values(promocoes).filter(p => p.ativo && agora >= (p.data_inicio||0) && agora <= (p.data_fim||Infinity)).length;
   const bP = document.getElementById('badge-promos');
   if(nP > 0){ bP.style.display='inline-block'; bP.innerText = nP; } else bP.style.display = 'none';
 }
 
-// ============ DASHBOARD ============
 function renderDashboard(){
   const arr = Object.entries(clientes).map(([id,c])=>({id,...c}));
   const saldoTotal = arr.reduce((s,c)=>s+Number(c.saldo||0),0);
@@ -740,11 +742,10 @@ function renderDashboard(){
     : `<div class="empty"><h4>Sem clientes</h4></div>`;
 }
 
-// ============ CLIENTES ============
 function renderClientes(){
   const busca = (document.getElementById('busca-clientes')?.value||'').toLowerCase();
   const arr = Object.entries(clientes).map(([id,c])=>({id,...c}))
-    .filter(c=> !busca || (c.nome||'').toLowerCase().includes(busca) || (c.cpf||'').includes(busca) || (c.whatsapp||'').includes(busca))
+    .filter(c=> !busca || (c.nome||'').toLowerCase().includes(busca) || (c.cpf||'').includes(busca) || (c.whatsapp||'').includes(busca) || (c.codigo_maquina||'').includes(busca))
     .sort((a,b)=>Number(b.saldo||0)-Number(a.saldo||0));
 
   const el = document.getElementById('contagem-clientes');
@@ -757,20 +758,22 @@ function renderClientes(){
       const cbTotal = Number(c.stats?.total_cashback_recebido || 0);
       return `<tr>
         <td><div class="cell-user"><div class="cell-av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div><div><div class="n">${c.nome||'-'}${isVip?' ⭐':''}</div><div class="s">${c.cpf||'-'}</div></div></div></td>
+        <td><span class="pill cyan" style="font-family:var(--mono);font-size:12px;letter-spacing:1px">${c.codigo_maquina||'—'}</span></td>
         <td>${c.whatsapp||'-'}</td>
         <td><strong style="color:var(--cyan)">${fmtBRL(c.saldo)}</strong></td>
         <td><span style="color:var(--purple)">${fmtBRL(cbTotal)}</span></td>
         <td><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></td>
         <td><div class="actions-cell">
           <button class="mini" onclick="abrirDrawer('${c.id}')" title="Detalhes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+          <button class="mini" onclick="abrirEditar('${c.id}')" title="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
           <button class="mini" onclick="abrirModalSaldo('${c.id}')" title="Saldo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg></button>
         </div></td>
       </tr>`;
     }).join('')
-    : `<tr><td colspan="6"><div class="empty"><h4>Nenhum cliente</h4></div></td></tr>`;
+    : `<tr><td colspan="7"><div class="empty"><h4>Nenhum cliente</h4></div></td></tr>`;
 }
 
-// ============ DRAWER ============
+// ==================== DRAWER ====================
 window.abrirDrawer = function(uid){
   const c = clientes[uid];
   if(!c) return;
@@ -793,11 +796,20 @@ window.abrirDrawer = function(uid){
       <div class="av ${isVip?'vip':''}">${(c.nome||'?').charAt(0).toUpperCase()}</div>
       <h2>${c.nome||'-'} ${isVip?'⭐':''}</h2>
       <p>${c.cpf||'-'}</p>
+      <div class="codigo-hero">
+        <div class="lbl">🔢 Código na máquina</div>
+        <div class="cod">${c.codigo_maquina || '----'}</div>
+      </div>
       <div class="stats">
         <div><div class="v">${fmtBRL(c.saldo)}</div><div class="k">Saldo</div></div>
         <div><div class="v">${nRec}</div><div class="k">Recargas</div></div>
         <div><div class="v">${fmtBRL(stats.total_cashback_recebido||0)}</div><div class="k">Cashback</div></div>
       </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+      <button class="btn btn-p" onclick="abrirEditar('${uid}')" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Editar dados</button>
+      <button class="btn btn-s" onclick="abrirModalSaldo('${uid}')" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>Add saldo</button>
     </div>
 
     <div class="tabs">
@@ -808,16 +820,30 @@ window.abrirDrawer = function(uid){
 
     <div id="aba-info" class="detalhe-aba">
       <div class="detail-rows">
-        <div class="detail-row"><span class="k">WhatsApp</span><span class="v">${c.whatsapp||'-'}</span></div>
-        <div class="detail-row"><span class="k">Endereço</span><span class="v">${c.endereco||'-'}</span></div>
-        <div class="detail-row"><span class="k">Cliente desde</span><span class="v">${desde}</span></div>
-        <div class="detail-row"><span class="k">Nível atual</span><span class="v"><span class="pill purple">${nivelAtual}</span></span></div>
+        <div class="detail-row">
+          <span class="k">📧 E-mail (login)</span>
+          <span class="v mono">${c.email || '—'}</span>
+          <button class="copy-btn" onclick="copiar('${(c.email||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+        <div class="detail-row">
+          <span class="k">🔑 Senha</span>
+          <span class="v mono">${c.senha_info || '—'}</span>
+          <button class="copy-btn" onclick="copiar('${(c.senha_info||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+        <div class="detail-row">
+          <span class="k">🔢 Código máquina</span>
+          <span class="v highlight mono" style="font-size:15px;letter-spacing:2px">${c.codigo_maquina || '—'}</span>
+          <button class="copy-btn" onclick="copiar('${(c.codigo_maquina||'').replace(/'/g,'')}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+        <div class="detail-row"><span class="k">📱 WhatsApp</span><span class="v">${c.whatsapp||'-'}</span></div>
+        <div class="detail-row"><span class="k">📍 Endereço</span><span class="v">${c.endereco||'-'}</span></div>
+        <div class="detail-row"><span class="k">📅 Cliente desde</span><span class="v">${desde}</span></div>
+        <div class="detail-row"><span class="k">🏆 Nível</span><span class="v"><span class="pill purple">${nivelAtual}</span></span></div>
         <div class="detail-row"><span class="k">Status</span><span class="v"><span class="pill ${ativo?'green':'red'}">${ativo?'Ativo':'Bloqueado'}</span></span></div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-p" onclick="abrirModalSaldo('${uid}')">Adicionar saldo</button>
         <button class="btn btn-s" onclick="toggleBloqueio('${uid}')">${ativo?'Bloquear':'Desbloquear'}</button>
-        <button class="btn btn-d" onclick="excluirCliente('${uid}')">Excluir</button>
+        <button class="btn btn-d" onclick="excluirCliente('${uid}')">Excluir cliente</button>
       </div>
     </div>
 
@@ -828,15 +854,10 @@ window.abrirDrawer = function(uid){
           <label class="toggle"><input type="checkbox" id="vip-toggle" ${isVip?'checked':''}><span class="toggle-slider"></span></label>
         </div>
         <div class="vip-fields">
-          <div class="campo">
-            <label>Tipo</label>
-            <select id="vip-tipo"><option value="percentual" ${(c.cashback_especial?.tipo||'percentual')==='percentual'?'selected':''}>Percentual (%)</option><option value="fixo" ${c.cashback_especial?.tipo==='fixo'?'selected':''}>Fixo (R$)</option></select>
-          </div>
+          <div class="campo"><label>Tipo</label><select id="vip-tipo"><option value="percentual" ${(c.cashback_especial?.tipo||'percentual')==='percentual'?'selected':''}>Percentual (%)</option><option value="fixo" ${c.cashback_especial?.tipo==='fixo'?'selected':''}>Fixo (R$)</option></select></div>
           <div class="campo"><label>Valor</label><input type="number" id="vip-valor" step="0.5" min="0" value="${c.cashback_especial?.valor||10}"></div>
         </div>
-        <div style="margin-top:12px;padding:10px;background:#00000020;border-radius:10px;font-size:11px;color:var(--txt-3);line-height:1.5">
-          💡 VIP ignora o nível automático. Aplica o valor acima em toda recarga.
-        </div>
+        <div style="margin-top:12px;padding:10px;background:#00000020;border-radius:10px;font-size:11px;color:var(--txt-3);line-height:1.5">💡 VIP ignora o nível automático. Aplica o valor acima em toda recarga.</div>
         <button class="btn btn-pink" style="margin-top:14px" onclick="salvarVip('${uid}')">Salvar VIP</button>
       </div>
     </div>
@@ -851,6 +872,11 @@ window.abrirDrawer = function(uid){
   `;
   document.getElementById('drawer').classList.add('active');
   document.getElementById('drawer-bg').classList.add('active');
+};
+
+window.copiar = function(texto){
+  if(!texto) return toast('Nada para copiar','error');
+  navigator.clipboard.writeText(texto).then(()=> toast('Copiado!','success')).catch(()=> toast('Erro ao copiar','error'));
 };
 
 window.abaCliente = function(aba, el){
@@ -882,17 +908,81 @@ window.excluirCliente = async function(uid){
   catch(e){ toast('Erro','error'); }
 };
 
-// ============ BANNERS ============
+// ==================== EDITAR CLIENTE ====================
+window.abrirEditar = function(uid){
+  const c = clientes[uid];
+  if(!c) return;
+  document.getElementById('ed-uid').value = uid;
+  document.getElementById('ed-nome').value = c.nome || '';
+  document.getElementById('ed-cpf').value = c.cpf || '';
+  document.getElementById('ed-whats').value = c.whatsapp || '';
+  document.getElementById('ed-endereco').value = c.endereco || '';
+  document.getElementById('ed-codigo').value = c.codigo_maquina || '';
+  document.getElementById('ed-senha').value = c.senha_info || '';
+  document.getElementById('ed-saldo').value = (Number(c.saldo||0)).toFixed(2);
+  document.getElementById('modal-editar').classList.add('active');
+};
+
+document.getElementById('ed-cpf')?.addEventListener('input', e=>{
+  e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+});
+document.getElementById('ed-whats')?.addEventListener('input', e=>{
+  e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2');
+});
+document.getElementById('ed-codigo')?.addEventListener('input', e=>{
+  e.target.value = e.target.value.replace(/\D/g,'').slice(0,6);
+});
+
+window.salvarEdicao = async function(){
+  const uid = document.getElementById('ed-uid').value;
+  if(!uid) return;
+  const c = clientes[uid];
+  if(!c) return;
+
+  const nome = document.getElementById('ed-nome').value.trim();
+  const cpf = document.getElementById('ed-cpf').value.trim();
+  const whats = document.getElementById('ed-whats').value.trim();
+  const endereco = document.getElementById('ed-endereco').value.trim();
+  const codigo = document.getElementById('ed-codigo').value.trim();
+  const senhaInfo = document.getElementById('ed-senha').value.trim();
+  const saldo = parseFloat(document.getElementById('ed-saldo').value) || 0;
+
+  if(!nome || nome.length < 3) return toast('Nome inválido','error');
+  if(cpf.replace(/\D/g,'').length !== 11) return toast('CPF inválido','error');
+  if(whats.replace(/\D/g,'').length < 10) return toast('WhatsApp inválido','error');
+  if(!codigo || codigo.length < 4 || codigo.length > 6) return toast('Código deve ter 4 a 6 dígitos','error');
+
+  // Verifica se o código está em uso por outro cliente
+  const emUso = Object.entries(clientes).some(([id, cli]) => id !== uid && cli.codigo_maquina === codigo);
+  if(emUso){
+    return toast('Este código já está em uso por outro cliente', 'error');
+  }
+
+  showLoading();
+  try {
+    await update(ref(db, 'clientes/' + uid), {
+      nome, cpf, whatsapp: whats, endereco,
+      codigo_maquina: codigo,
+      senha_info: senhaInfo,
+      saldo: Number(saldo.toFixed(2))
+    });
+    toast('Dados atualizados!','success');
+    fecharModal('modal-editar');
+    fecharDrawer();
+  } catch(e){
+    toast('Erro: ' + e.message, 'error');
+  } finally { hideLoading(); }
+};
+
+// ==================== BANNERS ====================
 window.processarBanner = async function(input){
   const file = input.files[0];
   if(!file) return;
   if(file.size > 5 * 1024 * 1024) return toast('Imagem muito grande (máx 5MB)','error');
   if(!file.type.startsWith('image/')) return toast('Escolha uma imagem','error');
-
   document.getElementById('upload-zone').style.display = 'none';
   document.getElementById('banner-progresso').style.display = 'block';
   document.getElementById('banner-progress-bar').style.width = '30%';
-
   try {
     const base64 = await comprimirImagem(file, 800, 400, 0.8);
     document.getElementById('banner-progress-bar').style.width = '90%';
@@ -902,10 +992,7 @@ window.processarBanner = async function(input){
     document.getElementById('banner-preview-img').src = base64;
     document.getElementById('banner-preview').style.display = 'block';
     document.getElementById('banner-progresso').style.display = 'none';
-  } catch(e){
-    toast('Erro ao processar: ' + e.message, 'error');
-    cancelarBanner();
-  }
+  } catch(e){ toast('Erro: ' + e.message, 'error'); cancelarBanner(); }
 };
 
 function comprimirImagem(file, maxW, maxH, quality){
@@ -916,11 +1003,9 @@ function comprimirImagem(file, maxW, maxH, quality){
       img.onload = () => {
         let w = img.width, h = img.height;
         const ratio = Math.min(maxW / w, maxH / h, 1);
-        w = Math.round(w * ratio);
-        h = Math.round(h * ratio);
+        w = Math.round(w * ratio); h = Math.round(h * ratio);
         const canvas = document.createElement('canvas');
-        canvas.width = w;
-        canvas.height = h;
+        canvas.width = w; canvas.height = h;
         const ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0, w, h);
         resolve(canvas.toDataURL('image/jpeg', quality));
@@ -948,17 +1033,11 @@ window.salvarBanner = async function(){
   document.getElementById('btn-salvar-banner').innerText = 'Salvando...';
   try {
     const novoRef = push(ref(db, 'banners'));
-    await set(novoRef, {
-      url: bannerTemp,
-      ativo: true,
-      ordem: Date.now(),
-      criado_em: Math.floor(Date.now()/1000)
-    });
+    await set(novoRef, { url: bannerTemp, ativo: true, ordem: Date.now(), criado_em: Math.floor(Date.now()/1000) });
     toast('Banner adicionado!','success');
     cancelarBanner();
-  } catch(e){
-    toast('Erro: ' + e.message, 'error');
-  } finally {
+  } catch(e){ toast('Erro: ' + e.message, 'error'); }
+  finally {
     document.getElementById('btn-salvar-banner').disabled = false;
     document.getElementById('btn-salvar-banner').innerText = 'Salvar banner';
   }
@@ -967,98 +1046,53 @@ window.salvarBanner = async function(){
 function renderBanners(){
   const arr = Object.entries(banners).map(([id,b])=>({id,...b}));
   arr.sort((a,b)=>(b.ordem||b.criado_em||0)-(a.ordem||a.criado_em||0));
-
   const cont = document.getElementById('banner-contagem');
   if(cont) cont.innerText = `${arr.length} banner${arr.length===1?'':'s'}`;
-
   const list = document.getElementById('lista-banners');
   if(!list) return;
-
-  if(arr.length === 0){
-    list.innerHTML = '<div class="empty"><h4>Nenhum banner</h4><p>Faça o primeiro upload acima</p></div>';
-    return;
-  }
-
+  if(arr.length === 0){ list.innerHTML = '<div class="empty"><h4>Nenhum banner</h4><p>Faça o primeiro upload acima</p></div>'; return; }
   list.innerHTML = arr.map(b=>{
     const data = b.criado_em ? new Date(b.criado_em*1000).toLocaleDateString('pt-BR') : '—';
     const ativo = b.ativo !== false;
-    return `<div class="banner-card ${ativo?'':'inativo'}">
-      <img src="${b.url}" alt="banner">
-      <div class="banner-info">
-        <div class="data">
-          ${ativo ? '<span class="pill green">Ativo</span>' : '<span class="pill gray">Inativo</span>'}
-          <span>${data}</span>
-        </div>
-        <div class="banner-actions">
-          <button class="btn btn-s" onclick="toggleBanner('${b.id}', ${!ativo})">${ativo?'Desativar':'Ativar'}</button>
-          <button class="btn btn-d" onclick="excluirBanner('${b.id}')">Excluir</button>
-        </div>
-      </div>
-    </div>`;
+    return `<div class="banner-card ${ativo?'':'inativo'}"><img src="${b.url}" alt="banner"><div class="banner-info"><div class="data">${ativo ? '<span class="pill green">Ativo</span>' : '<span class="pill gray">Inativo</span>'}<span>${data}</span></div><div class="banner-actions"><button class="btn btn-s" onclick="toggleBanner('${b.id}', ${!ativo})">${ativo?'Desativar':'Ativar'}</button><button class="btn btn-d" onclick="excluirBanner('${b.id}')">Excluir</button></div></div></div>`;
   }).join('');
 }
 
 window.toggleBanner = async function(id, ativo){
-  try { await update(ref(db, `banners/${id}`), { ativo }); toast(ativo?'Banner ativado':'Banner desativado','success'); }
+  try { await update(ref(db, `banners/${id}`), { ativo }); toast(ativo?'Ativado':'Desativado','success'); }
   catch(e){ toast('Erro','error'); }
 };
 
 window.excluirBanner = async function(id){
   if(!confirm('Excluir este banner?')) return;
-  try { await remove(ref(db, `banners/${id}`)); toast('Banner removido','success'); }
+  try { await remove(ref(db, `banners/${id}`)); toast('Removido','success'); }
   catch(e){ toast('Erro','error'); }
 };
 
-// ============ PROMOÇÕES ============
+// ==================== PROMOÇÕES ====================
 function renderPromocoes(){
   const agora = Math.floor(Date.now()/1000);
   const arr = Object.entries(promocoes).map(([id,p])=>({id,...p}));
   arr.sort((a,b)=>(b.criado_em||0)-(a.criado_em||0));
-
   const list = document.getElementById('lista-promos');
   if(!list) return;
-
-  if(arr.length===0){
-    list.innerHTML = `<div class="empty"><div class="empty-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><h4>Nenhuma promoção</h4><p>Crie a primeira no botão acima</p></div>`;
-    return;
-  }
-
+  if(arr.length===0){ list.innerHTML = `<div class="empty"><div class="empty-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><h4>Nenhuma promoção</h4><p>Crie a primeira no botão acima</p></div>`; return; }
   list.innerHTML = arr.map(p=>{
     const ativa = p.ativo && agora >= (p.data_inicio||0) && agora <= (p.data_fim||Infinity);
     const encerrada = agora > (p.data_fim||Infinity);
     const pausada = !p.ativo;
     const cls = encerrada ? 'encerrada' : (pausada ? 'pausada' : (ativa ? 'ativa' : 'encerrada'));
-
     let tipoDesc = '';
     let statusBadge = '';
     if(ativa) statusBadge = '<span class="pill green">● ATIVA</span>';
     else if(encerrada) statusBadge = '<span class="pill gray">ENCERRADA</span>';
     else statusBadge = '<span class="pill yellow">PAUSADA</span>';
-
     if(p.regra === 'bonus_fixo') tipoDesc = `Bônus de ${fmtBRL(p.valor_bonus)}`;
     else if(p.regra === 'percentual') tipoDesc = `+${p.percentual}% de bônus`;
     else if(p.regra === 'multiplicador') tipoDesc = `${p.multiplicador}x de saldo`;
-
     const inicioStr = p.data_inicio ? new Date(p.data_inicio*1000).toLocaleDateString('pt-BR') : '—';
     const fimStr = p.data_fim && p.data_fim < 9999999999 ? new Date(p.data_fim*1000).toLocaleDateString('pt-BR') : 'Sem data final';
-
-    return `<div class="promo-card ${cls}">
-      <div class="promo-head">
-        <div>
-          <div class="promo-title">🎁 ${p.titulo||'Promoção'}</div>
-          <div class="promo-desc">${tipoDesc} · Acima de ${fmtBRL(p.valor_minimo)}</div>
-        </div>
-        ${statusBadge}
-      </div>
-      <div class="promo-meta">
-        <div class="item">📅 <strong>${inicioStr}</strong> → <strong>${fimStr}</strong></div>
-      </div>
-      <div class="promo-actions">
-        <button class="btn btn-s" onclick="editarPromo('${p.id}')">Editar</button>
-        <button class="btn ${p.ativo?'btn-y':'btn-g'}" onclick="togglePromo('${p.id}', ${!p.ativo})">${p.ativo?'Pausar':'Reativar'}</button>
-        <button class="btn btn-d" onclick="excluirPromo('${p.id}')">Excluir</button>
-      </div>
-    </div>`;
+    return `<div class="promo-card ${cls}"><div class="promo-head"><div><div class="promo-title">🎁 ${p.titulo||'Promoção'}</div><div class="promo-desc">${tipoDesc} · Acima de ${fmtBRL(p.valor_minimo)}</div></div>${statusBadge}</div><div class="promo-meta"><div class="item">📅 <strong>${inicioStr}</strong> → <strong>${fimStr}</strong></div></div><div class="promo-actions"><button class="btn btn-s" onclick="editarPromo('${p.id}')">Editar</button><button class="btn ${p.ativo?'btn-y':'btn-g'}" onclick="togglePromo('${p.id}', ${!p.ativo})">${p.ativo?'Pausar':'Reativar'}</button><button class="btn btn-d" onclick="excluirPromo('${p.id}')">Excluir</button></div></div>`;
   }).join('');
 }
 
@@ -1094,16 +1128,11 @@ window.editarPromo = function(id){
   document.getElementById('modal-promo').classList.add('active');
 };
 
-function toLocalDT(date){
-  const pad = n => String(n).padStart(2,'0');
-  return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
-}
+function toLocalDT(date){ const pad = n => String(n).padStart(2,'0'); return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`; }
 
 window.selTipoPromo = function(el){
   document.querySelectorAll('#promo-tipo-opts .tipo-opt').forEach(o=>o.classList.remove('active'));
-  el.classList.add('active');
-  tipoPromoSel = el.dataset.tipo;
-  atualizarLabelValorPromo();
+  el.classList.add('active'); tipoPromoSel = el.dataset.tipo; atualizarLabelValorPromo();
 };
 
 function atualizarLabelValorPromo(){
@@ -1120,45 +1149,25 @@ window.salvarPromo = async function(){
   const valor = Number(document.getElementById('promo-valor').value) || 0;
   const inicioStr = document.getElementById('promo-inicio').value;
   const fimStr = document.getElementById('promo-fim').value;
-
   if(!titulo) return toast('Digite um título', 'error');
   if(valor <= 0) return toast('Valor deve ser maior que 0', 'error');
-
   const data_inicio = inicioStr ? Math.floor(new Date(inicioStr).getTime()/1000) : 0;
   const data_fim = fimStr ? Math.floor(new Date(fimStr).getTime()/1000) : 9999999999;
-
   const dados = { ativo: true, titulo, regra: tipoPromoSel, valor_minimo: minimo, data_inicio, data_fim };
   if(tipoPromoSel === 'bonus_fixo') dados.valor_bonus = valor;
   else if(tipoPromoSel === 'percentual') dados.percentual = valor;
   else if(tipoPromoSel === 'multiplicador') dados.multiplicador = valor;
-
   try {
-    if(promoEditando){
-      await update(ref(db, `promocoes/${promoEditando}`), dados);
-      toast('Promoção atualizada!', 'success');
-    } else {
-      const novoRef = push(ref(db, 'promocoes'));
-      dados.criado_em = Math.floor(Date.now()/1000);
-      await set(novoRef, dados);
-      toast('Promoção criada!', 'success');
-    }
+    if(promoEditando){ await update(ref(db, `promocoes/${promoEditando}`), dados); toast('Atualizada!', 'success'); }
+    else { const novoRef = push(ref(db, 'promocoes')); dados.criado_em = Math.floor(Date.now()/1000); await set(novoRef, dados); toast('Criada!', 'success'); }
     fecharModal('modal-promo');
   } catch(e){ toast('Erro: '+e.message, 'error'); }
 };
 
-window.togglePromo = async function(id, ativo){
-  try { await update(ref(db, `promocoes/${id}`), { ativo }); toast(ativo?'Ativada':'Pausada','success'); }
-  catch(e){ toast('Erro','error'); }
-};
+window.togglePromo = async function(id, ativo){ try { await update(ref(db, `promocoes/${id}`), { ativo }); toast(ativo?'Ativada':'Pausada','success'); } catch(e){ toast('Erro','error'); } };
+window.excluirPromo = async function(id){ const p = promocoes[id]; if(!p) return; if(!confirm(`Excluir "${p.titulo}"?`)) return; try { await remove(ref(db, `promocoes/${id}`)); toast('Excluída','success'); } catch(e){ toast('Erro','error'); } };
 
-window.excluirPromo = async function(id){
-  const p = promocoes[id]; if(!p) return;
-  if(!confirm(`Excluir "${p.titulo}"?`)) return;
-  try { await remove(ref(db, `promocoes/${id}`)); toast('Excluída','success'); }
-  catch(e){ toast('Erro','error'); }
-};
-
-// ============ CASHBACK ============
+// ==================== CASHBACK ====================
 function renderCashbackConfig(){
   const c = configCashback;
   const ativoEl = document.getElementById('cb-ativo');
@@ -1171,13 +1180,7 @@ function renderCashbackConfig(){
 }
 
 window.salvarCashback = async function(){
-  const dados = {
-    ativo: document.getElementById('cb-ativo').checked,
-    tipo: document.getElementById('cb-tipo').value,
-    valor: Number(document.getElementById('cb-valor').value) || 0,
-    valor_minimo: Number(document.getElementById('cb-minimo').value) || 0,
-    teto_bonus: Number(document.getElementById('cb-teto').value) || 0
-  };
+  const dados = { ativo: document.getElementById('cb-ativo').checked, tipo: document.getElementById('cb-tipo').value, valor: Number(document.getElementById('cb-valor').value) || 0, valor_minimo: Number(document.getElementById('cb-minimo').value) || 0, teto_bonus: Number(document.getElementById('cb-teto').value) || 0 };
   try { await set(ref(db, 'config/cashback_padrao'), dados); toast('Cashback salvo!', 'success'); }
   catch(e){ toast('Erro: '+e.message, 'error'); }
 };
@@ -1194,16 +1197,12 @@ function renderNiveis(){
 }
 
 window.salvarNiveis = async function(){
-  const dados = {
-    bronze: { min: Number(document.getElementById('nivel-bronze-min').value) || 0, percentual: Number(document.getElementById('nivel-bronze-pct').value) || 5 },
-    prata: { min: Number(document.getElementById('nivel-prata-min').value) || 10, percentual: Number(document.getElementById('nivel-prata-pct').value) || 8 },
-    ouro: { min: Number(document.getElementById('nivel-ouro-min').value) || 50, percentual: Number(document.getElementById('nivel-ouro-pct').value) || 12 }
-  };
+  const dados = { bronze: { min: Number(document.getElementById('nivel-bronze-min').value) || 0, percentual: Number(document.getElementById('nivel-bronze-pct').value) || 5 }, prata: { min: Number(document.getElementById('nivel-prata-min').value) || 10, percentual: Number(document.getElementById('nivel-prata-pct').value) || 8 }, ouro: { min: Number(document.getElementById('nivel-ouro-min').value) || 50, percentual: Number(document.getElementById('nivel-ouro-pct').value) || 12 } };
   try { await set(ref(db, 'config/niveis'), dados); toast('Níveis salvos!', 'success'); }
   catch(e){ toast('Erro: '+e.message, 'error'); }
 };
 
-// ============ SALDO ============
+// ==================== SALDO ====================
 window.abrirModalSaldo = function(uid){
   const c = clientes[uid]; if(!c) return;
   clienteSelecionado = uid;
@@ -1235,16 +1234,18 @@ window.confirmarSaldo = async function(){
   finally { hideLoading(); }
 };
 
-// ============ NOVO CLIENTE ============
+// ==================== NOVO CLIENTE ====================
 window.abrirNovoCliente = ()=> document.getElementById('modal-novo').classList.add('active');
 document.getElementById('nc-cpf')?.addEventListener('input', e=>{ e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2'); });
 document.getElementById('nc-whats')?.addEventListener('input', e=>{ e.target.value = e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2'); });
+document.getElementById('nc-codigo')?.addEventListener('input', e=>{ e.target.value = e.target.value.replace(/\D/g,'').slice(0,6); });
 
 window.criarCliente = async function(){
   const nome = document.getElementById('nc-nome').value.trim();
   const cpf = document.getElementById('nc-cpf').value.trim();
   const whats = document.getElementById('nc-whats').value.trim();
   const endereco = document.getElementById('nc-endereco').value.trim();
+  const codigo = document.getElementById('nc-codigo').value.trim();
   const senha = document.getElementById('nc-senha').value;
   const saldoV = document.getElementById('nc-saldo').value.replace(/\D/g,'');
   const saldo = parseFloat(saldoV)/100 || 0;
@@ -1253,16 +1254,28 @@ window.criarCliente = async function(){
   if(cpf.replace(/\D/g,'').length !== 11) return toast('CPF inválido','error');
   if(whats.replace(/\D/g,'').length < 10) return toast('WhatsApp inválido','error');
   if(!endereco || endereco.length < 5) return toast('Endereço','error');
+  if(!codigo || codigo.length < 4 || codigo.length > 6) return toast('Código deve ter 4 a 6 dígitos','error');
   if(senha.length < 6) return toast('Senha curta','error');
+
+  // Verifica código único
+  const emUso = Object.values(clientes).some(c => c.codigo_maquina === codigo);
+  if(emUso) return toast('Este código já está em uso','error');
 
   showLoading();
   try {
     const email = cpf.replace(/\D/g,'') + '@visionagua.app';
     const cred = await createUserWithEmailAndPassword(auth, email, senha);
-    await set(ref(db, 'clientes/' + cred.user.uid), { nome, cpf, whatsapp: whats, endereco, saldo, criado_em: Math.floor(Date.now()/1000), ativo: true, criado_por: 'admin' });
+    await set(ref(db, 'clientes/' + cred.user.uid), {
+      nome, cpf, whatsapp: whats, endereco,
+      codigo_maquina: codigo,
+      senha_info: senha,
+      email: email,
+      saldo, criado_em: Math.floor(Date.now()/1000),
+      ativo: true, criado_por: 'admin'
+    });
     toast('Cliente criado!','success');
     fecharModal('modal-novo');
-    ['nc-nome','nc-cpf','nc-whats','nc-endereco','nc-senha','nc-saldo'].forEach(id=>{ document.getElementById(id).value = ''; });
+    ['nc-nome','nc-cpf','nc-whats','nc-endereco','nc-codigo','nc-senha','nc-saldo'].forEach(id=>{ document.getElementById(id).value = ''; });
   } catch(e){
     let msg = 'Erro';
     if(e.code === 'auth/email-already-in-use') msg = 'CPF já cadastrado';
@@ -1271,7 +1284,7 @@ window.criarCliente = async function(){
   } finally { hideLoading(); }
 };
 
-// ============ OUTROS ============
+// ==================== OUTROS ====================
 function renderTransacoes(){
   const busca = (document.getElementById('busca-tx')?.value||'').toLowerCase();
   const filtro = document.getElementById('filtro-tx-status')?.value || '';
@@ -1282,10 +1295,7 @@ function renderTransacoes(){
   arr = arr.slice(0,100);
   const cores = {liberado: 'green', ignorado_app: 'cyan', estorno_pendente: 'yellow', estornado: 'gray', estorno_falhou: 'red'};
   document.getElementById('tabela-tx').innerHTML = arr.length
-    ? arr.map(t=>{
-      const bonus = Number(t.bonus_total||0);
-      return `<tr><td><code style="font-size:11px;color:var(--txt-2);font-family:var(--mono)">${(t.id||'-').substring(0,20)}</code></td><td>${fmtBRL(t.valor||t.valor_pago)}</td><td style="color:var(--purple)">${bonus>0?fmtBRL(bonus):'—'}</td><td><strong>${fmtBRL(t.total_creditado||t.total||t.valor)}</strong></td><td><span class="pill ${cores[t.status]||'gray'}">${t.status||'-'}</span></td><td style="color:var(--txt-3);font-size:12px;font-family:var(--mono)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td></tr>`;
-    }).join('')
+    ? arr.map(t=>{ const bonus = Number(t.bonus_total||0); return `<tr><td><code style="font-size:11px;color:var(--txt-2);font-family:var(--mono)">${(t.id||'-').substring(0,20)}</code></td><td>${fmtBRL(t.valor||t.valor_pago)}</td><td style="color:var(--purple)">${bonus>0?fmtBRL(bonus):'—'}</td><td><strong>${fmtBRL(t.total_creditado||t.total||t.valor)}</strong></td><td><span class="pill ${cores[t.status]||'gray'}">${t.status||'-'}</span></td><td style="color:var(--txt-3);font-size:12px;font-family:var(--mono)">${fmtData(t.processado_em||t.data_pagamento_utc)}</td></tr>`; }).join('')
     : `<tr><td colspan="6"><div class="empty"><h4>Sem transações</h4></div></td></tr>`;
 }
 
